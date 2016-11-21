@@ -35,6 +35,17 @@ public class Dog {
     @Column(name = "fcigroup")
     private String fcigroup;
 
+    @Column(name = "homename")
+    private String homename;
+
+    public String getHomename() {
+        return homename;
+    }
+
+    public void setHomename(String homename) {
+        this.homename = homename;
+    }
+
     public int getId() {
         return id;
     }

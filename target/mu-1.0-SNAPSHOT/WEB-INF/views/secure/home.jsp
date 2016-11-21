@@ -83,6 +83,7 @@
                 <th>id</th>
                 <th>ФИО</th>
                 <th>Email</th>
+                <th></th>
               </tr>
               </thead>
               <tbody>
@@ -91,6 +92,7 @@
                   <td>${member.id}</td>
                   <td>${member.fio}</td>
                   <td>${member.email}</td>
+                  <td><a class="btn-success" href="${contextPath}/secure/member-view?id=${member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/member-edit?id=${member.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/member-delete?id=${member.id}">Удалить</a></td>
                 </tr>
               </c:forEach>
               </tbody>
@@ -98,9 +100,8 @@
           </div>
         </div>
       </div>
+      <a class="btn btn-success" href="${contextPath}/secure/member-create">Добавить</a>
     </div>
-
-    </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript

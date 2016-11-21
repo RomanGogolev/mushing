@@ -70,7 +70,7 @@
         <button type="submit" class="btn">Найти</button>
       </form>
       <BR>
-      <div class="panel panel-default" style="height: 100px">
+      <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Список</h3>
         </div>
@@ -82,6 +82,7 @@
                 <th>id</th>
                 <th>Полное имя</th>
                 <th>Хозяин</th>
+                <th></th>
               </tr>
               </thead>
               <tbody>
@@ -90,6 +91,7 @@
                   <td>${dog.id}</td>
                   <td>${dog.fullname}</td>
                   <td>${dog.ownername}</td>
+                  <td><a class="btn-success" href="${contextPath}/secure/dog-view?id=${dog.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/dog-edit?id=${dog.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/dog-delete?id=${dog.id}">Удалить</a></td>
                 </tr>
               </c:forEach>
               </tbody>
@@ -97,9 +99,8 @@
           </div>
         </div>
       </div>
+      <a class="btn btn-success" href="${contextPath}/secure/dog-create">Добавить</a>
     </div>
-
-    </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript

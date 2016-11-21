@@ -14,12 +14,14 @@ org/mushing/reports/dao/JudgeTypeManager.class
 org/mushing/reports/models/User$1.class
 org/mushing/reports/contoller/MainController.class
 org/mushing/reports/dao/RankManager.class
+org/mushing/reports/forms/EventCreateForm.class
 org/mushing/reports/models/Class.class
 org/mushing/reports/dao/BreedManager.class
 org/mushing/reports/dao/MemberManager.class
 org/mushing/reports/dao/ResultManager.class
 org/mushing/reports/dao/UserManager.class
 org/mushing/reports/models/Rank.class
+org/mushing/reports/forms/DogCreateForm.class
 org/mushing/reports/services/CustomLogoutSuccessHandler.class
 org/mushing/reports/models/Dog.class
 org/mushing/reports/dao/FederationManager.class
@@ -31,4 +33,5 @@ org/mushing/reports/dao/JudgeManager.class
 org/mushing/reports/models/Member.class
 org/mushing/reports/models/DogEvent.class
 org/mushing/reports/models/Judge.class
+org/mushing/reports/forms/MemberCreateForm.class
 org/mushing/reports/services/HibernateUtil.class

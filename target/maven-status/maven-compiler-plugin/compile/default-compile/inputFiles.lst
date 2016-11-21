@@ -5,6 +5,7 @@
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/dao/JudgeManager.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/services/CharsetFilter.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/models/Judge.java
+/home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/forms/DogCreateForm.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/dao/UserManager.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/models/DogEvent.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/models/Event.java
@@ -16,6 +17,7 @@
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/models/Dog.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/models/Distance.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/dao/EventManager.java
+/home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/forms/EventCreateForm.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/dao/MemberManager.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/dao/RankManager.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/dao/CustomUserDetails.java
@@ -27,6 +29,7 @@
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/contoller/MainController.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/dao/ClassManager.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/models/Federation.java
+/home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/forms/MemberCreateForm.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/models/User.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/models/Rank.java
 /home/roman/IdeaProjects/mushing-project/src/main/java/org/mushing/reports/services/HibernateUtil.java

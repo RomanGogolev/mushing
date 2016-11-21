@@ -1,15 +1,20 @@
 package org.mushing.reports.contoller;
 
 import org.mushing.reports.dao.*;
+import org.mushing.reports.forms.DogCreateForm;
+import org.mushing.reports.forms.EventCreateForm;
+import org.mushing.reports.forms.MemberCreateForm;
 import org.mushing.reports.models.*;
 import org.mushing.reports.models.Class;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -99,6 +104,29 @@ public class MainController {
 		return "secure/search";
 	}
 
+	@RequestMapping(value = "/secure/event-view", method = RequestMethod.GET)
+	public String eventview(@RequestParam int id, Model model){
+		Event event = eventManager.get(id);
+		Rank rank = rankManager.get(event.getIdrank());
+		model.addAttribute("event",event);
+		model.addAttribute("rank",rank);
+		return "secure/preview/event";
+	}
+
+	@RequestMapping(value = "/secure/dog-view", method = RequestMethod.GET)
+	public String dogview(@RequestParam int id, Model model){
+		Dog dog = dogManager.get(id);
+		model.addAttribute("dog",dog);
+		return "secure/preview/dog";
+	}
+
+	@RequestMapping(value = "/secure/member-view", method = RequestMethod.GET)
+	public String memberview(@RequestParam int id, Model model){
+		Member member = memberManager.get(id);
+		model.addAttribute("member",member);
+		return "secure/preview/member";
+	}
+
 	//view settings
 
 	@RequestMapping(value = "/secure/classes", method = RequestMethod.GET)
@@ -147,7 +175,6 @@ public class MainController {
 		return "redirect:/secure/classes";
 	}
 
-
 	@RequestMapping(value = "/secure/breed-create", method = RequestMethod.GET)
 	public String breedcreate(Model model, @RequestParam String breed){
 		Breed b = new Breed();
@@ -179,4 +206,93 @@ public class MainController {
 		rankManager.create(r);
 		return "redirect:/secure/ranks";
 	}
+
+	@RequestMapping(value = "/secure/dog-create", method = RequestMethod.GET)
+	public String dogcreateview(Model model){
+		return "/secure/create/dog";
+	}
+
+	@RequestMapping(value = "/secure/member-create", method = RequestMethod.GET)
+	public String membercreateview(Model model){
+		return "/secure/create/member";
+	}
+
+	@RequestMapping(value = "/secure/event-create", method = RequestMethod.GET)
+	public String eventcreateview(Model model){
+		List<Rank> ranks = rankManager.getAll();
+		model.addAttribute("ranks",ranks);
+ 		return "/secure/create/event";
+	}
+
+	@RequestMapping(value = "/secure/dog-create", method = RequestMethod.POST)
+	public String dogcreate(
+			RedirectAttributes redirectAttributes,
+			DogCreateForm dogCreateForm,
+			BindingResult result,
+			Model model){
+		Dog dog = new Dog();
+		dog.setDatebirth(dogCreateForm.getDateBirth());
+		dog.setFcigroup(dogCreateForm.getFciGroup());
+		dog.setFullname(dogCreateForm.getFullName());
+		dog.setHomename(dogCreateForm.getHomeName());
+		dog.setMarknumber(dogCreateForm.getMarkNumber());
+		dog.setNumberchip(dogCreateForm.getNumberChip());
+		dog.setNumberpedigree(dogCreateForm.getNumberPedigree());
+		dog.setOwnername(dogCreateForm.getOwnerName());
+		dogManager.create(dog);
+		return "redirect:/secure/dogs";
+	}
+
+	@RequestMapping(value = "/secure/member-create", method = RequestMethod.POST)
+	public String membercreate(
+			RedirectAttributes redirectAttributes,
+			MemberCreateForm memberCreateForm,
+			BindingResult result,
+			Model model){
+		//TODO add to load image
+		return "redirect:/secure";
+	}
+
+	@RequestMapping(value = "/secure/event-create", method = RequestMethod.POST)
+	public String eventcreate(
+			RedirectAttributes redirectAttributes,
+			EventCreateForm eventCreateForm,
+			BindingResult result,
+			Model model){
+		Event event = new Event();
+		event.setSeason(eventCreateForm.getSeason());
+		event.setDatestart(eventCreateForm.getDateStart());
+		event.setHeaderevent(eventCreateForm.getHeaderEvent());
+		event.setIdrank(eventCreateForm.getIdRank());
+		event.setOrganizers(eventCreateForm.getOrganizers());
+		event.setPlace(eventCreateForm.getPlace());
+		Event event1 = eventManager.create(event);
+		System.out.println(event1.getHeaderevent()+" "+event1.getIdrank());
+		return "redirect:/secure/events";
+	}
+
+	//edit
+
+
+
+	//delete
+
+	@RequestMapping(value = "/secure/event-delete", method = RequestMethod.GET)
+	public String eventdelete(@RequestParam int id, Model model){
+		eventManager.delete(id);
+		return "redirect:/secure/events";
+	}
+
+	@RequestMapping(value = "/secure/dog-delete", method = RequestMethod.GET)
+	public String dogdelete(@RequestParam int id, Model model){
+		dogManager.delete(id);
+		return "redirect:/secure/dogs";
+	}
+
+	@RequestMapping(value = "/secure/member-delete", method = RequestMethod.GET)
+	public String memberdelete(@RequestParam int id, Model model){
+		memberManager.delete(id);
+		return "redirect:/secure";
+	}
+
 }

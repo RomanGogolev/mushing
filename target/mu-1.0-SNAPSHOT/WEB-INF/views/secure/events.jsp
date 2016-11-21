@@ -82,6 +82,7 @@
                 <th>id</th>
                 <th>Название</th>
                 <th>Сезон</th>
+                <th></th>
               </tr>
               </thead>
               <tbody>
@@ -90,6 +91,7 @@
                   <td>${event.id}</td>
                   <td>${event.headerevent}</td>
                   <td>${event.season}</td>
+                  <td><a class="btn-success" href="${contextPath}/secure/event-view?id=${event.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/event-edit?id=${event.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/event-delete?id=${event.id}">Удалить</a></td>
                 </tr>
               </c:forEach>
               </tbody>
@@ -97,9 +99,8 @@
           </div>
         </div>
       </div>
+      <a class="btn btn-success" href="${contextPath}/secure/event-create">Добавить</a>
     </div>
-
-    </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
