@@ -29,6 +29,27 @@ public class JudgeManager {
         }
     }
 
+    public List<Judge> getByEventId(int idEvent){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("from Judge where idevent = :id");
+            query.setParameter("id", idEvent);
+            List queryList = query.list();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                System.out.println("list " + queryList);
+                return (List<Judge>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
     public void delete(int id){
         Session session = null;
         try {

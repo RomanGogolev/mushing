@@ -66,6 +66,27 @@ public class DistanceManager {
         }
     }
 
+    public List<Distance> getByEventId(int idEvent){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("from Distance where idevent = :id");
+            query.setParameter("id", idEvent);
+            List queryList = query.list();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                System.out.println("list " + queryList);
+                return (List<Distance>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
     public List<Distance> getAll(){
         Session session = null;
         try {

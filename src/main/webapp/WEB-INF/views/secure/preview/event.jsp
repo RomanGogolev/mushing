@@ -102,6 +102,184 @@
             </div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Добавить судью</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post" id="judgeCreateForm" action="${contextPath}/secure/judge-create">
+                <input type="number" id="idEvent" name="idEvent" value="${event.id}" hidden>
+                <div class="form-group">
+                    <label for="fio" class="col-sm-2 control-label">Фамилия Имя Отчество</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="fio" id="fio" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="judgeFrom" class="col-sm-2 control-label">Откуда</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="judgeFrom" id="judgeFrom" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="typeId" class="col-sm-2 control-label">Тип</label>
+                    <div class="col-sm-10">
+                        <select class="input-medium search-query" name="typeId" id="typeId">
+                            <c:forEach items="${judgeTypes}" var="judgeType">
+                                <option value="${judgeType.id}">${judgeType.type}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Создать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <BR>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Судьи</h3>
+        </div>
+        <div class="panel-body">
+            <div class=bs-example data-example-id=condensed-table>
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Фамилия Имя Отчество</th>
+                        <th>Откуда</th>
+                        <th>Тип</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${judges}" var="judge">
+                        <tr>
+                            <td>${judge.fio}</td>
+                            <td>${judge.judgefrom}</td>
+                            <c:forEach items="${judgeTypes}" var="judgeType">
+                                <c:if test="${judgeType.id == judge.typeid}">
+                                    <td>${judgeType.type}</td>
+                                </c:if>
+                            </c:forEach>
+                            <td><a class="btn-danger" href="${contextPath}/secure/judge-delete?id=${judge.id}&idevent=${event.id}">Удалить</a></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Добавить дистанцию</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post" id="distanceCreateForm" action="${contextPath}/secure/distance-create">
+                <input type="number" id="idEvent" name="idEvent" value="${event.id}" hidden>
+                <div class="form-group">
+                    <label for="stadion" class="col-sm-2 control-label">Стадион</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="stadion" id="stadion" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="countRound" class="col-sm-2 control-label">Количество кругов</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="countRound" id="countRound" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lengthRound" class="col-sm-2 control-label">Длина круга</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="lengthRound" id="lengthRound" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lowerDot" class="col-sm-2 control-label">Низшая точка</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="lowerDot" id="lowerDot" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="upperDot" class="col-sm-2 control-label">Высшая точка</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="upperDot" id="upperDot" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tair" class="col-sm-2 control-label">Температура воздуха</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="tair" id="tair" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tsnow" class="col-sm-2 control-label">Температура снега</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="tsnow" id="tsnow" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="view" class="col-sm-2 control-label">Вид</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="view" id="view" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="weather" class="col-sm-2 control-label">Погода</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="weather" id="weather" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Создать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <BR>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Дистанция</h3>
+        </div>
+        <div class="panel-body">
+            <div class=bs-example data-example-id=condensed-table>
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Стадион</th>
+                        <th>Количество кругов</th>
+                        <th>Длина круга</th>
+                        <th>Низшая точка</th>
+                        <th>Высшая точка</th>
+                        <th>Температура воздуха</th>
+                        <th>Температура снега</th>
+                        <th>Вид</th>
+                        <th>Погода</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${distances}" var="distance">
+                        <tr>
+                            <td>${distance.stadion}</td>
+                            <td>${distance.countround}</td>
+                            <td>${distance.lengthround}</td>
+                            <td>${distance.lowerdot}</td>
+                            <td>${distance.upperdot}</td>
+                            <td>${distance.tair}</td>
+                            <td>${distance.tsnow}</td>
+                            <td>${distance.view}</td>
+                            <td>${distance.weather}</td>
+                            <td><a class="btn-danger" href="${contextPath}/secure/distance-delete?id=${distance.id}&idevent=${event.id}">Удалить</a></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 

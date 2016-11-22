@@ -1,6 +1,10 @@
 package org.mushing.reports.forms;
 
+import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
 import org.springframework.security.core.CredentialsContainer;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 import java.sql.Date;
 
 /**
@@ -17,6 +21,16 @@ public class MemberCreateForm implements CredentialsContainer {
     protected String sex;
 
     protected Date datebirth;
+
+    protected MultipartFile data;
+
+    public MultipartFile getImg() {
+        return this.data;
+    }
+
+    public void setImg(MultipartFile data) {
+        this.data = data;
+    }
 
     public String getEmail() {
         return this.email;

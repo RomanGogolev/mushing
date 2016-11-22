@@ -64,7 +64,7 @@
     </nav>
 
     <div class="container">
-      <form class="form-horizontal" name="memberCreateForm" method="post" action="${contextPath}/secure/event-create">
+      <form class="form-horizontal" name="eventCreateForm" method="post" action="${contextPath}/secure/event-create">
         <div class="form-group">
           <label for="headerEvent" class="col-sm-2 control-label">Название мероприятия</label>
           <div class="col-sm-10">

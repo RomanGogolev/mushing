@@ -64,7 +64,7 @@
 </nav>
 
 <div class="container">
-    <form class="form-horizontal" name="memberCreateForm" method="post" action="${contextPath}/secure/dog-create">
+    <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/secure/dog-create">
         <div class="form-group">
             <label for="fullName" class="col-sm-2 control-label">Полное имя</label>
             <div class="col-sm-10">

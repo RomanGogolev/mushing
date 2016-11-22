@@ -108,7 +108,6 @@
                 <div class="form-control" id="img">${member.img}</div>
             </div>
         </div>
-
     </div>
 </div>
 

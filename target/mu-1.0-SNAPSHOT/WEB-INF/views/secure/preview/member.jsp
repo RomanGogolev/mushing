@@ -91,13 +91,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="dateBirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+            <label for="dateBirth" class="col-sm-2 control-label">Дата рождения(год/месяц/день)</label>
             <div class="col-sm-10">
                 <div class="form-control" id="dateBirth">${member.datebirth}</div>
             </div>
         </div>
         <div class="form-group">
-            <label for="dateenter" class="col-sm-2 control-label">Дата вступления(месяц/день/год)</label>
+            <label for="dateenter" class="col-sm-2 control-label">Дата вступления(год/месяц/день)</label>
             <div class="col-sm-10">
                 <div class="form-control" id="dateenter">${member.dateenter}</div>
             </div>
@@ -108,7 +108,6 @@
                 <div class="form-control" id="img">${member.img}</div>
             </div>
         </div>
-
     </div>
 </div>
 

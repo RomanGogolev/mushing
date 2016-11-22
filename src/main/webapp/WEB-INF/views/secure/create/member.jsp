@@ -65,7 +65,7 @@
     </nav>
 
     <div class="container">
-      <form class="form-horizontal" name="memberCreateForm" method="post" action="${contextPath}/secure/member-create">
+      <form class="form-horizontal" enctype="multipart/form-data" name="memberCreateForm" method="post" action="${contextPath}/secure/member-create">
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
@@ -100,9 +100,9 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="img" class="col-sm-2 control-label">Копия заявления</label>
+          <label for="data" class="col-sm-2 control-label">Копия заявления</label>
           <div class="col-sm-10">
-            <input type="file" class="form-control" id="img" name="img" placeholder="Копия заявления" required>
+            <input type="file" class="form-control" id="data" name="data" placeholder="Копия заявления" required>
           </div>
         </div>
         <div class="form-group">

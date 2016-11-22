@@ -108,7 +108,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="datebirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+          <label for="datebirth" class="col-sm-2 control-label">Дата рождения(год/месяц/день)</label>
           <div class="col-sm-10">
             <div class="form-control" id="datebirth">${dog.datebirth}</div>
           </div>
