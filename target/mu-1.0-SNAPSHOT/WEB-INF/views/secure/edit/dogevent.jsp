@@ -90,10 +90,10 @@
                     <c:if test="${dogevent.sex eq 'Кобель'}">
                         <option>Кобель</option>
                     </c:if>
-                    <c:if test="${dogevent.sex eq 'Сука'}">
+                    <c:if test="${dogevent.sex ne 'Сука'}">
                         <option>Сука</option>
                     </c:if>
-                    <c:if test="${dogevent.sex eq 'Кобель'}">
+                    <c:if test="${dogevent.sex ne 'Кобель'}">
                         <option>Кобель</option>
                     </c:if>
                 </select>
