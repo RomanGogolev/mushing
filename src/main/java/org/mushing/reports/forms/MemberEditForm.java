@@ -1,6 +1,7 @@
 package org.mushing.reports.forms;
 
 import org.springframework.security.core.CredentialsContainer;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Date;
 
@@ -20,6 +21,16 @@ public class MemberEditForm implements CredentialsContainer {
     protected String sex;
 
     protected Date datebirth;
+
+    protected MultipartFile data;
+
+    public MultipartFile getData() {
+        return data;
+    }
+
+    public void setData(MultipartFile data) {
+        this.data = data;
+    }
 
     public int getId() {
         return id;

@@ -33,9 +33,11 @@ public class JudgeManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from Judge where idevent = :id");
             query.setParameter("id", idEvent);
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -70,10 +72,11 @@ public class JudgeManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from Judge where id = :id");
             query.setParameter("id", id);
-
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -91,8 +94,10 @@ public class JudgeManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from Judge");
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -111,8 +116,10 @@ public class JudgeManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             session.saveOrUpdate(judge);
             session.flush();
+            beginTransaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

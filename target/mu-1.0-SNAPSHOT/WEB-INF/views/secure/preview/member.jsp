@@ -105,7 +105,7 @@
         <div class="form-group">
             <label for="img" class="col-sm-2 control-label">Копия заявления</label>
             <div class="col-sm-10">
-                <div class="form-control" id="img">${member.img}</div>
+                <div class="form-control" id="img"><img src="${member.img}"/></div>
             </div>
         </div>
     </div>

@@ -26,7 +26,7 @@ public class MemberEvent {
     @Column(name = "club")
     private String club;
 
-    @Column(name = "date")
+    @Column(name = "datebirth")
     private Date datebirth;
 
     @Column(name = "numberphone")

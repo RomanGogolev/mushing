@@ -49,10 +49,11 @@ public class JudgeTypeManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from JudgeType where id = :id");
             query.setParameter("id", id);
-
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {

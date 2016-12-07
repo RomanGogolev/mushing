@@ -1,13 +1,9 @@
 package org.mushing.reports.contoller;
 
 import org.mushing.reports.dao.*;
-import org.mushing.reports.forms.DogEditForm;
-import org.mushing.reports.forms.EventEditForm;
-import org.mushing.reports.forms.MemberEditForm;
-import org.mushing.reports.models.Dog;
-import org.mushing.reports.models.Event;
-import org.mushing.reports.models.Member;
-import org.mushing.reports.models.Rank;
+import org.mushing.reports.forms.*;
+import org.mushing.reports.models.*;
+import org.mushing.reports.models.Class;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +11,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -89,7 +88,29 @@ public class EditController {
             MemberEditForm memberEditForm,
             BindingResult result,
             Model model){
-        //TODO add to load image
+        Member member = new Member();
+        member.setId(memberEditForm.getId());
+        member.setFio(memberEditForm.getFio());
+        member.setDatebirth(memberEditForm.getDatebirth());
+        member.setDateenter(new java.sql.Date(new java.util.Date().getDate()));
+        member.setEmail(memberEditForm.getEmail());
+        member.setPhonenumber(memberEditForm.getPhonenumber());
+        member.setSex(memberEditForm.getSex());
+        MultipartFile data = memberEditForm.getData();
+        String [] format = data.getOriginalFilename().split("\\.");
+        File file = new File("images/"+memberEditForm.getEmail()+"."+format[format.length-1]);
+        if(file.exists()){
+            file.delete();
+        }
+        file.mkdirs();
+        try {
+            file.createNewFile();
+            data.transferTo(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        member.setImg(file.getAbsolutePath());
+        memberManager.edit(member);
         return "redirect:/secure";
     }
 
@@ -132,6 +153,74 @@ public class EditController {
         Member member = memberManager.get(id);
         model.addAttribute("member",member);
         return "secure/edit/member";
+    }
+
+    @RequestMapping(value = "/secure/memberevent-edit", method = RequestMethod.GET)
+    public String membereventeditview(@RequestParam int id, Model model){
+        MemberEvent memberEvent = memberEventManager.get(id);
+        List<Class> classes = classManager.getAll();
+        Event event = eventManager.get(memberEvent.getIdevent());
+        model.addAttribute("memberevent",memberEvent);
+        model.addAttribute("classes",classes);
+        model.addAttribute("event",event);
+        return "secure/edit/memberevent";
+    }
+
+    @RequestMapping(value = "/secure/memberevent-edit", method = RequestMethod.POST)
+    public String membereventedit(
+            RedirectAttributes redirectAttributes,
+            MemberEventEditForm memberEventEditForm,
+            BindingResult result,
+            Model model){
+        MemberEvent memberEvent = new MemberEvent();
+        memberEvent.setId(memberEventEditForm.getId());
+        memberEvent.setFio(memberEventEditForm.getFio());
+        memberEvent.setNumberphone(memberEventEditForm.getNumberphone());
+        memberEvent.setIdclassrace(memberEventEditForm.getIdclassrace());
+        memberEvent.setEmail(memberEventEditForm.getEmail());
+        memberEvent.setCity(memberEventEditForm.getCity());
+        memberEvent.setClub(memberEventEditForm.getClub());
+        memberEvent.setDatebirth(memberEventEditForm.getDatebirth());
+        memberEvent.setDescr(memberEventEditForm.getDescr());
+        memberEvent.setIdevent(memberEventEditForm.getIdevent());
+        memberEventManager.edit(memberEvent);
+        return "redirect:/secure/event-view?id="+memberEvent.getIdevent();
+    }
+
+    @RequestMapping(value = "/secure/dogevent-edit", method = RequestMethod.POST)
+    public String dogeventedit(
+            RedirectAttributes redirectAttributes,
+            DogEventEditForm dogEventEditForm,
+            BindingResult result,
+            Model model){
+        DogEvent dogEvent = new DogEvent();
+        dogEvent.setId(dogEventEditForm.getId());
+        dogEvent.setIdevent(dogEventEditForm.getIdevent());
+        dogEvent.setIdbreed(dogEventEditForm.getIdbreed());
+        dogEvent.setIdfederation(dogEventEditForm.getIdfederation());
+        dogEvent.setIdmember(dogEventEditForm.getIdmember());
+        dogEvent.setDateBirth(dogEventEditForm.getDatebirth());
+        dogEvent.setFioowner(dogEventEditForm.getFioowner());
+        dogEvent.setInqualification(dogEventEditForm.isInqualification());
+        dogEvent.setMarknumber(dogEventEditForm.getMarknumber());
+        dogEvent.setNameonpedigree(dogEventEditForm.getNameonpedigree());
+        dogEvent.setNumberbookkv(dogEventEditForm.getNumberbookkv());
+        dogEvent.setNumberchip(dogEventEditForm.getNumberchip());
+        dogEvent.setNumberpedigree(dogEventEditForm.getNumberpedigree());
+        dogEvent.setSex(dogEventEditForm.getSex());
+        dogEventManager.edit(dogEvent);
+        return "redirect:/secure/memberevent-view?&id="+dogEvent.getIdmember()+"&idevent="+dogEvent.getIdevent();
+    }
+
+    @RequestMapping(value = "/secure/dogevent-edit", method = RequestMethod.GET)
+    public String dogeventeditview(@RequestParam int id, Model model){
+        DogEvent dogEvent = dogEventManager.get(id);
+        model.addAttribute("dogevent",dogEvent);
+        List<Breed> breeds = breedManager.getAll();
+        List<Federation> federations = federationManager.getAll();
+        model.addAttribute("federations",federations);
+        model.addAttribute("breeds",breeds);
+        return "secure/edit/dogevent";
     }
 
 }

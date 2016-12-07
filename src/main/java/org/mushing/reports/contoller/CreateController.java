@@ -8,12 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -101,23 +104,6 @@ public class CreateController {
         return "redirect:/secure/ranks";
     }
 
-    @RequestMapping(value = "/secure/dog-create", method = RequestMethod.GET)
-    public String dogcreateview(Model model){
-        return "/secure/create/dog";
-    }
-
-    @RequestMapping(value = "/secure/member-create", method = RequestMethod.GET)
-    public String membercreateview(Model model){
-        return "/secure/create/member";
-    }
-
-    @RequestMapping(value = "/secure/event-create", method = RequestMethod.GET)
-    public String eventcreateview(Model model){
-        List<Rank> ranks = rankManager.getAll();
-        model.addAttribute("ranks",ranks);
-        return "/secure/create/event";
-    }
-
     @RequestMapping(value = "/secure/distance-create", method = RequestMethod.POST)
     public String distancecreate(
             RedirectAttributes redirectAttributes,
@@ -175,7 +161,6 @@ public class CreateController {
 
     @RequestMapping(value = "/secure/member-create", method = RequestMethod.POST)
     public String membercreate(
-            HttpServletRequest request,
             RedirectAttributes redirectAttributes,
             MemberCreateForm memberCreateForm,
             BindingResult result,
@@ -187,8 +172,18 @@ public class CreateController {
         member.setEmail(memberCreateForm.getEmail());
         member.setPhonenumber(memberCreateForm.getPhonenumber());
         member.setSex(memberCreateForm.getSex());
-        //// TODO: 22.11.16
-        System.out.println(request.getParameter("data"));
+        MultipartFile data = memberCreateForm.getData();
+        String [] format = data.getOriginalFilename().split("\\.");
+        File file = new File("images/"+memberCreateForm.getEmail()+"."+format[format.length-1]);
+        file.mkdirs();
+        try {
+            file.createNewFile();
+            data.transferTo(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        member.setImg(file.getAbsolutePath());
+        memberManager.create(member);
         return "redirect:/secure";
     }
 
@@ -207,6 +202,50 @@ public class CreateController {
         event.setPlace(eventCreateForm.getPlace());
         eventManager.create(event);
         return "redirect:/secure/events";
+    }
+
+    @RequestMapping(value = "/secure/memberevent-create", method = RequestMethod.POST)
+    public String membereventcreate(
+            RedirectAttributes redirectAttributes,
+            MemberEventCreateForm memberEventCreateForm,
+            BindingResult result,
+            Model model){
+        MemberEvent memberEvent = new MemberEvent();
+        memberEvent.setFio(memberEventCreateForm.getFio());
+        memberEvent.setIdevent(memberEventCreateForm.getIdevent());
+        memberEvent.setCity(memberEventCreateForm.getCity());
+        memberEvent.setClub(memberEventCreateForm.getClub());
+        memberEvent.setDatebirth(memberEventCreateForm.getDatebirth());
+        memberEvent.setDescr(memberEventCreateForm.getDescr());
+        memberEvent.setEmail(memberEventCreateForm.getEmail());
+        memberEvent.setIdclassrace(memberEventCreateForm.getIdclassrace());
+        memberEvent.setNumberphone(memberEventCreateForm.getNumberphone());
+        memberEventManager.create(memberEvent);
+        return "redirect:/secure/event-view?id="+memberEvent.getIdevent();
+    }
+
+    @RequestMapping(value = "/secure/dogevent-create", method = RequestMethod.POST)
+    public String dogeventcreate(
+            RedirectAttributes redirectAttributes,
+            DogEventCreateForm dogEventCreateForm,
+            BindingResult result,
+            Model model){
+        DogEvent dogEvent = new DogEvent();
+        dogEvent.setIdevent(dogEventCreateForm.getIdevent());
+        dogEvent.setIdbreed(dogEventCreateForm.getIdbreed());
+        dogEvent.setIdfederation(dogEventCreateForm.getIdfederation());
+        dogEvent.setIdmember(dogEventCreateForm.getIdmember());
+        dogEvent.setDateBirth(dogEventCreateForm.getDatebirth());
+        dogEvent.setFioowner(dogEventCreateForm.getFioowner());
+        dogEvent.setInqualification(dogEventCreateForm.isInqualification());
+        dogEvent.setMarknumber(dogEventCreateForm.getMarknumber());
+        dogEvent.setNameonpedigree(dogEventCreateForm.getNameonpedigree());
+        dogEvent.setNumberbookkv(dogEventCreateForm.getNumberbookkv());
+        dogEvent.setNumberchip(dogEventCreateForm.getNumberchip());
+        dogEvent.setNumberpedigree(dogEventCreateForm.getNumberpedigree());
+        dogEvent.setSex(dogEventCreateForm.getSex());
+        dogEventManager.create(dogEvent);
+        return "redirect:/secure/memberevent-view?id="+dogEvent.getIdevent()+"&idmember="+dogEvent.getIdmember();
     }
 
 }

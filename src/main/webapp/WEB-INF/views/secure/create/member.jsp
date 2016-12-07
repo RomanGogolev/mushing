@@ -79,9 +79,9 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="phoneNumber" class="col-sm-2 control-label">Телефон</label>
+          <label for="phonenumber" class="col-sm-2 control-label">Телефон</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Телефон" required>
+            <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Телефон" required>
           </div>
         </div>
         <div class="form-group">
@@ -94,15 +94,15 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="dateBirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+          <label for="datebirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" id="dateBirth" name="dateBirth" placeholder="Дата рождения" required>
+            <input type="date" class="form-control" id="datebirth" name="datebirth" placeholder="Дата рождения" required>
           </div>
         </div>
         <div class="form-group">
           <label for="data" class="col-sm-2 control-label">Копия заявления</label>
           <div class="col-sm-10">
-            <input type="file" class="form-control" id="data" name="data" placeholder="Копия заявления" required>
+            <input type="file" class="form-control" id="data" name="data" placeholder="Копия заявления" multiple="multiple" required>
           </div>
         </div>
         <div class="form-group">

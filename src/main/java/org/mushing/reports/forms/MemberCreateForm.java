@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by roman on 21.11.16.
@@ -24,11 +25,11 @@ public class MemberCreateForm implements CredentialsContainer {
 
     protected MultipartFile data;
 
-    public MultipartFile getImg() {
-        return this.data;
+    public MultipartFile getData() {
+        return data;
     }
 
-    public void setImg(MultipartFile data) {
+    public void setData(MultipartFile data) {
         this.data = data;
     }
 

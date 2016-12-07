@@ -65,7 +65,7 @@
     </nav>
 
     <div class="container">
-      <form class="form-horizontal" name="memberEditForm" method="post" action="${contextPath}/secure/member-create">
+      <form class="form-horizontal" enctype="multipart/form-data" name="memberEditForm" method="post" action="${contextPath}/secure/member-edit">
         <input type="number" id="id" name="id" value="${member.id}" hidden>
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
@@ -80,9 +80,9 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="phoneNumber" class="col-sm-2 control-label">Телефон</label>
+          <label for="phonenumber" class="col-sm-2 control-label">Телефон</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="phoneNumber" value="${member.phonenumber}" name="phoneNumber" placeholder="Телефон" required>
+            <input type="text" class="form-control" id="phonenumber" value="${member.phonenumber}" name="phonenumber" placeholder="Телефон" required>
           </div>
         </div>
         <div class="form-group">
@@ -95,15 +95,15 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="dateBirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+          <label for="datebirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" id="dateBirth" value="${member.datebirth}" name="dateBirth" placeholder="Дата рождения" required>
+            <input type="date" class="form-control" id="datebirth" value="${member.datebirth}" name="datebirth" placeholder="Дата рождения" required>
           </div>
         </div>
         <div class="form-group">
-          <label for="img" class="col-sm-2 control-label">Копия заявления</label>
+          <label for="data" class="col-sm-2 control-label">Копия заявления</label>
           <div class="col-sm-10">
-            <input type="file" class="form-control" id="img" name="img" placeholder="Копия заявления" required>
+            <input type="file" class="form-control" id="data" name="data" placeholder="Копия заявления" multiple="multiple">
           </div>
         </div>
         <div class="form-group">

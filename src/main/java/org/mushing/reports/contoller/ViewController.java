@@ -2,6 +2,7 @@ package org.mushing.reports.contoller;
 
 import org.mushing.reports.dao.*;
 import org.mushing.reports.models.*;
+import org.mushing.reports.models.Class;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -102,6 +103,10 @@ public class ViewController {
         List<Distance> distances = distanceManager.getByEventId(id);
         List<JudgeType> judgeTypes = judgeTypeManager.getAll();
         List<Judge> judges = judgeManager.getByEventId(id);
+        List<Class> classes = classManager.getAll();
+        List<MemberEvent> memberEvents = memberEventManager.getByEventId(id);
+        model.addAttribute("classes",classes);
+        model.addAttribute("memberEvents",memberEvents);
         model.addAttribute("judges",judges);
         model.addAttribute("judgeTypes",judgeTypes);
         model.addAttribute("event",event);
@@ -157,6 +162,61 @@ public class ViewController {
         List<Rank> ranks = rankManager.getAll();
         model.addAttribute("ranks",ranks);
         return "secure/settings/ranks";
+    }
+
+
+    @RequestMapping(value = "/secure/dog-create", method = RequestMethod.GET)
+    public String dogcreateview(Model model){
+        return "/secure/create/dog";
+    }
+
+    @RequestMapping(value = "/secure/member-create", method = RequestMethod.GET)
+    public String membercreateview(Model model){
+        return "/secure/create/member";
+    }
+
+    @RequestMapping(value = "/secure/event-create", method = RequestMethod.GET)
+    public String eventcreateview(Model model){
+        List<Rank> ranks = rankManager.getAll();
+        model.addAttribute("ranks",ranks);
+        return "/secure/create/event";
+    }
+
+    @RequestMapping(value = "/secure/dogevent-create", method = RequestMethod.GET)
+    public String dogeventcreateview(@RequestParam int idmember, Model model){
+        List<Breed> breeds = breedManager.getAll();
+        model.addAttribute("breeds",breeds);
+        List<Federation> federations = federationManager.getAll();
+        model.addAttribute("federations",federations);
+        MemberEvent memberEvent = memberEventManager.get(idmember);
+        model.addAttribute("memberevent",memberEvent);
+        return "/secure/create/dogevent";
+    }
+
+    @RequestMapping(value = "/secure/memberevent-view", method = RequestMethod.GET)
+    public String membereventview(@RequestParam int id, @RequestParam int idevent,Model model){
+        MemberEvent memberEvent = memberEventManager.get(id);
+        Class clazz = classManager.get(memberEvent.getIdclassrace());
+        List<DogEvent> dogEvents = dogEventManager.getByIdMember(id);
+        List<Breed> breeds = breedManager.getAll();
+        List<Federation> federations = federationManager.getAll();
+        model.addAttribute("federations",federations);
+        model.addAttribute("dogevents",dogEvents);
+        model.addAttribute("breeds",breeds);
+        model.addAttribute("memberevent",memberEvent);
+        model.addAttribute("clazz", clazz);
+        return "/secure/preview/memberevent";
+    }
+
+    @RequestMapping(value = "/secure/dogevent-view", method = RequestMethod.GET)
+    public String dogeventview(@RequestParam int id,Model model){
+        DogEvent dogEvent = dogEventManager.get(id);
+        List<Breed> breeds = breedManager.getAll();
+        List<Federation> federations = federationManager.getAll();
+        model.addAttribute("dogevent",dogEvent);
+        model.addAttribute("federations",federations);
+        model.addAttribute("breeds",breeds);
+        return "/secure/preview/dogevent";
     }
 
 }

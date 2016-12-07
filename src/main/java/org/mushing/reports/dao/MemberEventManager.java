@@ -49,10 +49,11 @@ public class MemberEventManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from MemberEvent where id = :id");
             query.setParameter("id", id);
-
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -66,12 +67,36 @@ public class MemberEventManager {
         }
     }
 
+    public List<MemberEvent> getByEventId(int id){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
+            Query query = session.createQuery("from MemberEvent where idevent = :id");
+            query.setParameter("id", id);
+            List queryList = query.list();
+            beginTransaction.commit();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                return (List<MemberEvent>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
     public List<MemberEvent> getAll(){
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from MemberEvent");
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -90,8 +115,10 @@ public class MemberEventManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             session.saveOrUpdate(memberEvent);
             session.flush();
+            beginTransaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

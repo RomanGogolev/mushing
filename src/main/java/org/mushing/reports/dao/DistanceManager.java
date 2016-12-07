@@ -49,10 +49,11 @@ public class DistanceManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from Distance where id = :id");
             query.setParameter("id", id);
-
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -70,9 +71,11 @@ public class DistanceManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from Distance where idevent = :id");
             query.setParameter("id", idEvent);
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -91,8 +94,10 @@ public class DistanceManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from Distance");
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -111,8 +116,10 @@ public class DistanceManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             session.saveOrUpdate(distance);
             session.flush();
+            beginTransaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

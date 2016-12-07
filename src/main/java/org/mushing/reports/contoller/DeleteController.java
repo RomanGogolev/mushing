@@ -1,6 +1,7 @@
 package org.mushing.reports.contoller;
 
 import org.mushing.reports.dao.*;
+import org.mushing.reports.models.DogEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,6 +81,19 @@ public class DeleteController {
     public String judgeedelete(@RequestParam int id,@RequestParam int idevent, Model model){
         judgeManager.delete(id);
         return "redirect:/secure/event-view?id="+idevent;
+    }
+
+    @RequestMapping(value = "/secure/memberevent-delete", method = RequestMethod.GET)
+    public String membereventdelete(@RequestParam int id,@RequestParam int idevent, Model model){
+        memberEventManager.delete(id);
+        return "redirect:/secure/event-view?id="+idevent;
+    }
+
+    @RequestMapping(value = "/secure/dogevent-delete", method = RequestMethod.GET)
+    public String dogeventdelete(@RequestParam int id,@RequestParam int idmember, Model model){
+        DogEvent dogEvent = dogEventManager.get(id);
+        dogEventManager.delete(id);
+        return "redirect:/secure/memberevent-view?id="+dogEvent.getIdmember()+"&idevent="+dogEvent.getIdevent();
     }
 
 }

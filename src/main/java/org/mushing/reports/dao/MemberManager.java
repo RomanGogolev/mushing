@@ -49,10 +49,11 @@ public class MemberManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from Member where id = :id");
             query.setParameter("id", id);
-
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -70,8 +71,10 @@ public class MemberManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from Member");
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -90,8 +93,10 @@ public class MemberManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             session.saveOrUpdate(member);
             session.flush();
+            beginTransaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

@@ -102,6 +102,111 @@
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Добавить участника</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/secure/memberevent-create">
+                <input type="number" id="idevent" name="idevent" value="${event.id}" hidden>
+                <div class="form-group">
+                    <label for="fio" class="col-sm-2 control-label">Фамилия Имя Отчество</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="fio" id="fio" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-sm-2 control-label">Город</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="city" id="city" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="club" class="col-sm-2 control-label">Клуб</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="club" id="club" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="datebirth" class="input-medium search-query" id="datebirth"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="email" id="email" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberphone" class="col-sm-2 control-label">Телефон</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="numberphone" id="numberphone" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descr" class="col-sm-2 control-label">Примечания</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="descr" id="descr" class="input-medium search-query"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
+                    <div class="col-sm-10">
+                        <select class="input-medium search-query" name="idclassrace" id="idclassrace">
+                            <c:forEach items="${classes}" var="clazz">
+                                <c:if test="${clazz.season eq event.season}">
+                                    <option value="${clazz.id}">${clazz.classrace}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Создать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <BR>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Участники</h3>
+        </div>
+        <div class="panel-body">
+            <div class=bs-example data-example-id=condensed-table>
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Фамилия Имя Отчество</th>
+                        <th>Откуда</th>
+                        <th>Тип</th>
+                        <th>Дата рождения</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${memberEvents}" var="memberEvent">
+                        <tr>
+                            <td>${memberEvent.fio}</td>
+                            <td>${memberEvent.city}</td>
+                            <c:forEach items="${classes}" var="clazz">
+                                <c:if test="${clazz.id == memberEvent.idclassrace}">
+                                    <td>${clazz.classrace}</td>
+                                </c:if>
+                            </c:forEach>
+                            <td>${memberEvent.datebirth}</td>
+                            <td><a class="btn-success" href="${contextPath}/secure/memberevent-view?id=${memberEvent.id}&idevent=${event.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/memberevent-edit?id=${memberEvent.id}&idevent=${event.id}">Редактировать</a><a class="btn-danger" href="${contextPath}/secure/memberevent-delete?id=${memberEvent.id}&idevent=${event.id}">Удалить</a></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Добавить судью</h3>
@@ -171,6 +276,7 @@
             </div>
         </div>
     </div>
+    <c:if test="${empty distances}">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Добавить дистанцию</h3>
@@ -238,6 +344,7 @@
             </form>
         </div>
     </div>
+    </c:if>
     <BR>
     <div class="panel panel-default">
         <div class="panel-heading">

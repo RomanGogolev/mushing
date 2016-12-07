@@ -30,7 +30,7 @@ public class DogEvent {
     private String sex;
 
     @Column(name = "datebirth")
-    private Date dateBirth;
+    private Date datebirth;
 
     @Column(name = "marknumber")
     private String marknumber;
@@ -101,12 +101,12 @@ public class DogEvent {
         this.sex = sex;
     }
 
-    public Date getDateBirth() {
-        return dateBirth;
+    public Date getDatebirth() {
+        return datebirth;
     }
 
     public void setDateBirth(Date dateBirth) {
-        this.dateBirth = dateBirth;
+        this.datebirth = dateBirth;
     }
 
     public String getMarknumber() {

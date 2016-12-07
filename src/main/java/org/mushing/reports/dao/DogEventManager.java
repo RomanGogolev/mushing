@@ -49,10 +49,11 @@ public class DogEventManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from DogEvent where id = :id");
             query.setParameter("id", id);
-
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -66,12 +67,37 @@ public class DogEventManager {
         }
     }
 
+    public List<DogEvent> getByIdMember(int id){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
+            Query query = session.createQuery("from DogEvent where idmember=:id");
+            query.setParameter("id", id);
+            List queryList = query.list();
+            beginTransaction.commit();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                System.out.println("list " + queryList);
+                return (List<DogEvent>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
     public List<DogEvent> getAll(){
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             Query query = session.createQuery("from DogEvent");
             List queryList = query.list();
+            beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
                 return null;
             } else {
@@ -90,8 +116,10 @@ public class DogEventManager {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
             session.saveOrUpdate(dogEvent);
             session.flush();
+            beginTransaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
