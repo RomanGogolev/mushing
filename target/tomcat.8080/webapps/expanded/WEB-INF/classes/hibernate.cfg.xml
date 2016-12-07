@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- Connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://ec2-23-23-222-147.compute-1.amazonaws.com:5432/dc82qs7bnahs1f</property>
+        <property name="hibernate.connection.username">ljcxzntdhrmell</property>
+        <property name="hibernate.connection.password">IQKsB5Z-52Zlu4w08xCg_iJvZu</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Print executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <property name="hbm2ddl.auto">create-drop</property>
+
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- Drop and re-create all database on startup -->
+
+        <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
+
+        <!-- Подключение объектов сущностей -->
+        <mapping class="org.mushing.reports.models.User"/>
+        <mapping class="org.mushing.reports.models.Breed"/>
+        <mapping class="org.mushing.reports.models.Class"/>
+        <mapping class="org.mushing.reports.models.Distance"/>
+        <mapping class="org.mushing.reports.models.Dog"/>
+        <mapping class="org.mushing.reports.models.DogEvent"/>
+        <mapping class="org.mushing.reports.models.Event"/>
+        <mapping class="org.mushing.reports.models.Federation"/>
+        <mapping class="org.mushing.reports.models.Judge"/>
+        <mapping class="org.mushing.reports.models.JudgeType"/>
+        <mapping class="org.mushing.reports.models.Member"/>
+        <mapping class="org.mushing.reports.models.MemberEvent"/>
+        <mapping class="org.mushing.reports.models.Rank"/>
+        <mapping class="org.mushing.reports.models.Result"/>
+    </session-factory>
+
+</hibernate-configuration>
