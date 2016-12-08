@@ -105,12 +105,13 @@ public class MemberManager {
     }
 
     public List<Member> search(String name){
+        String search="%"+name+"%";
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Member where lower(fio) like lower('%:name%') ");
-            query.setParameter("name", name);
+            Query query = session.createQuery("from Member where lower(fio) like lower(:name) ");
+            query.setParameter("name", search);
             List queryList = query.list();
             beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {

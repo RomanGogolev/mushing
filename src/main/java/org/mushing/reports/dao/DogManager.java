@@ -105,12 +105,13 @@ public class DogManager {
     }
 
     public List<Dog> search(String name){
+        String search="%"+name+"%";
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Dog where lower(fullname) like lower('%:name%') or lower(homename) like lower('%:name%') ");
-            query.setParameter("name", name);
+            Query query = session.createQuery("from Dog where lower(fullname) like lower(:name) or lower(homename) like lower('%:name%') ");
+            query.setParameter("name", search);
             List queryList = query.list();
             beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {

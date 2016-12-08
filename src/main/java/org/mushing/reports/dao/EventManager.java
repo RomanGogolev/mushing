@@ -105,12 +105,13 @@ public class EventManager {
     }
 
     public List<Event>  search(String name){
+        String search="%"+name+"%";
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Event where lower(headerevent) like lower('%:name%')");
-            query.setParameter("name", name);
+            Query query = session.createQuery("from Event where lower(headerevent) like lower(:name)");
+            query.setParameter("name", search);
             List queryList = query.list();
             beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
