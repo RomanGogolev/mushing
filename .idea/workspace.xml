@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c562095-2c04-4c86-8824-20e1be78e107" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/SearchController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/DogManager.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/DogManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/EventManager.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/EventManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/MemberManager.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/MemberManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/search.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/search.jsp" />
     </list>
     <ignored path="mu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -927,12 +922,12 @@
       <option name="presentableId" value="Default" />
       <updated>1481141457305</updated>
       <workItem from="1481141465024" duration="205000" />
-      <workItem from="1481141686653" duration="12161000" />
+      <workItem from="1481141686653" duration="12508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12366000" />
+    <option name="totallyTimeSpent" value="12713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />
