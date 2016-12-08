@@ -26,7 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mu" target="2.5" />
+      <module name="mu" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
