@@ -167,12 +167,12 @@ public class ViewController {
 
     @RequestMapping(value = "/secure/dog-create", method = RequestMethod.GET)
     public String dogcreateview(Model model){
-        return "/secure/create/dog";
+        return "secure/create/dog";
     }
 
     @RequestMapping(value = "/secure/member-create", method = RequestMethod.GET)
     public String membercreateview(Model model){
-        return "/secure/create/member";
+        return "secure/create/member";
     }
 
     @RequestMapping(value = "/secure/event-create", method = RequestMethod.GET)
