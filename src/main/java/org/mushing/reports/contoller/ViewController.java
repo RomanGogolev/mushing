@@ -179,7 +179,7 @@ public class ViewController {
     public String eventcreateview(Model model){
         List<Rank> ranks = rankManager.getAll();
         model.addAttribute("ranks",ranks);
-        return "/secure/create/event";
+        return "secure/create/event";
     }
 
     @RequestMapping(value = "/secure/dogevent-create", method = RequestMethod.GET)
@@ -190,7 +190,7 @@ public class ViewController {
         model.addAttribute("federations",federations);
         MemberEvent memberEvent = memberEventManager.get(idmember);
         model.addAttribute("memberevent",memberEvent);
-        return "/secure/create/dogevent";
+        return "secure/create/dogevent";
     }
 
     @RequestMapping(value = "/secure/memberevent-view", method = RequestMethod.GET)
@@ -205,7 +205,7 @@ public class ViewController {
         model.addAttribute("breeds",breeds);
         model.addAttribute("memberevent",memberEvent);
         model.addAttribute("clazz", clazz);
-        return "/secure/preview/memberevent";
+        return "secure/preview/memberevent";
     }
 
     @RequestMapping(value = "/secure/dogevent-view", method = RequestMethod.GET)
@@ -216,7 +216,7 @@ public class ViewController {
         model.addAttribute("dogevent",dogEvent);
         model.addAttribute("federations",federations);
         model.addAttribute("breeds",breeds);
-        return "/secure/preview/dogevent";
+        return "secure/preview/dogevent";
     }
 
 }
