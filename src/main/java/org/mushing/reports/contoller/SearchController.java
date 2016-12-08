@@ -36,7 +36,7 @@ public class SearchController {
         model.addAttribute("search",search);
         if(search.equals("user")){
             List<Member> members = memberManager.search(name);
-            model.addAttribute("members");
+            model.addAttribute("members",members);
         }else if(search.equals("dog")){
             List<Dog> dogs = dogManager.search(name);
             model.addAttribute("dogs",dogs);
