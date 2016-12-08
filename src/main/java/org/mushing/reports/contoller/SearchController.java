@@ -6,7 +6,6 @@ import org.mushing.reports.dao.MemberManager;
 import org.mushing.reports.models.Dog;
 import org.mushing.reports.models.Event;
 import org.mushing.reports.models.Member;
-import org.mushing.reports.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

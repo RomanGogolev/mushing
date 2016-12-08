@@ -145,6 +145,16 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <configuration>
+                    <httpConnector>
+                        <port>8086</port>
+                    </httpConnector>
+                    <scanIntervalSeconds>15</scanIntervalSeconds>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

@@ -91,11 +91,6 @@ public class ViewController {
         return "secure/events";
     }
 
-    @RequestMapping(value = "/secure/search", method = RequestMethod.GET)
-    public String search(Model model, @RequestParam String search, @RequestParam String name){
-        return "secure/search";
-    }
-
     @RequestMapping(value = "/secure/event-view", method = RequestMethod.GET)
     public String eventview(@RequestParam int id, Model model){
         Event event = eventManager.get(id);
