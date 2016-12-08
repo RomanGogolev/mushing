@@ -32,6 +32,7 @@ org/mushing/reports/dao/MemberEventManager.class
 org/mushing/reports/models/JudgeType.class
 org/mushing/reports/dao/DogManager.class
 org/mushing/reports/dao/JudgeTypeManager.class
+org/mushing/reports/contoller/SearchController.class
 org/mushing/reports/dao/RankManager.class
 org/mushing/reports/forms/JudgeCreateForm.class
 org/mushing/reports/models/Class.class
