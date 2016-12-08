@@ -7,9 +7,9 @@
     <session-factory>
         <!-- Connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://ec2-23-23-222-147.compute-1.amazonaws.com:5432/dc82qs7bnahs1f</property>
-        <property name="hibernate.connection.username">ljcxzntdhrmell</property>
-        <property name="hibernate.connection.password">IQKsB5Z-52Zlu4w08xCg_iJvZu</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://ec2-54-217-243-234.eu-west-1.compute.amazonaws.com:5432/d5ig4gjpcffs41</property>
+        <property name="hibernate.connection.username">mbrfnrdglopsjs</property>
+        <property name="hibernate.connection.password">zplmwkwF8dCQ_8gq9GUmUK-x2-</property>
 
         <!-- SQL dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
