@@ -9,7 +9,6 @@ org/mushing/reports/dao/DogEventManager.class
 org/mushing/reports/models/User$1.class
 org/mushing/reports/forms/MemberEditForm.class
 org/mushing/reports/forms/EventCreateForm.class
-org/mushing/reports/Main.class
 org/mushing/reports/dao/BreedManager.class
 org/mushing/reports/forms/EventEditForm.class
 org/mushing/reports/dao/ResultManager.class
