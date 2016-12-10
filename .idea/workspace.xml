@@ -36,8 +36,8 @@
       <file leaf-file-name="MemberManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/MemberManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="119" column="44" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
+            <state relative-caret-position="18">
+              <caret line="111" column="89" selection-start-line="111" selection-start-column="89" selection-end-line="111" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -889,12 +889,12 @@
       <updated>1481141457305</updated>
       <workItem from="1481141465024" duration="205000" />
       <workItem from="1481141686653" duration="14324000" />
-      <workItem from="1481236073110" duration="5833000" />
+      <workItem from="1481236073110" duration="5987000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20362000" />
+    <option name="totallyTimeSpent" value="20516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />
@@ -1192,8 +1192,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/MemberManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="119" column="44" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
+        <state relative-caret-position="18">
+          <caret line="111" column="89" selection-start-line="111" selection-start-column="89" selection-end-line="111" selection-end-column="89" />
           <folding />
         </state>
       </provider>
