@@ -1,5 +1,6 @@
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/contoller/SearchController.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Breed.java
+/home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/TimeManager.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/MemberEventManager.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/contoller/CreateController.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/FederationManager.java

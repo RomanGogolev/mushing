@@ -14,9 +14,11 @@ org/mushing/reports/forms/EventEditForm.class
 org/mushing/reports/dao/ResultManager.class
 org/mushing/reports/dao/UserManager.class
 org/mushing/reports/models/Rank.class
+org/mushing/reports/contoller/ViewController$1.class
 org/mushing/reports/forms/DogCreateForm.class
 org/mushing/reports/forms/DogEditForm.class
 org/mushing/reports/models/Result.class
+org/mushing/reports/dao/TimeManager.class
 org/mushing/reports/contoller/DeleteController.class
 org/mushing/reports/services/CharsetFilter.class
 org/mushing/reports/models/Member.class

@@ -73,6 +73,35 @@
       <BR>
       <div class="panel panel-default">
         <div class="panel-heading">
+          <h3 class="panel-title">Именинники</h3>
+        </div>
+        <div class="panel-body">
+          <h3>Сегодня (день,месяц) ${curdate.day},${curdate.month} </h3>
+          <h3>В этом месяце дни рождения у:</h3>
+          <div class=bs-example data-example-id=condensed-table>
+                <table class="table table-condensed">
+                  <thead>
+                  <tr>
+                    <th>ФИО</th>
+                    <th>День</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <c:forEach items="${birthmembers}" var="birthmember">
+                    <c:if test="${birthmember.birthdate.day >= curdate.day}">
+                      <tr>
+                        <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.fio}</a></td>
+                        <td>${birthmember.birthdate.day}</td>
+                      </tr>
+                    </c:if>
+                  </c:forEach>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
           <h3 class="panel-title">Список</h3>
         </div>
         <div class="panel-body">
