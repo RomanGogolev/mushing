@@ -63,6 +63,9 @@ public class CreateController {
     @Autowired
     ResultManager resultManager;
 
+    @Autowired
+    TimeManager timeManager;
+
     @RequestMapping(value = "/secure/class-create", method = RequestMethod.GET)
     public String classcreate(Model model, @RequestParam String classrace, @RequestParam String season){
         Class c = new Class();
@@ -168,7 +171,7 @@ public class CreateController {
         Member member = new Member();
         member.setFio(memberCreateForm.getFio());
         member.setDatebirth(memberCreateForm.getDatebirth());
-        member.setDateenter(new java.sql.Date(new java.util.Date().getDate()));
+        member.setDateenter(timeManager.getCurDate());
         member.setEmail(memberCreateForm.getEmail());
         member.setPhonenumber(memberCreateForm.getPhonenumber());
         member.setSex(memberCreateForm.getSex());

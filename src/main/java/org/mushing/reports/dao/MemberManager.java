@@ -104,6 +104,19 @@ public class MemberManager {
         }
     }
 
+    public List<Member> birthMembers() {
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Query query = session.createQuery("from User where extract(month from datebirth)=extract(month from current_date) ");
+            List<Member> list = query.list();
+            return list;
+        } finally {
+            session.close();
+        }
+    }
+
     public List<Member> search(String name){
         String search="%"+name+"%";
         Session session = null;

@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.Date;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -57,6 +60,9 @@ public class ViewController {
     @Autowired
     ResultManager resultManager;
 
+    @Autowired
+    TimeManager timeManager;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(Model model) {
         if(SecurityContextHolder.getContext().getAuthentication().getAuthorities().toArray()[0].toString().equals("ROLE_ANONYMOUS")){
@@ -72,7 +78,17 @@ public class ViewController {
 
     @RequestMapping(value = "/secure", method = RequestMethod.GET)
     public String home(Model model){
+        List<Member> birthmembers = memberManager.birthMembers();
+        Collections.sort(birthmembers, new Comparator<Member>() {
+            @Override
+            public int compare(Member member, Member t1) {
+                return member.getDatebirth().compareTo(t1.getDatebirth());
+            }
+        });
         List<Member> members = memberManager.getAll();
+        Date date = timeManager.getCurDate();
+        model.addAttribute("curdate", date);
+        model.addAttribute("birthmembers", birthmembers);
         model.addAttribute("members",members);
         return "secure/home";
     }
