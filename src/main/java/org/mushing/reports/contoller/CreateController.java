@@ -262,7 +262,7 @@ public class CreateController {
         dogEvent.setNumberpedigree(dogEventCreateForm.getNumberpedigree());
         dogEvent.setSex(dogEventCreateForm.getSex());
         dogEventManager.create(dogEvent);
-        return "redirect:/secure/memberevent-view?id="+dogEvent.getIdevent()+"&idmember="+dogEvent.getIdmember();
+        return "redirect:/secure/memberevent-view?id="+dogEvent.getIdmember()+"&idevent="+dogEvent.getIdevent();
     }
 
 }

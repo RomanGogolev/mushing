@@ -104,7 +104,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-10">
-                <a href="${contextPath}/secure" class="btn bg-info">Назад</a>
+                <a href="${contextPath}/secure/events" class="btn bg-info">Назад</a>
             </div>
         </div>
     </div>

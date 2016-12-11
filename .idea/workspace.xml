@@ -4,16 +4,8 @@
     <list default="true" id="2c562095-2c04-4c86-8824-20e1be78e107" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/dog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/dog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/event.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/event.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/member.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/member.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/event.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/event.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/member.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/member.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/memberevent.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/memberevent.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dogevent.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dogevent.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/event.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/event.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/member.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/member.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/memberevent.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/memberevent.jsp" />
     </list>
     <ignored path="mu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +50,18 @@
       <file leaf-file-name="CreateController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="239" column="47" selection-start-line="239" selection-start-column="47" selection-end-line="239" selection-end-column="47" />
+            <state relative-caret-position="196">
+              <caret line="264" column="111" selection-start-line="264" selection-start-column="111" selection-end-line="264" selection-end-column="111" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dogevent.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dogevent.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="188" column="114" selection-start-line="188" selection-start-column="114" selection-end-line="188" selection-end-column="114" />
               <folding />
             </state>
           </provider>
@@ -85,11 +87,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dogevent.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dogevent.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dogevent.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1368">
+            <state relative-caret-position="-1476">
               <caret line="53" column="83" selection-start-line="53" selection-start-column="83" selection-end-line="53" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dog.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dog.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="377">
+              <caret line="124" column="47" selection-start-line="124" selection-start-column="47" selection-end-line="124" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/event.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="106" column="53" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -110,16 +132,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
               <caret line="113" column="42" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Result.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/models/Result.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
-              <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -166,21 +178,18 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/settings/judges.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/settings/ranks.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dogevent.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dogevent.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/FciGroupManager.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/settings/fcigroups.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/models/Dog.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/forms/DogCreateForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/forms/DogEditForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dog.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/EditController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/models/DogEvent.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/models/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ImageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/memberevent.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/dog.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/event.jsp" />
@@ -190,7 +199,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/event.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/memberevent.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/member.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dog.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/event.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dogevent.jsp" />
       </list>
     </option>
   </component>
@@ -998,16 +1010,16 @@
       <updated>1481141457305</updated>
       <workItem from="1481141465024" duration="205000" />
       <workItem from="1481141686653" duration="14324000" />
-      <workItem from="1481236073110" duration="34142000" />
+      <workItem from="1481236073110" duration="34631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48671000" />
+    <option name="totallyTimeSpent" value="49160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1020,7 +1032,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24940617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1291,14 +1303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dog.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="110" column="34" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/models/Dog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="970">
@@ -1408,14 +1412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/memberevent.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="245" column="0" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/dog.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -1432,26 +1428,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="239" column="47" selection-start-line="239" selection-start-column="47" selection-end-line="239" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dog.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="131" column="51" selection-start-line="131" selection-start-column="51" selection-end-line="131" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dogevent.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="53" column="83" selection-start-line="53" selection-start-column="83" selection-end-line="53" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -1488,22 +1468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/member.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/event.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="106" column="77" selection-start-line="106" selection-start-column="77" selection-end-line="106" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/member.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
@@ -1512,10 +1476,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/memberevent.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3887">
+          <caret line="245" column="0" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dogevent.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1368">
+        <state relative-caret-position="-1476">
           <caret line="53" column="83" selection-start-line="53" selection-start-column="83" selection-end-line="53" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dog.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="124" column="47" selection-start-line="124" selection-start-column="47" selection-end-line="124" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/event.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="106" column="53" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/member.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="264" column="111" selection-start-line="264" selection-start-column="111" selection-end-line="264" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dogevent.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="188" column="114" selection-start-line="188" selection-start-column="114" selection-end-line="188" selection-end-column="114" />
           <folding />
         </state>
       </provider>
