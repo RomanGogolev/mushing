@@ -66,7 +66,7 @@
 
 <div class="container">
     <form class="form-search" method="get" action="${contextPath}/secure/fci-create">
-        <input type="text" name="fci" class="input-medium search-query"/>
+        <input type="text" name="fci" id="fci" class="input-medium search-query"/>
         <button type="submit" class="btn">Создать</button>
     </form>
     <BR>

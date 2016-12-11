@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c562095-2c04-4c86-8824-20e1be78e107" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/FciGroupManager.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/FciGroupManager.java" />
     </list>
     <ignored path="mu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1044,12 +1043,12 @@
       <updated>1481141457305</updated>
       <workItem from="1481141465024" duration="205000" />
       <workItem from="1481141686653" duration="14324000" />
-      <workItem from="1481236073110" duration="18730000" />
+      <workItem from="1481236073110" duration="19097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33259000" />
+    <option name="totallyTimeSpent" value="33626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />
