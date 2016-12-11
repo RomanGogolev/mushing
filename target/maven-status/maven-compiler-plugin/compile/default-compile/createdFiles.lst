@@ -40,6 +40,7 @@ org/mushing/reports/dao/RankManager.class
 org/mushing/reports/forms/JudgeCreateForm.class
 org/mushing/reports/models/Class.class
 org/mushing/reports/contoller/EditController.class
+org/mushing/reports/contoller/ImageController.class
 org/mushing/reports/dao/MemberManager.class
 org/mushing/reports/services/CustomLogoutSuccessHandler.class
 org/mushing/reports/forms/DistanceCreateForm.class

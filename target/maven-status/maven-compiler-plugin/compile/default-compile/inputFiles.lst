@@ -35,6 +35,7 @@
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/MemberEvent.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/User.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/MemberManager.java
+/home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/contoller/ImageController.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/forms/DogEditForm.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Class.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/DogManager.java
