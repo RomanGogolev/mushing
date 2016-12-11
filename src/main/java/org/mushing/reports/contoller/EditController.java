@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -80,6 +81,12 @@ public class EditController {
         dog.setOwnername(dogEditForm.getOwnerName());
         dogManager.edit(dog);
         return "redirect:/secure/dogs";
+    }
+
+    public static void main(String[] args) {
+        Date date = new Date(new java.util.Date().getTime());
+        System.out.println(date.getTime());
+        System.out.println(date.getMonth());
     }
 
     @RequestMapping(value = "/secure/member-edit", method = RequestMethod.POST)

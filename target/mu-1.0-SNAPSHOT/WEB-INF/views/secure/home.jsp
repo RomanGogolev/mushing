@@ -88,10 +88,10 @@
                   </thead>
                   <tbody>
                   <c:forEach items="${birthmembers}" var="birthmember">
-                    <c:if test="${birthmember.datebirth.day >= day}">
+                    <c:if test="${birthmember.datebirth.date >= day}">
                       <tr>
                         <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.fio}</a></td>
-                        <td>${birthmember.datebirth.day}</td>
+                        <td>${birthmember.datebirth.date}</td>
                       </tr>
                     </c:if>
                   </c:forEach>
