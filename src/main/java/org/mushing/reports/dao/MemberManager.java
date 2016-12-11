@@ -109,7 +109,7 @@ public class MemberManager {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query query = session.createQuery("from Member where extract(month from datebirth) = extract(month from current_date()) ");
+            Query query = session.createQuery("from Member where MONTH(datebirth)=MONTH(CURRENT_DATE())");
             List<Member> list = query.list();
             return list;
         } finally {
