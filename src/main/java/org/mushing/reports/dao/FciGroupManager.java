@@ -5,12 +5,14 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.mushing.reports.models.Fcigroup;
 import org.mushing.reports.services.HibernateUtil;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by roman on 11.12.16.
  */
+@Service
 public class FciGroupManager {
     public Fcigroup create(Fcigroup fcigroup){
         Session session = null;
