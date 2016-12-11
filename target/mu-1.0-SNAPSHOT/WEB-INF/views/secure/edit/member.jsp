@@ -67,7 +67,7 @@
     <div class="container">
       <form class="form-horizontal" enctype="multipart/form-data" name="memberEditForm" method="post" action="${contextPath}/secure/member-edit">
         <input type="number" id="id" name="id" value="${member.id}" hidden>
-        <input type="date" id="dateenter" name="id" value="${member.id}" hidden>
+        <input type="date" id="dateenter" name="id" value="${member.dateenter}" hidden>
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
