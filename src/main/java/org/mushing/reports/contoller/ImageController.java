@@ -26,26 +26,23 @@ public class ImageController {
     public byte[] getImage(@PathVariable(value = "imageName") String imageName) throws IOException {
         try {
             // Retrieve image from the classpath.
-            final File image = new File("/app/images/"+imageName);
+            File image = new File("/app/images/"+imageName);
 
-            InputStream is = new InputStream() {
-                FileInputStream fis = new FileInputStream(image);
-                @Override
-                public int read() throws IOException {
-                    return fis.read();
-                }
-            };
+            if(image.exists()) {
 
-            // Prepare buffered image.
-            BufferedImage img = ImageIO.read(is);
+                image = image.getAbsoluteFile();
 
-            // Create a byte array output stream.
-            ByteArrayOutputStream bao = new ByteArrayOutputStream();
+                // Prepare buffered image.
+                BufferedImage img = ImageIO.read(image);
 
-            // Write to output stream
-            ImageIO.write(img, "jpg", bao);
+                // Create a byte array output stream.
+                ByteArrayOutputStream bao = new ByteArrayOutputStream();
 
-            return bao.toByteArray();
+                // Write to output stream
+                ImageIO.write(img, "jpg", bao);
+
+                return bao.toByteArray();
+            }else return null;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

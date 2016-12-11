@@ -51,6 +51,5 @@ org/mushing/reports/contoller/ViewController.class
 org/mushing/reports/forms/DogEventCreateForm.class
 org/mushing/reports/models/Event.class
 org/mushing/reports/dao/JudgeManager.class
-org/mushing/reports/contoller/ImageController$1.class
 org/mushing/reports/models/Judge.class
 org/mushing/reports/services/HibernateUtil.class
