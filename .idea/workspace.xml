@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c562095-2c04-4c86-8824-20e1be78e107" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp" />
     </list>
     <ignored path="mu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,21 +33,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
+            <state relative-caret-position="472">
+              <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="84" column="116" selection-start-line="84" selection-start-column="116" selection-end-line="84" selection-end-column="116" />
+              <caret line="84" column="151" selection-start-line="84" selection-start-column="151" selection-end-line="84" selection-end-column="151" />
               <folding>
                 <element signature="e#2169#2454#0" expanded="true" />
                 <element signature="e#2453#2454#0" expanded="true" />
@@ -109,9 +110,9 @@
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/forms/MemberEditForm.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/member.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/EditController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/models/Member.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp" />
       </list>
     </option>
   </component>
@@ -799,12 +800,12 @@
       <updated>1481141457305</updated>
       <workItem from="1481141465024" duration="205000" />
       <workItem from="1481141686653" duration="14324000" />
-      <workItem from="1481236073110" duration="15483000" />
+      <workItem from="1481236073110" duration="15979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30012000" />
+    <option name="totallyTimeSpent" value="30508000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />
@@ -1113,14 +1114,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/models/Member.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -1140,11 +1133,19 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="84" column="116" selection-start-line="84" selection-start-column="116" selection-end-line="84" selection-end-column="116" />
+          <caret line="84" column="151" selection-start-line="84" selection-start-column="151" selection-end-line="84" selection-end-column="151" />
           <folding>
             <element signature="e#2169#2454#0" expanded="true" />
             <element signature="e#2453#2454#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

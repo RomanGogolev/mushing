@@ -76,7 +76,7 @@
           <h3 class="panel-title">Именинники</h3>
         </div>
         <div class="panel-body">
-          Сегодня (день,месяц) ${day}/${month}
+          Сегодня (день,месяц) ${day}/${month}<BR>
           В этом месяце дни рождения у:
           <div class=bs-example data-example-id=condensed-table>
                 <table class="table table-condensed">
@@ -88,12 +88,10 @@
                   </thead>
                   <tbody>
                   <c:forEach items="${birthmembers}" var="birthmember">
-                    <c:if test="${birthmember.datebirth.date >= day}">
                       <tr>
                         <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.fio}</a></td>
                         <td>${birthmember.datebirth.date}</td>
                       </tr>
-                    </c:if>
                   </c:forEach>
                   </tbody>
                 </table>
