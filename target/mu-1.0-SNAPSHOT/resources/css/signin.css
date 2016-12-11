@@ -2,6 +2,11 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #ffffff;
+  background-image: url("../background.jpg");
+  -moz-background-size: 100%; /* Firefox 3.6+ */
+  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100%; /* Opera 9.6+ */
+  background-size: 100%; /* Современные браузеры */
 }
 
 .form-signin {
