@@ -10,7 +10,6 @@
         <property name="hibernate.connection.url">jdbc:postgresql://ec2-23-21-96-70.compute-1.amazonaws.com:5432/de27481noej1qo</property>
         <property name="hibernate.connection.username">tnsgudvodulims</property>
         <property name="hibernate.connection.password">he2PSZ1OFg-xsBrMdSDGL3DjFi</property>
-
         <!-- SQL dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 

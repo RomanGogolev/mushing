@@ -1,6 +1,5 @@
 package org.mushing.reports.contoller;
 
-import org.apache.commons.io.IOUtils;
 import org.mushing.reports.dao.MemberManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +26,15 @@ public class ImageController {
     public byte[] getImage(@PathVariable(value = "imageName") String imageName) throws IOException {
         try {
             // Retrieve image from the classpath.
-            InputStream is = this.getClass().getResourceAsStream("/app/images/"+imageName);
+            final File image = new File("/app/images/"+imageName);
+
+            InputStream is = new InputStream() {
+                FileInputStream fis = new FileInputStream(image);
+                @Override
+                public int read() throws IOException {
+                    return fis.read();
+                }
+            };
 
             // Prepare buffered image.
             BufferedImage img = ImageIO.read(is);
