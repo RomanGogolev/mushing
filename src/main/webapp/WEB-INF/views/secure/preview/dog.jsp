@@ -120,6 +120,11 @@
             <div class="form-control" id="datebirth">${dog.datebirth}</div>
           </div>
         </div>
+        <div class="form-group">
+          <div class="col-sm-10">
+            <a href="${contextPath}/secure/dogs" class="btn bg-info">Назад</a>
+          </div>
+        </div>
       </div>
     </div>
 

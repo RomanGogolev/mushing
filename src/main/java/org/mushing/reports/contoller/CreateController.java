@@ -236,6 +236,8 @@ public class CreateController {
         memberEvent.setIdclassrace(memberEventCreateForm.getIdclassrace());
         memberEvent.setNumberphone(memberEventCreateForm.getNumberphone());
         memberEventManager.create(memberEvent);
+        Result r = new Result();
+        r.setIdevent(memberEvent.getIdevent());
         return "redirect:/secure/event-view?id="+memberEvent.getIdevent();
     }
 

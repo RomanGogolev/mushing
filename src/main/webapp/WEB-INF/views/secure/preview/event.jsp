@@ -102,6 +102,11 @@
                 <div class="form-control" id="dateStart">${event.datestart}</div>
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+                <a href="${contextPath}/secure" class="btn bg-info">Назад</a>
+            </div>
+        </div>
     </div>
 
     <div class="panel panel-default">

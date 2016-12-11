@@ -109,6 +109,7 @@
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-success">Подтвердить</button>
+            <a href="${contextPath}/secure" class="btn bg-info">Назад</a>
           </div>
         </div>
       </form>

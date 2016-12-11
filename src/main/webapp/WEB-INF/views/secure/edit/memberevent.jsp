@@ -131,6 +131,7 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn">Сохранить</button>
+            <a href="${contextPath}/secure/event-view?id=${memberevent.idevent}" class="btn bg-info">Назад</a>
         </div>
     </form>
 </div>
