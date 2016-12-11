@@ -63,6 +63,9 @@ public class ViewController {
     @Autowired
     TimeManager timeManager;
 
+    @Autowired
+    FciGroupManager fciGroupManager;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(Model model) {
         if(SecurityContextHolder.getContext().getAuthentication().getAuthorities().toArray()[0].toString().equals("ROLE_ANONYMOUS")){
@@ -174,6 +177,13 @@ public class ViewController {
         List<Rank> ranks = rankManager.getAll();
         model.addAttribute("ranks",ranks);
         return "secure/settings/ranks";
+    }
+
+    @RequestMapping(value = "/secure/fci", method = RequestMethod.GET)
+    public String fci(Model model){
+        List<Fcigroup> fcigroups = fciGroupManager.getAll();
+        model.addAttribute("fcigroups",fcigroups);
+        return "secure/settings/fcigroups";
     }
 
 

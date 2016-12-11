@@ -29,6 +29,8 @@ org/mushing/reports/dao/CustomUserDetails.class
 org/mushing/reports/models/Federation.class
 org/mushing/reports/forms/MemberEventCreateForm.class
 org/mushing/reports/models/User.class
+org/mushing/reports/dao/FciGroupManager.class
+org/mushing/reports/models/Fcigroup.class
 org/mushing/reports/dao/MemberEventManager.class
 org/mushing/reports/models/JudgeType.class
 org/mushing/reports/dao/DogManager.class

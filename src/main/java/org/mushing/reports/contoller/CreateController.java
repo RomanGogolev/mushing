@@ -66,6 +66,18 @@ public class CreateController {
     @Autowired
     TimeManager timeManager;
 
+    @Autowired
+    FciGroupManager fciGroupManager;
+
+    @RequestMapping(value = "/secure/fci-create", method = RequestMethod.GET)
+    public String fcicreate(Model model, @RequestParam String fci){
+        Fcigroup fcigroup = new Fcigroup();
+        fcigroup.setFci(fci);
+        fciGroupManager.create(fcigroup);
+        return "redirect:/secure/fci";
+    }
+
+
     @RequestMapping(value = "/secure/class-create", method = RequestMethod.GET)
     public String classcreate(Model model, @RequestParam String classrace, @RequestParam String season){
         Class c = new Class();

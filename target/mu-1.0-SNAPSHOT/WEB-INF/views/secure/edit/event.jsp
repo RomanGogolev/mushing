@@ -51,6 +51,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Настройки<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                <li><a href="${contextPath}/secure/fci">FCI группы</a></li>
                 <li><a href="${contextPath}/secure/classes">Классы соревнований</a></li>
                 <li><a href="${contextPath}/secure/breeds">Породы собак</a></li>
                 <li><a href="${contextPath}/secure/judges">Типы судьей</a></li>
