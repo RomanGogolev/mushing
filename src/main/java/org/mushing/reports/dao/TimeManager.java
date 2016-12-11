@@ -18,7 +18,7 @@ public class TimeManager {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query query = session.createQuery("select current_date ");
+            Query query = session.createQuery("select CURENT_DATE()");
             Date date = (Date) query.list().get(0);
             return date;
         }finally {
