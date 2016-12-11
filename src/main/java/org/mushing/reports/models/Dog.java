@@ -32,8 +32,8 @@ public class Dog {
     @Column(name = "numberchip")
     private String numberchip;
 
-    @Column(name = "fcigroup")
-    private String fcigroup;
+    @Column(name = "idfcigroup")
+    private int idfcigroup;
 
     @Column(name = "homename")
     private String homename;
@@ -102,11 +102,11 @@ public class Dog {
         this.numberchip = numberchip;
     }
 
-    public String getFcigroup() {
-        return fcigroup;
+    public int getIdfcigroup() {
+        return idfcigroup;
     }
 
-    public void setFcigroup(String fcigroup) {
-        this.fcigroup = fcigroup;
+    public void setIdfcigroup(int idfcigroup) {
+        this.idfcigroup = idfcigroup;
     }
 }

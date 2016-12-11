@@ -11,7 +11,7 @@ public class DogCreateForm implements CredentialsContainer {
 
     protected Date dateBirth;
 
-    protected String fciGroup;
+    protected int idfciGroup;
 
     protected String fullName;
 
@@ -41,12 +41,12 @@ public class DogCreateForm implements CredentialsContainer {
         this.dateBirth = dateBirth;
     }
 
-    public String getFciGroup() {
-        return this.fciGroup;
+    public int getIdfciGroup() {
+        return this.idfciGroup;
     }
 
-    public void setFciGroup(String fciGroup) {
-        this.fciGroup = fciGroup;
+    public void setIdfciGroup(int idfciGroup) {
+        this.idfciGroup = idfciGroup;
     }
 
     public String getFullName() {
@@ -96,7 +96,6 @@ public class DogCreateForm implements CredentialsContainer {
         this.numberChip=null;
         this.markNumber=null;
         this.fullName=null;
-        this.fciGroup=null;
         this.dateBirth=null;
     }
 }

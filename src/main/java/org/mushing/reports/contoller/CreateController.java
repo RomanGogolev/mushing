@@ -163,7 +163,7 @@ public class CreateController {
             Model model){
         Dog dog = new Dog();
         dog.setDatebirth(dogCreateForm.getDateBirth());
-        dog.setFcigroup(dogCreateForm.getFciGroup());
+        dog.setIdfcigroup(dogCreateForm.getIdfciGroup());
         dog.setFullname(dogCreateForm.getFullName());
         dog.setHomename(dogCreateForm.getHomeName());
         dog.setMarknumber(dogCreateForm.getMarkNumber());

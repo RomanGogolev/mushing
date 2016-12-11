@@ -103,9 +103,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="fciGroup" class="col-sm-2 control-label">Группа FCI</label>
+            <label for="idfciGroup" class="col-sm-2 control-label">Группа FCI</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="fciGroup" name="fciGroup" placeholder="Группа FCI" required>
+                <select class="input-medium search-query" name="idfciGroup" id="idfciGroup" required>
+                    <c:forEach items="${fcigroups}" var="fcigroup">
+                        <option value="${fcigroup.id}">${fcigroup.fci}</option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
         <div class="form-group">

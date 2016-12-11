@@ -105,7 +105,13 @@
         <div class="form-group">
           <label for="fcigroup" class="col-sm-2 control-label">Группа FCI</label>
           <div class="col-sm-10">
-            <div class="form-control" id="fcigroup">${dog.fcigroup}</div>
+            <div class="form-control" id="fcigroup">
+              <c:forEach items="${fcigroups}" var="fcigroup">
+                <c:if test="${fcigroup.id == dog.idfcigroup}">
+                    ${fcigroup.fci}
+                </c:if>
+              </c:forEach>
+            </div>
           </div>
         </div>
         <div class="form-group">

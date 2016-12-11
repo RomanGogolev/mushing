@@ -72,7 +72,7 @@ public class EditController {
         Dog dog = new Dog();
         dog.setId(dogEditForm.getId());
         dog.setDatebirth(dogEditForm.getDateBirth());
-        dog.setFcigroup(dogEditForm.getFciGroup());
+        dog.setIdfcigroup(dogEditForm.getIdfciGroup());
         dog.setFullname(dogEditForm.getFullName());
         dog.setHomename(dogEditForm.getHomeName());
         dog.setMarknumber(dogEditForm.getMarkNumber());

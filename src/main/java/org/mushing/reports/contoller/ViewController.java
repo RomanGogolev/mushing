@@ -133,6 +133,8 @@ public class ViewController {
     @RequestMapping(value = "/secure/dog-view", method = RequestMethod.GET)
     public String dogview(@RequestParam int id, Model model){
         Dog dog = dogManager.get(id);
+        List<Fcigroup> fcigroups = fciGroupManager.getAll();
+        model.addAttribute("fcigroups",fcigroups);
         model.addAttribute("dog",dog);
         return "secure/preview/dog";
     }
@@ -189,6 +191,8 @@ public class ViewController {
 
     @RequestMapping(value = "/secure/dog-create", method = RequestMethod.GET)
     public String dogcreateview(Model model){
+        List<Fcigroup> fcigroups = fciGroupManager.getAll();
+        model.addAttribute("fcigroups",fcigroups);
         return "secure/create/dog";
     }
 
