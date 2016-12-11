@@ -24,6 +24,16 @@ public class MemberEditForm implements CredentialsContainer {
 
     protected MultipartFile data;
 
+    protected Date dateenter;
+
+    public Date getDateenter() {
+        return dateenter;
+    }
+
+    public void setDateenter(Date dateenter) {
+        this.dateenter = dateenter;
+    }
+
     public MultipartFile getData() {
         return data;
     }

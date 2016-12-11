@@ -76,7 +76,7 @@
           <h3 class="panel-title">Именинники</h3>
         </div>
         <div class="panel-body">
-          Сегодня (день,месяц) ${curdate.day}/${curdate.month}
+          Сегодня (день,месяц) ${day}/${month}
           В этом месяце дни рождения у:
           <div class=bs-example data-example-id=condensed-table>
                 <table class="table table-condensed">

@@ -96,6 +96,7 @@ public class EditController {
         member.setEmail(memberEditForm.getEmail());
         member.setPhonenumber(memberEditForm.getPhonenumber());
         member.setSex(memberEditForm.getSex());
+        member.setDateenter(memberEditForm.getDateenter());
         MultipartFile data = memberEditForm.getData();
         String [] format = data.getOriginalFilename().split("\\.");
         File file = new File("images/"+memberEditForm.getEmail()+"."+format[format.length-1]);

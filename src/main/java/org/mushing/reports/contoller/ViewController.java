@@ -87,7 +87,8 @@ public class ViewController {
         });
         List<Member> members = memberManager.getAll();
         Date date = new Date(new java.util.Date().getTime());
-        model.addAttribute("curdate", date);
+        model.addAttribute("day", date.getDay());
+        model.addAttribute("month",date.getMonth()+1);
         model.addAttribute("birthmembers", birthmembers);
         model.addAttribute("members",members);
         return "secure/home";
