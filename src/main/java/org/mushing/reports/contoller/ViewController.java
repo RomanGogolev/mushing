@@ -82,7 +82,7 @@ public class ViewController {
         Collections.sort(birthmembers, new Comparator<Member>() {
             @Override
             public int compare(Member t1, Member t2) {
-                return t1.getDatebirth().getDate() > t2.getDatebirth().getDate() ? -1 : (t1.getDatebirth().getDate() < t2.getDatebirth().getDate() ) ? 1 : 0;
+                return t1.getDatebirth().getDate() > t2.getDatebirth().getDate() ? 1 : (t1.getDatebirth().getDate() < t2.getDatebirth().getDate() ) ? -1 : 0;
             }
         });
         List<Member> members = memberManager.getAll();

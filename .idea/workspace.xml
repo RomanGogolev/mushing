@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c562095-2c04-4c86-8824-20e1be78e107" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java" />
     </list>
     <ignored path="mu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,10 +46,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="84" column="101" selection-start-line="84" selection-start-column="101" selection-end-line="84" selection-end-column="101" />
+              <caret line="84" column="116" selection-start-line="84" selection-start-column="116" selection-end-line="84" selection-end-column="116" />
               <folding>
-                <element signature="e#2169#2398#0" expanded="true" />
-                <element signature="e#2397#2398#0" expanded="true" />
+                <element signature="e#2169#2454#0" expanded="true" />
+                <element signature="e#2453#2454#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -800,16 +799,16 @@
       <updated>1481141457305</updated>
       <workItem from="1481141465024" duration="205000" />
       <workItem from="1481141686653" duration="14324000" />
-      <workItem from="1481236073110" duration="15046000" />
+      <workItem from="1481236073110" duration="15483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29575000" />
+    <option name="totallyTimeSpent" value="30012000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -822,7 +821,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24940617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1141,10 +1140,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="84" column="101" selection-start-line="84" selection-start-column="101" selection-end-line="84" selection-end-column="101" />
+          <caret line="84" column="116" selection-start-line="84" selection-start-column="116" selection-end-line="84" selection-end-column="116" />
           <folding>
-            <element signature="e#2169#2398#0" expanded="true" />
-            <element signature="e#2397#2398#0" expanded="true" />
+            <element signature="e#2169#2454#0" expanded="true" />
+            <element signature="e#2453#2454#0" expanded="true" />
           </folding>
         </state>
       </provider>
