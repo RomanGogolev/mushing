@@ -83,12 +83,6 @@ public class EditController {
         return "redirect:/secure/dogs";
     }
 
-    public static void main(String[] args) {
-        Date date = new Date(new java.util.Date().getTime());
-        System.out.println(date.getTime());
-        System.out.println(date.getMonth());
-    }
-
     @RequestMapping(value = "/secure/member-edit", method = RequestMethod.POST)
     public String memberedit(
             RedirectAttributes redirectAttributes,
