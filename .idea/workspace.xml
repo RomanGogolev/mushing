@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c562095-2c04-4c86-8824-20e1be78e107" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/CreateController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/EditController.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/EditController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/contoller/ViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/forms/DogCreateForm.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/forms/DogCreateForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/forms/DogEditForm.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/forms/DogEditForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/mushing/reports/models/Dog.java" afterPath="$PROJECT_DIR$/src/main/java/org/mushing/reports/models/Dog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/dog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/dog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/edit/dog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/dog.jsp" />
     </list>
     <ignored path="mu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1093,12 +1084,12 @@
       <updated>1481141457305</updated>
       <workItem from="1481141465024" duration="205000" />
       <workItem from="1481141686653" duration="14324000" />
-      <workItem from="1481236073110" duration="20863000" />
+      <workItem from="1481236073110" duration="21174000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35392000" />
+    <option name="totallyTimeSpent" value="35703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />

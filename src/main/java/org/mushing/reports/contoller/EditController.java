@@ -63,6 +63,9 @@ public class EditController {
     @Autowired
     ResultManager resultManager;
 
+    @Autowired
+    FciGroupManager fciGroupManager;
+
     @RequestMapping(value = "/secure/dog-edit", method = RequestMethod.POST)
     public String dogedit(
             RedirectAttributes redirectAttributes,
@@ -146,6 +149,8 @@ public class EditController {
     @RequestMapping(value = "/secure/dog-edit", method = RequestMethod.GET)
     public String dogeditview(@RequestParam int id, Model model){
         Dog dog = dogManager.get(id);
+        List<Fcigroup> fcigroups = fciGroupManager.getAll();
+        model.addAttribute("fcigroups",fcigroups);
         model.addAttribute("dog",dog);
         return "secure/edit/dog";
     }
