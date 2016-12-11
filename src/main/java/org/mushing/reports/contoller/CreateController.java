@@ -171,7 +171,7 @@ public class CreateController {
         Member member = new Member();
         member.setFio(memberCreateForm.getFio());
         member.setDatebirth(memberCreateForm.getDatebirth());
-        member.setDateenter(timeManager.getCurDate());
+        member.setDateenter(new java.sql.Date(new java.util.Date().getTime()));
         member.setEmail(memberCreateForm.getEmail());
         member.setPhonenumber(memberCreateForm.getPhonenumber());
         member.setSex(memberCreateForm.getSex());

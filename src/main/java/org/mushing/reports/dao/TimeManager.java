@@ -13,17 +13,5 @@ import java.util.List;
  */
 @Service
 public class TimeManager {
-    public Date getCurDate() {
-        Session session=null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            Query query = session.createQuery("from CURENT_DATE");
-            Date date = (Date) query.list().get(0);
-            return date;
-        }finally {
-            session.close();
-        }
 
-    }
 }

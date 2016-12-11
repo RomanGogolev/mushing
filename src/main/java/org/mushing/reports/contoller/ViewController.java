@@ -86,7 +86,7 @@ public class ViewController {
             }
         });
         List<Member> members = memberManager.getAll();
-        Date date = timeManager.getCurDate();
+        Date date = new Date(new java.util.Date().getTime());
         model.addAttribute("curdate", date);
         model.addAttribute("birthmembers", birthmembers);
         model.addAttribute("members",members);
