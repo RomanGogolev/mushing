@@ -90,7 +90,7 @@
                   <tbody>
                   <c:forEach items="${birthmembers}" var="birthmember">
                       <tr>
-                        <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.fio}</a></td>
+                        <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.surname+" "+birthmember.name+" "+birthmember.fathername}</a></td>
                         <td>${birthmember.datebirth.date}</td>
                       </tr>
                   </c:forEach>
@@ -109,7 +109,9 @@
               <thead>
               <tr>
                 <th>id</th>
-                <th>ФИО</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
                 <th>Email</th>
                 <th></th>
               </tr>
@@ -118,7 +120,9 @@
               <c:forEach items="${members}" var="member">
                 <tr>
                   <td>${member.id}</td>
-                  <td>${member.fio}</td>
+                  <td>${member.surname}</td>
+                  <td>${member.name}</td>
+                  <td>${member.fathername}</td>
                   <td>${member.email}</td>
                   <td><a class="btn-success" href="${contextPath}/secure/member-view?id=${member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/member-edit?id=${member.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/member-delete?id=${member.id}">Удалить</a></td>
                 </tr>

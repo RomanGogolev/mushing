@@ -123,7 +123,7 @@ public class MemberManager {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Member where lower(fio) like lower(:name) ");
+            Query query = session.createQuery("from Member where lower(CONCAT(surname || ' ' || name || ' ' || fathername)) like lower(:name) ");
             query.setParameter("name", search);
             List queryList = query.list();
             beginTransaction.commit();
