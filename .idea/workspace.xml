@@ -32,21 +32,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="member.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/member.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="92" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MemberManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/MemberManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
               <caret line="125" column="78" selection-start-line="125" selection-start-column="78" selection-end-line="125" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -121,8 +121,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/member.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/tables.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/MemberManager.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp" />
       </list>
     </option>
   </component>
@@ -984,12 +984,12 @@
       <workItem from="1481141686653" duration="14324000" />
       <workItem from="1481236073110" duration="40366000" />
       <workItem from="1481627967761" duration="944000" />
-      <workItem from="1481649574649" duration="3126000" />
+      <workItem from="1481649574649" duration="3515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58965000" />
+    <option name="totallyTimeSpent" value="59354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />
@@ -1449,14 +1449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="124" column="41" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/preview/member.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1602">
@@ -1473,6 +1465,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/member.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="92" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mushing/reports/dao/MemberManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -1481,10 +1481,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/create/member.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/secure/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="92" selection-end-column="14" />
+        <state relative-caret-position="349">
+          <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
           <folding />
         </state>
       </provider>

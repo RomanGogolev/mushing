@@ -147,7 +147,7 @@
                 <c:forEach items="${members}" var="member">
                   <tr>
                     <td>${member.id}</td>
-                    <td>${member.fio}</td>
+                    <td>${member.surname} ${member.name} ${member.fathername}</td>
                     <td>${member.email}</td>
                     <td><a class="btn-success" href="${contextPath}/secure/member-view?id=${member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/member-edit?id=${member.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/member-delete?id=${member.id}">Удалить</a></td>
                   </tr>
