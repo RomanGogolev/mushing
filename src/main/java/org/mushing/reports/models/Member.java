@@ -14,8 +14,14 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "fio")
-    private String fio;
+    @Column(name = "surname")
+    private String surname;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "fathername")
+    private String fathername;
 
     @Column(name = "datebirth")
     private Date datebirth;
@@ -35,6 +41,17 @@ public class Member {
     @Column(name = "img")
     private String img;
 
+    @Column(name = "city")
+    private String city;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public int getId() {
         return id;
     }
@@ -43,12 +60,28 @@ public class Member {
         this.id = id;
     }
 
-    public String getFio() {
-        return fio;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setFio(String fio) {
-        this.fio = fio;
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFathername() {
+        return fathername;
+    }
+
+    public void setFathername(String fathername) {
+        this.fathername = fathername;
     }
 
     public Date getDatebirth() {

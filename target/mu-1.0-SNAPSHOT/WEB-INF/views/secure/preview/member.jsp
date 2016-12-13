@@ -68,21 +68,39 @@
 <div class="container">
     <div class="form-horizontal">
         <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
+            <label for="surname" class="col-sm-2 control-label">Фамилия</label>
             <div class="col-sm-10">
-                <div class="form-control" id="email">${member.email}</div>
+                <div class="form-control" id="surname">${member.surname}</div>
             </div>
         </div>
         <div class="form-group">
-            <label for="fio" class="col-sm-2 control-label">ФИО</label>
+            <label for="name" class="col-sm-2 control-label">Имя</label>
             <div class="col-sm-10">
-                <div class="form-control" id="fio">${member.fio}</div>
+                <div class="form-control" id="name">${member.name}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fathername" class="col-sm-2 control-label">Отчество</label>
+            <div class="col-sm-10">
+                <div class="form-control" id="fathername">${member.fathername}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city" class="col-sm-2 control-label">Город</label>
+            <div class="col-sm-10">
+                <div class="form-control" id="city">${member.city}</div>
             </div>
         </div>
         <div class="form-group">
             <label for="phoneNumber" class="col-sm-2 control-label">Телефон</label>
             <div class="col-sm-10">
                 <div class="form-control" id="phoneNumber">${member.phonenumber}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <div class="form-control" id="email">${member.email}</div>
             </div>
         </div>
         <div class="form-group">

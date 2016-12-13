@@ -14,7 +14,11 @@ public class MemberEditForm implements CredentialsContainer {
 
     protected String email;
 
-    protected String fio;
+    protected String surname;
+
+    protected String name;
+
+    protected String fathername;
 
     protected String phonenumber;
 
@@ -25,6 +29,16 @@ public class MemberEditForm implements CredentialsContainer {
     protected MultipartFile data;
 
     protected Date dateenter;
+
+    private String city;
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public Date getDateenter() {
         return dateenter;
@@ -58,12 +72,28 @@ public class MemberEditForm implements CredentialsContainer {
         this.email = email;
     }
 
-    public String getFio() {
-        return this.fio;
+    public String getSurname() {
+        return this.surname;
     }
 
-    public void setFio(String fio) {
-        this.fio = fio;
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFathername() {
+        return this.fathername;
+    }
+
+    public void setFathername(String fathername) {
+        this.fathername = fathername;
     }
 
     public String getPhonenumber() {
@@ -94,8 +124,11 @@ public class MemberEditForm implements CredentialsContainer {
     public void eraseCredentials() {
         this.datebirth=null;
         this.email=null;
-        this.fio=null;
+        this.name=null;
+        this.fathername=null;
+        this.surname=null;
         this.phonenumber=null;
         this.sex=null;
+        this.city=null;
     }
 }

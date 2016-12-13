@@ -105,6 +105,7 @@
         <div class="form-group">
             <div class="col-sm-10">
                 <a href="${contextPath}/secure/events" class="btn bg-info">Назад</a>
+                <a href="${contextPath}/secure/time?idevent=${event.id}" class="btn bg-info">Добавить время ко всем участникам</a>
             </div>
         </div>
     </div>

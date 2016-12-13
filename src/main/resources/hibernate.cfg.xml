@@ -20,7 +20,7 @@
 
         <!-- Drop and re-create all database on startup -->
 
-        <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
         <!-- Подключение объектов сущностей -->
         <mapping class="org.mushing.reports.models.Fcigroup"/>
         <mapping class="org.mushing.reports.models.User"/>

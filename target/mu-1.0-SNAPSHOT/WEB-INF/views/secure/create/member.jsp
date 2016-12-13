@@ -68,21 +68,39 @@
     <div class="container">
       <form class="form-horizontal" enctype="multipart/form-data" name="memberCreateForm" method="post" action="${contextPath}/secure/member-create">
         <div class="form-group">
-          <label for="email" class="col-sm-2 control-label">Email</label>
+          <label for="surname" class="col-sm-2 control-label">Фамилия</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="Фамилия" required>
           </div>
         </div>
         <div class="form-group">
-          <label for="fio" class="col-sm-2 control-label">ФИО</label>
+          <label for="name" class="col-sm-2 control-label">Имя</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="fio" name="fio" placeholder="ФИО" required>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Имя" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fathername" class="col-sm-2 control-label">Отчество</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="fathername" name="fathername" placeholder="Отчество" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="city" class="col-sm-2 control-label">Город</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="city" name="city" placeholder="Город" required>
           </div>
         </div>
         <div class="form-group">
           <label for="phonenumber" class="col-sm-2 control-label">Телефон</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Телефон" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
           </div>
         </div>
         <div class="form-group">

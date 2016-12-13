@@ -181,12 +181,15 @@ public class CreateController {
             BindingResult result,
             Model model){
         Member member = new Member();
-        member.setFio(memberCreateForm.getFio());
+        member.setName(memberCreateForm.getName());
+        member.setSurname(memberCreateForm.getSurname());
+        member.setFathername(memberCreateForm.getFathername());
         member.setDatebirth(memberCreateForm.getDatebirth());
         member.setDateenter(new java.sql.Date(new java.util.Date().getTime()));
         member.setEmail(memberCreateForm.getEmail());
         member.setPhonenumber(memberCreateForm.getPhonenumber());
         member.setSex(memberCreateForm.getSex());
+        member.setCity(memberCreateForm.getCity());
         MultipartFile data = memberCreateForm.getData();
         String [] format = data.getOriginalFilename().split("\\.");
         File file = new File("images/"+memberCreateForm.getEmail()+"."+format[format.length-1]);

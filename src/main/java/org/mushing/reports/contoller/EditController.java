@@ -94,13 +94,16 @@ public class EditController {
             Model model){
         Member member = new Member();
         member.setId(memberEditForm.getId());
-        member.setFio(memberEditForm.getFio());
+        member.setName(memberEditForm.getName());
+        member.setSurname(memberEditForm.getSurname());
+        member.setFathername(memberEditForm.getFathername());
         member.setDatebirth(memberEditForm.getDatebirth());
         member.setDateenter(new java.sql.Date(new java.util.Date().getDate()));
         member.setEmail(memberEditForm.getEmail());
         member.setPhonenumber(memberEditForm.getPhonenumber());
         member.setSex(memberEditForm.getSex());
         member.setDateenter(memberEditForm.getDateenter());
+        member.setCity(memberEditForm.getCity());
         MultipartFile data = memberEditForm.getData();
         String [] format = data.getOriginalFilename().split("\\.");
         File file = new File("images/"+memberEditForm.getEmail()+"."+format[format.length-1]);
