@@ -132,7 +132,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-10">
+                    <div class="col-sm-offset-2 col-sm-10>
                         <a href="${contextPath}/secure" class="btn bg-info">Назад</a>
                     </div>
                 </div>
