@@ -90,7 +90,7 @@
                   <tbody>
                   <c:forEach items="${birthmembers}" var="birthmember">
                       <tr>
-                        <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.surname+" "+birthmember.name+" "+birthmember.fathername}</a></td>
+                        <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.surname} ${birthmember.name} ${birthmember.fathername}</a></td>
                         <td>${birthmember.datebirth.date}</td>
                       </tr>
                   </c:forEach>
