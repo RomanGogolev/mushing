@@ -65,56 +65,63 @@
 </nav>
 
 <div class="container">
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label for="fio" class="col-sm-2 control-label">Фамилия Имя Отчество</label>
-            <div class="col-sm-10">
-                <div name="fio" id="fio" class="form-control">${memberevent.fio}</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Профиль</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="fio" class="col-sm-2 control-label">Фамилия Имя Отчество</label>
+                    <div class="col-sm-10">
+                        <div name="fio" id="fio" class="form-control">${memberevent.fio}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-sm-2 control-label">Город</label>
+                    <div class="col-sm-10">
+                        <div name="city" id="city" class="form-control">${memberevent.city}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="club" class="col-sm-2 control-label">Клуб</label>
+                    <div class="col-sm-10">
+                        <div name="club" id="club" class="form-control">${memberevent.club}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <div class="col-sm-10">
+                        <div name="datebirth" class="form-control" id="datebirth">${memberevent.datebirth}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <div name="email" id="email" class="form-control">${memberevent.email}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberphone" class="col-sm-2 control-label">Телефон</label>
+                    <div class="col-sm-10">
+                        <div name="numberphone" id="numberphone" class="form-control">${memberevent.numberphone}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descr" class="col-sm-2 control-label">Примечания</label>
+                    <div class="col-sm-10">
+                        <div name="descr" id="descr" class="form-control">${memberevent.descr}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
+                    <div class="col-sm-10">
+                        <div name="idclassrace" id="idclassrace" class="form-control">${clazz.classrace}</div>
+                    </div>
+                </div>
+                <a href="${contextPath}/secure/event-view?id=${memberevent.idevent}" class="btn btn-success">Назад</a>
             </div>
         </div>
-        <div class="form-group">
-            <label for="city" class="col-sm-2 control-label">Город</label>
-            <div class="col-sm-10">
-                <div name="city" id="city" class="form-control">${memberevent.city}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="club" class="col-sm-2 control-label">Клуб</label>
-            <div class="col-sm-10">
-                <div name="club" id="club" class="form-control">${memberevent.club}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
-            <div class="col-sm-10">
-                <div name="datebirth" class="form-control" id="datebirth">${memberevent.datebirth}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-                <div name="email" id="email" class="form-control">${memberevent.email}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="numberphone" class="col-sm-2 control-label">Телефон</label>
-            <div class="col-sm-10">
-                <div name="numberphone" id="numberphone" class="form-control">${memberevent.numberphone}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="descr" class="col-sm-2 control-label">Примечания</label>
-            <div class="col-sm-10">
-                <div name="descr" id="descr" class="form-control">${memberevent.descr}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
-            <div class="col-sm-10">
-                <div name="idclassrace" id="idclassrace" class="form-control">${clazz.classrace}</div>
-            </div>
-        </div>
-        <a href="${contextPath}/secure/event-view?id=${memberevent.idevent}" class="btn btn-success">Назад</a>
     </div>
     <BR>
     <div class="panel panel-default">

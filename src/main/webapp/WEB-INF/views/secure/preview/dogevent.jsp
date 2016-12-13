@@ -65,98 +65,105 @@
 </nav>
 
 <div class="container">
-    <form class="form-horizontal" name="dogEditForm">
-        <div class="form-group">
-            <label for="fioowner" class="col-sm-2 control-label">ФИО хозяина</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="fioowner" name="fioowner">${dogevent.fioowner}</div>
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Профиль</h3>
         </div>
-        <div class="form-group">
-            <label for="nameonpedigree" class="col-sm-2 control-label">Кличка собаки по родословной</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="nameonpedigree" name="nameonpedigree">${dogevent.nameonpedigree}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="sex" name="sex">${dogevent.sex}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="datebirth" name="datebirth">${dogevent.datebirth}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="idbreed" class="col-sm-2 control-label">Порода</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="idbreed" name="idbreed">
-                    <c:forEach items="${breeds}" var="breed">
-                        <c:if test="${breed.id == dogevent.idbreed}">
-                            ${breed.breed}
-                        </c:if>
-                    </c:forEach>
+        <div class="panel-body">
+            <form class="form-horizontal" name="dogEditForm">
+                <div class="form-group">
+                    <label for="fioowner" class="col-sm-2 control-label">ФИО хозяина</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="fioowner" name="fioowner">${dogevent.fioowner}</div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="marknumber" class="col-sm-2 control-label">Номер клейма</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="marknumber" name="marknumber">${dogevent.marknumber}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="numberchip" class="col-sm-2 control-label">Номер чипа</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="numberchip" name="numberchip">${dogevent.numberchip}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="idfederation" name="idfederation">
-                    <c:forEach items="${federations}" var="federation">
-                        <c:if test="${federation.id == dogevent.idfederation}">
-                            ${federation.federation}
-                        </c:if>
-                    </c:forEach>
+                <div class="form-group">
+                    <label for="nameonpedigree" class="col-sm-2 control-label">Кличка собаки по родословной</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="nameonpedigree" name="nameonpedigree">${dogevent.nameonpedigree}</div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="numberpedigree" class="col-sm-2 control-label">Номер родословной</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="numberpedigree" name="numberpedigree">${dogevent.numberpedigree}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="numberbookkv" class="col-sm-2 control-label">Номер квалификационной книжки</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="numberbookkv" name="numberbookkv">${dogevent.numberbookkv}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inqualification" class="col-sm-2 control-label">Собака участвует в квалификации</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="inqualification" name="inqualification">
-                    <c:if test="${dogevent.inqualification == true}">
-                        <option value="true">Да</option>
-                    </c:if>
-                    <c:if test="${dogevent.inqualification == false}">
-                        <option value="false">Нет</option>
-                    </c:if>
+                <div class="form-group">
+                    <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="sex" name="sex">${dogevent.sex}</div>
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="datebirth" name="datebirth">${dogevent.datebirth}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idbreed" class="col-sm-2 control-label">Порода</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="idbreed" name="idbreed">
+                            <c:forEach items="${breeds}" var="breed">
+                                <c:if test="${breed.id == dogevent.idbreed}">
+                                    ${breed.breed}
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="marknumber" class="col-sm-2 control-label">Номер клейма</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="marknumber" name="marknumber">${dogevent.marknumber}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberchip" class="col-sm-2 control-label">Номер чипа</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="numberchip" name="numberchip">${dogevent.numberchip}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="idfederation" name="idfederation">
+                            <c:forEach items="${federations}" var="federation">
+                                <c:if test="${federation.id == dogevent.idfederation}">
+                                    ${federation.federation}
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberpedigree" class="col-sm-2 control-label">Номер родословной</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="numberpedigree" name="numberpedigree">${dogevent.numberpedigree}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberbookkv" class="col-sm-2 control-label">Номер квалификационной книжки</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="numberbookkv" name="numberbookkv">${dogevent.numberbookkv}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inqualification" class="col-sm-2 control-label">Собака участвует в квалификации</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="inqualification" name="inqualification">
+                            <c:if test="${dogevent.inqualification == true}">
+                                <option value="true">Да</option>
+                            </c:if>
+                            <c:if test="${dogevent.inqualification == false}">
+                                <option value="false">Нет</option>
+                            </c:if>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <a href="${contextPath}/secure/memberevent-view?id=${dogevent.idmember}&idevent=${dogevent.idevent}" class="btn btn-success">Назад</a>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <a href="${contextPath}/secure/memberevent-view?id=${dogevent.idmember}&idevent=${dogevent.idevent}" class="btn btn-success">Назад</a>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
 
 

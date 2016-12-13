@@ -65,47 +65,54 @@
 </nav>
 
 <div class="container">
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label for="headerEvent" class="col-sm-2 control-label">Название мероприятия</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="headerEvent">${event.headerevent}</div>
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Профиль</h3>
         </div>
-        <div class="form-group">
-            <label for="organizers" class="col-sm-2 control-label">Организаторы</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="organizers">${event.organizers}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="place" class="col-sm-2 control-label">Место провождения</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="place">${event.place}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="season" class="col-sm-2 control-label">Сезон</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="season">${event.season}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="idRank" class="col-sm-2 control-label">Ранг</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="idRank">${rank.rank}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="dateStart" class="col-sm-2 control-label">Дата (год/месяц/день)</label>
-            <div class="col-sm-10">
-                <div class="form-control" id="dateStart">${event.datestart}</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-10">
-                <a href="${contextPath}/secure/events" class="btn bg-info">Назад</a>
-                <a href="${contextPath}/secure/time?idevent=${event.id}" class="btn bg-info">Добавить время ко всем участникам</a>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="headerEvent" class="col-sm-2 control-label">Название мероприятия</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="headerEvent">${event.headerevent}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="organizers" class="col-sm-2 control-label">Организаторы</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="organizers">${event.organizers}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="place" class="col-sm-2 control-label">Место провождения</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="place">${event.place}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="season" class="col-sm-2 control-label">Сезон</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="season">${event.season}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idRank" class="col-sm-2 control-label">Ранг</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="idRank">${rank.rank}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dateStart" class="col-sm-2 control-label">Дата (год/месяц/день)</label>
+                    <div class="col-sm-10">
+                        <div class="form-control" id="dateStart">${event.datestart}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <a href="${contextPath}/secure/events" class="btn bg-info">Назад</a>
+                        <a href="${contextPath}/secure/time?idevent=${event.id}" class="btn bg-info">Добавить время ко всем участникам</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

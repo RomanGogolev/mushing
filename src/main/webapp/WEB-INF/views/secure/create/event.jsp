@@ -63,59 +63,65 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
     <div class="container">
-      <form class="form-horizontal" name="eventCreateForm" method="post" action="${contextPath}/secure/event-create">
-        <div class="form-group">
-          <label for="headerEvent" class="col-sm-2 control-label">Название мероприятия</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="headerEvent" name="headerEvent" placeholder="Название мероприятия" required>
-          </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Профиль</h3>
         </div>
-        <div class="form-group">
-          <label for="organizers" class="col-sm-2 control-label">Организаторы</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="organizers" name="organizers" placeholder="Организаторы" required>
-          </div>
+        <div class="panel-body">
+          <form class="form-horizontal" name="eventCreateForm" method="post" action="${contextPath}/secure/event-create">
+            <div class="form-group">
+              <label for="headerEvent" class="col-sm-2 control-label">Название мероприятия</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="headerEvent" name="headerEvent" placeholder="Название мероприятия" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="organizers" class="col-sm-2 control-label">Организаторы</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="organizers" name="organizers" placeholder="Организаторы" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="place" class="col-sm-2 control-label">Место провождения</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="place" name="place" placeholder="Место провождения" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="season" class="col-sm-2 control-label">Сезон</label>
+              <div class="col-sm-10">
+                <select class="input-medium search-query" name="season" id="season">
+                  <option>Зима</option>
+                  <option>Лето</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="idRank" class="col-sm-2 control-label">Ранг</label>
+              <div class="col-sm-10">
+                <select class="input-medium search-query" name="idRank" id="idRank">
+                  <c:forEach items="${ranks}" var="rank">
+                    <option value="${rank.id}">${rank.rank}</option>
+                  </c:forEach>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="dateStart" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control" id="dateStart" name="dateStart" placeholder="Дата" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Подтвердить</button>
+                <a href="${contextPath}/secure/events" class="btn bg-info">Назад</a>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="form-group">
-          <label for="place" class="col-sm-2 control-label">Место провождения</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="place" name="place" placeholder="Место провождения" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="season" class="col-sm-2 control-label">Сезон</label>
-          <div class="col-sm-10">
-            <select class="input-medium search-query" name="season" id="season">
-              <option>Зима</option>
-              <option>Лето</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="idRank" class="col-sm-2 control-label">Ранг</label>
-          <div class="col-sm-10">
-            <select class="input-medium search-query" name="idRank" id="idRank">
-              <c:forEach items="${ranks}" var="rank">
-                <option value="${rank.id}">${rank.rank}</option>
-              </c:forEach>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="dateStart" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
-          <div class="col-sm-10">
-            <input type="date" class="form-control" id="dateStart" name="dateStart" placeholder="Дата" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-success">Подтвердить</button>
-            <a href="${contextPath}/secure/events" class="btn bg-info">Назад</a>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
 
 

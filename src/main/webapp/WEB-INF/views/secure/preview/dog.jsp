@@ -65,6 +65,11 @@
     </nav>
 
     <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Профиль</h3>
+        </div>
+        <div class="panel-body">
       <div class="form-horizontal">
         <div class="form-group">
           <label for="fullname" class="col-sm-2 control-label">Полное имя</label>
@@ -124,6 +129,8 @@
           <div class="col-sm-10">
             <a href="${contextPath}/secure/dogs" class="btn bg-info">Назад</a>
           </div>
+        </div>
+      </div>
         </div>
       </div>
     </div>

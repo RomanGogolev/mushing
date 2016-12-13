@@ -63,77 +63,83 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
 <div class="container">
-    <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/secure/memberevent-edit">
-        <input type="number" id="idevent" name="idevent" value="${memberevent.idevent}" hidden>
-        <input type="number" id="id" name="id" value="${memberevent.id}" hidden>
-        <div class="form-group">
-            <label for="fio" class="col-sm-2 control-label">Фамилия Имя Отчество</label>
-            <div class="col-sm-10">
-                <input type="text" value="${memberevent.fio}" name="fio" id="fio" class="form-control"/>
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Профиль</h3>
         </div>
-        <div class="form-group">
-            <label for="city" class="col-sm-2 control-label">Город</label>
-            <div class="col-sm-10">
-                <input type="text" value="${memberevent.city}" name="city" id="city" class="form-control"/>
-            </div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/secure/memberevent-edit">
+                <input type="number" id="idevent" name="idevent" value="${memberevent.idevent}" hidden>
+                <input type="number" id="id" name="id" value="${memberevent.id}" hidden>
+                <div class="form-group">
+                    <label for="fio" class="col-sm-2 control-label">Фамилия Имя Отчество</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="${memberevent.fio}" name="fio" id="fio" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-sm-2 control-label">Город</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="${memberevent.city}" name="city" id="city" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="club" class="col-sm-2 control-label">Клуб</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="${memberevent.club}" name="club" id="club" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <div class="col-sm-10">
+                        <input type="date" value="${memberevent.datebirth}" name="datebirth" class="form-control" id="datebirth"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="${memberevent.email}" name="email" id="email" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numberphone" class="col-sm-2 control-label">Телефон</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="${memberevent.numberphone}" name="numberphone" id="numberphone" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descr" class="col-sm-2 control-label">Примечания</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="${memberevent.descr}" name="descr" id="descr" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="idclassrace" id="idclassrace">
+                            <c:forEach items="${classes}" var="clazz">
+                                <c:if test="${clazz.id == memberevent.idclassrace}">
+                                    <option value="${clazz.id}">${clazz.classrace}</option>
+                                </c:if>
+                            </c:forEach>
+                            <c:forEach items="${classes}" var="clazz">
+                                <c:if test="${clazz.id != memberevent.idclassrace}">
+                                    <c:if test="${clazz.season eq event.season}">
+                                        <option value="${clazz.id}">${clazz.classrace}</option>
+                                    </c:if>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Сохранить</button>
+                    <a href="${contextPath}/secure/event-view?id=${memberevent.idevent}" class="btn bg-info">Назад</a>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="club" class="col-sm-2 control-label">Клуб</label>
-            <div class="col-sm-10">
-                <input type="text" value="${memberevent.club}" name="club" id="club" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
-            <div class="col-sm-10">
-                <input type="date" value="${memberevent.datebirth}" name="datebirth" class="form-control" id="datebirth"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-                <input type="text" value="${memberevent.email}" name="email" id="email" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="numberphone" class="col-sm-2 control-label">Телефон</label>
-            <div class="col-sm-10">
-                <input type="text" value="${memberevent.numberphone}" name="numberphone" id="numberphone" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="descr" class="col-sm-2 control-label">Примечания</label>
-            <div class="col-sm-10">
-                <input type="text" value="${memberevent.descr}" name="descr" id="descr" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
-            <div class="col-sm-10">
-                <select class="form-control" name="idclassrace" id="idclassrace">
-                    <c:forEach items="${classes}" var="clazz">
-                        <c:if test="${clazz.id == memberevent.idclassrace}">
-                            <option value="${clazz.id}">${clazz.classrace}</option>
-                        </c:if>
-                    </c:forEach>
-                    <c:forEach items="${classes}" var="clazz">
-                        <c:if test="${clazz.id != memberevent.idclassrace}">
-                            <c:if test="${clazz.season eq event.season}">
-                                <option value="${clazz.id}">${clazz.classrace}</option>
-                            </c:if>
-                        </c:if>
-                    </c:forEach>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn">Сохранить</button>
-            <a href="${contextPath}/secure/event-view?id=${memberevent.idevent}" class="btn bg-info">Назад</a>
-        </div>
-    </form>
+    </div>
 </div>
 
 
