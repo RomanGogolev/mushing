@@ -20,9 +20,6 @@ public class Event {
     @Column(name = "datestart")
     private Date datestart;
 
-    @Column(name = "idrank")
-    private int idrank;
-
     @Column(name = "place")
     private String place;
 
@@ -54,14 +51,6 @@ public class Event {
 
     public void setDatestart(Date datestart) {
         this.datestart = datestart;
-    }
-
-    public int getIdrank() {
-        return idrank;
-    }
-
-    public void setIdrank(int idrank) {
-        this.idrank = idrank;
     }
 
     public String getPlace() {

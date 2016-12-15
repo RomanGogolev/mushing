@@ -2,6 +2,7 @@ package org.mushing.reports.models;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Time;
 
 /**
  * Created by roman on 12.11.16.
@@ -17,8 +18,14 @@ public class MemberEvent {
     @Column(name = "idevent")
     private int idevent;
 
-    @Column(name = "fio")
-    private String fio;
+    @Column(name = "surname")
+    private String surname;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "fathername")
+    private String fathername;
 
     @Column(name = "city")
     private String city;
@@ -41,6 +48,61 @@ public class MemberEvent {
     @Column(name = "idclassrace")
     private int idclassrace;
 
+    @Column(name = "starttime")
+    private Time starttime;
+
+    @Column(name = "endtime")
+    private Time endtime;
+
+    @Column(name = "position")
+    private int position;
+
+    @Column(name = "startnumber")
+    private int startnumber;
+
+    @Column(name = "raznost")
+    private Time raznost;
+
+    public Time getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(Time starttime) {
+        this.starttime = starttime;
+    }
+
+    public Time getEndtime() {
+        return endtime;
+    }
+
+    public void setEndtime(Time endtime) {
+        this.endtime = endtime;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public int getStartnumber() {
+        return startnumber;
+    }
+
+    public void setStartnumber(int startnumber) {
+        this.startnumber = startnumber;
+    }
+
+    public Time getRaznost() {
+        return raznost;
+    }
+
+    public void setRaznost(Time raznost) {
+        this.raznost = raznost;
+    }
+
     public int getId() {
         return id;
     }
@@ -57,12 +119,28 @@ public class MemberEvent {
         this.idevent = idevent;
     }
 
-    public String getFio() {
-        return fio;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setFio(String fio) {
-        this.fio = fio;
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFathername() {
+        return fathername;
+    }
+
+    public void setFathername(String fathername) {
+        this.fathername = fathername;
     }
 
     public String getCity() {

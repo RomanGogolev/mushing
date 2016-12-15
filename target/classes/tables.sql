@@ -7,6 +7,11 @@ CREATE TABLE public.users
   fio VARCHAR(64) NOT NULL,
   username VARCHAR(32) NOT NULL
 );
+
+INSERT INTO public.users(
+            id, email, fio, pass, roles, username)
+    VALUES (1, 'admin@admin.com', 'Гоголев Роман Александрович', '$2a$10$ZNyscEB1FczQFdzJZO/1YuPbMbpWnKv1W0gMe8q6CjimSjrltmsCi', 'ROLE_USER', 'admin');
+
 CREATE UNIQUE INDEX users_email_uindex ON public.users (email);
 CREATE UNIQUE INDEX users_username_uindex ON public.users (username);
 

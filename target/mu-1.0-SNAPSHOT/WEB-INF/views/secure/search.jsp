@@ -30,40 +30,7 @@
   </head>
 
   <body>
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand">MU</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="${contextPath}/secure">Члены Федерации</a></li>
-            <li><a href="${contextPath}/secure/dogs">Собаки Федерации</a></li>
-            <li><a href="${contextPath}/secure/events">Соревнования Федерации</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Настройки<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="${contextPath}/secure/fci">FCI группы</a></li>
-                <li><a href="${contextPath}/secure/classes">Классы соревнований</a></li>
-                <li><a href="${contextPath}/secure/breeds">Породы собак</a></li>
-                <li><a href="${contextPath}/secure/judges">Типы судьей</a></li>
-                <li><a href="${contextPath}/secure/ranks">Ранги</a></li>
-                <li><a href="${contextPath}/secure/federations">Федерации</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
+    <c:import url="head.jsp"/>
     <div class="container">
       <c:if test="${search eq 'dog'}">
         <div class="panel panel-default">
@@ -147,7 +114,7 @@
                 <c:forEach items="${members}" var="member">
                   <tr>
                     <td>${member.id}</td>
-                    <td>${member.fio}</td>
+                    <td>${member.surname} ${member.name} ${member.fathername}</td>
                     <td>${member.email}</td>
                     <td><a class="btn-success" href="${contextPath}/secure/member-view?id=${member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/member-edit?id=${member.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/member-delete?id=${member.id}">Удалить</a></td>
                   </tr>

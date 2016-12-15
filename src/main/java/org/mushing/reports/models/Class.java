@@ -16,8 +16,30 @@ public class Class {
     @Column(name = "classrace")
     private String classrace;
 
+    @Column(name = "rkfname")
+    private String rkfname;
+
+    @Column(name = "fesname")
+    private String fesname;
+
     @Column(name = "season")
     private String season;
+
+    public String getRkfname() {
+        return rkfname;
+    }
+
+    public void setRkfname(String rkfname) {
+        this.rkfname = rkfname;
+    }
+
+    public String getFesname() {
+        return fesname;
+    }
+
+    public void setFesname(String fesname) {
+        this.fesname = fesname;
+    }
 
     public int getId() {
         return id;

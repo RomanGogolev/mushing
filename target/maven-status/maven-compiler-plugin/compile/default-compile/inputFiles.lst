@@ -15,7 +15,6 @@
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/CustomUserDetails.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/DistanceManager.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Federation.java
-/home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/ResultManager.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/contoller/ViewController.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Member.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/forms/DogEventCreateForm.java
@@ -46,7 +45,6 @@
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/services/CustomLogoutSuccessHandler.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/forms/MemberEventCreateForm.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/JudgeTypeManager.java
-/home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Result.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/forms/DogEventEditForm.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Judge.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/DogEventManager.java

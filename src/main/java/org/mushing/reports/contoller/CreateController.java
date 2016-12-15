@@ -61,9 +61,6 @@ public class CreateController {
     RankManager rankManager;
 
     @Autowired
-    ResultManager resultManager;
-
-    @Autowired
     TimeManager timeManager;
 
     @Autowired
@@ -79,9 +76,12 @@ public class CreateController {
 
 
     @RequestMapping(value = "/secure/class-create", method = RequestMethod.GET)
-    public String classcreate(Model model, @RequestParam String classrace, @RequestParam String season){
+    public String classcreate(Model model, @RequestParam String classrace, @RequestParam String season,
+                              @RequestParam String rkfname, @RequestParam String fesname){
         Class c = new Class();
         c.setClassrace(classrace);
+        c.setFesname(fesname);
+        c.setRkfname(rkfname);
         c.setSeason(season);
         classManager.create(c);
         return "redirect:/secure/classes";
@@ -215,7 +215,6 @@ public class CreateController {
         event.setSeason(eventCreateForm.getSeason());
         event.setDatestart(eventCreateForm.getDateStart());
         event.setHeaderevent(eventCreateForm.getHeaderEvent());
-        event.setIdrank(eventCreateForm.getIdRank());
         event.setOrganizers(eventCreateForm.getOrganizers());
         event.setPlace(eventCreateForm.getPlace());
         eventManager.create(event);
@@ -229,7 +228,9 @@ public class CreateController {
             BindingResult result,
             Model model){
         MemberEvent memberEvent = new MemberEvent();
-        memberEvent.setFio(memberEventCreateForm.getFio());
+        memberEvent.setName(memberEventCreateForm.getName());
+        memberEvent.setSurname(memberEventCreateForm.getSurname());
+        memberEvent.setFathername(memberEventCreateForm.getFathername());
         memberEvent.setIdevent(memberEventCreateForm.getIdevent());
         memberEvent.setCity(memberEventCreateForm.getCity());
         memberEvent.setClub(memberEventCreateForm.getClub());
@@ -239,8 +240,6 @@ public class CreateController {
         memberEvent.setIdclassrace(memberEventCreateForm.getIdclassrace());
         memberEvent.setNumberphone(memberEventCreateForm.getNumberphone());
         memberEventManager.create(memberEvent);
-        Result r = new Result();
-        r.setIdevent(memberEvent.getIdevent());
         return "redirect:/secure/event-view?id="+memberEvent.getIdevent();
     }
 

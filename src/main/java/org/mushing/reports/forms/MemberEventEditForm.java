@@ -21,13 +21,41 @@ public class MemberEventEditForm implements CredentialsContainer {
 
     protected String email;
 
-    protected String fio;
+    protected String surname;
+
+    protected String name;
+
+    protected String fathername;
 
     protected int idclassrace;
 
     protected int idevent;
 
     protected String numberphone;
+
+    public String getSurname() {
+        return this.surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFathername() {
+        return this.fathername;
+    }
+
+    public void setFathername(String fathername) {
+        this.fathername = fathername;
+    }
 
     public int getId() {
         return id;
@@ -85,14 +113,6 @@ public class MemberEventEditForm implements CredentialsContainer {
         this.email = email;
     }
 
-    public String getFio() {
-        return this.fio;
-    }
-
-    public void setFio(String fio) {
-        this.fio = fio;
-    }
-
     public int getIdclassrace() {
         return this.idclassrace;
     }
@@ -116,7 +136,9 @@ public class MemberEventEditForm implements CredentialsContainer {
         this.datebirth=null;
         this.descr=null;
         this.email=null;
-        this.fio=null;
+        this.name=null;
+        this.fathername=null;
+        this.surname=null;
         this.numberphone=null;
     }
 }

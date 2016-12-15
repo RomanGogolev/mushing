@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="PostgreSQL - postgres@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
+    <database id="1" name="postgres">
+      <object-id>12413</object-id>
+      <visible>1</visible>
+    </database>
+    <database id="2" name="sprintpr">
+      <object-id>33420</object-id>
+    </database>
+    <schema id="3" parent="1" name="public">
+      <object-id>2200</object-id>
+      <visible>1</visible>
+      <introspection-state-number>1221</introspection-state-number>
+      <introspection-timestamp>2016-12-13.21:59:11.247</introspection-timestamp>
+    </schema>
+    <schema id="4" parent="1" name="pg_catalog">
+      <object-id>11</object-id>
+    </schema>
+    <schema id="5" parent="1" name="pg_toast">
+      <object-id>99</object-id>
+    </schema>
+    <schema id="6" parent="1" name="pg_temp_1">
+      <object-id>11816</object-id>
+    </schema>
+    <schema id="7" parent="1" name="pg_toast_temp_1">
+      <object-id>11817</object-id>
+    </schema>
+    <schema id="8" parent="1" name="information_schema">
+      <object-id>12121</object-id>
+    </schema>
+    <sequence id="9" parent="3" name="breeds_id_seq">
+      <object-id>33481</object-id>
+      <state-number>1207</state-number>
+    </sequence>
+    <sequence id="10" parent="3" name="classes_id_seq">
+      <object-id>33489</object-id>
+      <state-number>1208</state-number>
+    </sequence>
+    <sequence id="11" parent="3" name="distance_id_seq">
+      <object-id>33500</object-id>
+      <state-number>1209</state-number>
+    </sequence>
+    <sequence id="12" parent="3" name="dogs_id_seq">
+      <object-id>33511</object-id>
+      <state-number>1210</state-number>
+    </sequence>
+    <sequence id="13" parent="3" name="dogsevent_id_seq">
+      <object-id>33522</object-id>
+      <state-number>1211</state-number>
+    </sequence>
+    <sequence id="14" parent="3" name="events_id_seq">
+      <object-id>33533</object-id>
+      <state-number>1212</state-number>
+    </sequence>
+    <sequence id="15" parent="3" name="fcigroups_id_seq">
+      <object-id>33544</object-id>
+      <state-number>1213</state-number>
+    </sequence>
+    <sequence id="16" parent="3" name="federations_id_seq">
+      <object-id>33552</object-id>
+      <state-number>1214</state-number>
+    </sequence>
+    <sequence id="17" parent="3" name="hibernate_sequence">
+      <object-id>33109</object-id>
+      <state-number>884</state-number>
+    </sequence>
+    <sequence id="18" parent="3" name="judges_id_seq">
+      <object-id>33560</object-id>
+      <state-number>1215</state-number>
+    </sequence>
+    <sequence id="19" parent="3" name="judgetype_id_seq">
+      <object-id>33571</object-id>
+      <state-number>1216</state-number>
+    </sequence>
+    <sequence id="20" parent="3" name="members_id_seq">
+      <object-id>33579</object-id>
+      <state-number>1217</state-number>
+    </sequence>
+    <sequence id="21" parent="3" name="membersevent_id_seq">
+      <object-id>33590</object-id>
+      <state-number>1218</state-number>
+    </sequence>
+    <sequence id="22" parent="3" name="ranks_id_seq">
+      <object-id>33601</object-id>
+      <state-number>1219</state-number>
+    </sequence>
+    <sequence id="23" parent="3" name="results_id_seq">
+      <object-id>33609</object-id>
+      <state-number>1220</state-number>
+    </sequence>
+    <sequence id="24" parent="3" name="users_id_seq">
+      <object-id>33617</object-id>
+      <state-number>1221</state-number>
+    </sequence>
+    <table id="25" parent="3" name="breeds">
+      <object-id>33483</object-id>
+      <state-number>1207</state-number>
+    </table>
+    <table id="26" parent="3" name="classes">
+      <object-id>33491</object-id>
+      <state-number>1208</state-number>
+    </table>
+    <table id="27" parent="3" name="distance">
+      <object-id>33502</object-id>
+      <state-number>1209</state-number>
+    </table>
+    <table id="28" parent="3" name="dogs">
+      <object-id>33513</object-id>
+      <state-number>1210</state-number>
+    </table>
+    <table id="29" parent="3" name="dogsevent">
+      <object-id>33524</object-id>
+      <state-number>1211</state-number>
+    </table>
+    <table id="30" parent="3" name="events">
+      <object-id>33535</object-id>
+      <state-number>1212</state-number>
+    </table>
+    <table id="31" parent="3" name="fcigroups">
+      <object-id>33546</object-id>
+      <state-number>1213</state-number>
+    </table>
+    <table id="32" parent="3" name="federations">
+      <object-id>33554</object-id>
+      <state-number>1214</state-number>
+    </table>
+    <table id="33" parent="3" name="judges">
+      <object-id>33562</object-id>
+      <state-number>1215</state-number>
+    </table>
+    <table id="34" parent="3" name="judgetype">
+      <object-id>33573</object-id>
+      <state-number>1216</state-number>
+    </table>
+    <table id="35" parent="3" name="members">
+      <object-id>33581</object-id>
+      <state-number>1217</state-number>
+    </table>
+    <table id="36" parent="3" name="membersevent">
+      <object-id>33592</object-id>
+      <state-number>1218</state-number>
+    </table>
+    <table id="37" parent="3" name="ranks">
+      <object-id>33603</object-id>
+      <state-number>1219</state-number>
+    </table>
+    <table id="38" parent="3" name="results">
+      <object-id>33611</object-id>
+      <state-number>1220</state-number>
+    </table>
+    <table id="39" parent="3" name="users">
+      <object-id>33619</object-id>
+      <state-number>1221</state-number>
+    </table>
+    <column id="40" parent="25" name="id">
+      <state-number>1207</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;breeds_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="41" parent="25" name="breed">
+      <state-number>1207</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="42" parent="25" name="breeds_pkey">
+      <object-id>33487</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="43" parent="25" name="breeds_pkey">
+      <object-id>33488</object-id>
+      <columns>id</columns>
+      <underlying-index>breeds_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="44" parent="26" name="id">
+      <state-number>1208</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;classes_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="45" parent="26" name="classrace">
+      <state-number>1208</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="46" parent="26" name="season">
+      <state-number>1208</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="47" parent="26" name="classes_pkey">
+      <object-id>33498</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="48" parent="26" name="classes_pkey">
+      <object-id>33499</object-id>
+      <columns>id</columns>
+      <underlying-index>classes_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="49" parent="27" name="id">
+      <state-number>1209</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;distance_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="50" parent="27" name="countround">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="51" parent="27" name="idevent">
+      <state-number>1209</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="52" parent="27" name="lengthround">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="53" parent="27" name="lowerdot">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="54" parent="27" name="stadion">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="55" parent="27" name="tair">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="56" parent="27" name="tsnow">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="57" parent="27" name="upperdot">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="58" parent="27" name="view">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="59" parent="27" name="weather">
+      <state-number>1209</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="60" parent="27" name="distance_pkey">
+      <object-id>33509</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="61" parent="27" name="distance_pkey">
+      <object-id>33510</object-id>
+      <columns>id</columns>
+      <underlying-index>distance_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="62" parent="28" name="id">
+      <state-number>1210</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;dogs_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="63" parent="28" name="datebirth">
+      <state-number>1210</state-number>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="64" parent="28" name="fullname">
+      <state-number>1210</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="65" parent="28" name="homename">
+      <state-number>1210</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="66" parent="28" name="idfcigroup">
+      <state-number>1210</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="67" parent="28" name="marknumber">
+      <state-number>1210</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="68" parent="28" name="numberchip">
+      <state-number>1210</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="69" parent="28" name="numberpedigree">
+      <state-number>1210</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="70" parent="28" name="ownername">
+      <state-number>1210</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="71" parent="28" name="dogs_pkey">
+      <object-id>33520</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="72" parent="28" name="dogs_pkey">
+      <object-id>33521</object-id>
+      <columns>id</columns>
+      <underlying-index>dogs_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="73" parent="29" name="id">
+      <state-number>1211</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;dogsevent_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="74" parent="29" name="datebirth">
+      <state-number>1211</state-number>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="75" parent="29" name="fioowner">
+      <state-number>1211</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="76" parent="29" name="idbreed">
+      <state-number>1211</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="77" parent="29" name="idevent">
+      <state-number>1211</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="78" parent="29" name="idfederation">
+      <state-number>1211</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="79" parent="29" name="idmember">
+      <state-number>1211</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="80" parent="29" name="inqualification">
+      <state-number>1211</state-number>
+      <data-type>boolean|0</data-type>
+    </column>
+    <column id="81" parent="29" name="marknumber">
+      <state-number>1211</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="82" parent="29" name="nameonpedigree">
+      <state-number>1211</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="83" parent="29" name="numberbookkv">
+      <state-number>1211</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="84" parent="29" name="numberchip">
+      <state-number>1211</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="85" parent="29" name="numberpedigree">
+      <state-number>1211</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="86" parent="29" name="sex">
+      <state-number>1211</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="87" parent="29" name="dogsevent_pkey">
+      <object-id>33531</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="88" parent="29" name="dogsevent_pkey">
+      <object-id>33532</object-id>
+      <columns>id</columns>
+      <underlying-index>dogsevent_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="89" parent="30" name="id">
+      <state-number>1212</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;events_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="90" parent="30" name="datestart">
+      <state-number>1212</state-number>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="91" parent="30" name="headerevent">
+      <state-number>1212</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="92" parent="30" name="idrank">
+      <state-number>1212</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="93" parent="30" name="organizers">
+      <state-number>1212</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="94" parent="30" name="place">
+      <state-number>1212</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="95" parent="30" name="season">
+      <state-number>1212</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="96" parent="30" name="events_pkey">
+      <object-id>33542</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="97" parent="30" name="events_pkey">
+      <object-id>33543</object-id>
+      <columns>id</columns>
+      <underlying-index>events_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="98" parent="31" name="id">
+      <state-number>1213</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;fcigroups_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="99" parent="31" name="fci">
+      <state-number>1213</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="100" parent="31" name="fcigroups_pkey">
+      <object-id>33550</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="101" parent="31" name="fcigroups_pkey">
+      <object-id>33551</object-id>
+      <columns>id</columns>
+      <underlying-index>fcigroups_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="102" parent="32" name="id">
+      <state-number>1214</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;federations_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="103" parent="32" name="federation">
+      <state-number>1214</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="104" parent="32" name="federations_pkey">
+      <object-id>33558</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="105" parent="32" name="federations_pkey">
+      <object-id>33559</object-id>
+      <columns>id</columns>
+      <underlying-index>federations_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="106" parent="33" name="id">
+      <state-number>1215</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;judges_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="107" parent="33" name="fio">
+      <state-number>1215</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="108" parent="33" name="idevent">
+      <state-number>1215</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="109" parent="33" name="judgefrom">
+      <state-number>1215</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="110" parent="33" name="typeid">
+      <state-number>1215</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <index id="111" parent="33" name="judges_pkey">
+      <object-id>33569</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="112" parent="33" name="judges_pkey">
+      <object-id>33570</object-id>
+      <columns>id</columns>
+      <underlying-index>judges_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="113" parent="34" name="id">
+      <state-number>1216</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;judgetype_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="114" parent="34" name="type">
+      <state-number>1216</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="115" parent="34" name="judgetype_pkey">
+      <object-id>33577</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="116" parent="34" name="judgetype_pkey">
+      <object-id>33578</object-id>
+      <columns>id</columns>
+      <underlying-index>judgetype_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="117" parent="35" name="id">
+      <state-number>1217</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;members_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="118" parent="35" name="city">
+      <state-number>1217</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="119" parent="35" name="datebirth">
+      <state-number>1217</state-number>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="120" parent="35" name="dateenter">
+      <state-number>1217</state-number>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="121" parent="35" name="email">
+      <state-number>1217</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="122" parent="35" name="fathername">
+      <state-number>1217</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="123" parent="35" name="img">
+      <state-number>1217</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="124" parent="35" name="name">
+      <state-number>1217</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="125" parent="35" name="phonenumber">
+      <state-number>1217</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="126" parent="35" name="sex">
+      <state-number>1217</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="127" parent="35" name="surname">
+      <state-number>1217</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="128" parent="35" name="members_pkey">
+      <object-id>33588</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="129" parent="35" name="members_pkey">
+      <object-id>33589</object-id>
+      <columns>id</columns>
+      <underlying-index>members_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="130" parent="36" name="id">
+      <state-number>1218</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;membersevent_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="131" parent="36" name="city">
+      <state-number>1218</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="132" parent="36" name="club">
+      <state-number>1218</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="133" parent="36" name="datebirth">
+      <state-number>1218</state-number>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="134" parent="36" name="descr">
+      <state-number>1218</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="135" parent="36" name="email">
+      <state-number>1218</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="136" parent="36" name="fio">
+      <state-number>1218</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="137" parent="36" name="idclassrace">
+      <state-number>1218</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="138" parent="36" name="idevent">
+      <state-number>1218</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="139" parent="36" name="numberphone">
+      <state-number>1218</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="140" parent="36" name="membersevent_pkey">
+      <object-id>33599</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="141" parent="36" name="membersevent_pkey">
+      <object-id>33600</object-id>
+      <columns>id</columns>
+      <underlying-index>membersevent_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="142" parent="37" name="id">
+      <state-number>1219</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;ranks_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="143" parent="37" name="rank">
+      <state-number>1219</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="144" parent="37" name="ranks_pkey">
+      <object-id>33607</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="145" parent="37" name="ranks_pkey">
+      <object-id>33608</object-id>
+      <columns>id</columns>
+      <underlying-index>ranks_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="146" parent="38" name="id">
+      <state-number>1220</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;results_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="147" parent="38" name="endtime">
+      <state-number>1220</state-number>
+      <data-type>time|0</data-type>
+    </column>
+    <column id="148" parent="38" name="idevent">
+      <state-number>1220</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="149" parent="38" name="idmember">
+      <state-number>1220</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="150" parent="38" name="positionmember">
+      <state-number>1220</state-number>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="151" parent="38" name="raznost">
+      <state-number>1220</state-number>
+      <data-type>time|0</data-type>
+    </column>
+    <column id="152" parent="38" name="starttime">
+      <state-number>1220</state-number>
+      <data-type>time|0</data-type>
+    </column>
+    <index id="153" parent="38" name="results_pkey">
+      <object-id>33615</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="154" parent="38" name="results_pkey">
+      <object-id>33616</object-id>
+      <columns>id</columns>
+      <underlying-index>results_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="155" parent="39" name="id">
+      <state-number>1221</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;users_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="156" parent="39" name="email">
+      <state-number>1221</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="157" parent="39" name="fio">
+      <state-number>1221</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="158" parent="39" name="pass">
+      <state-number>1221</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="159" parent="39" name="roles">
+      <state-number>1221</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="160" parent="39" name="username">
+      <state-number>1221</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="161" parent="39" name="users_pkey">
+      <object-id>33626</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="162" parent="39" name="users_pkey">
+      <object-id>33627</object-id>
+      <columns>id</columns>
+      <underlying-index>users_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

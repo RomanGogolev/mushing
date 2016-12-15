@@ -125,4 +125,28 @@ public class MemberEventManager {
             session.close();
         }
     }
+
+    public List<MemberEvent> search(String name){
+        String search="%"+name+"%";
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
+            Query query = session.createQuery("from MemberEvent where lower(CONCAT(surname || ' ' || name || ' ' || fathername)) like lower(:name) ");
+            query.setParameter("name", search);
+            List queryList = query.list();
+            beginTransaction.commit();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                System.out.println("list " + queryList);
+                return (List<MemberEvent>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
 }

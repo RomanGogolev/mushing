@@ -50,9 +50,6 @@ public class DeleteController {
     @Autowired
     RankManager rankManager;
 
-    @Autowired
-    ResultManager resultManager;
-
     @RequestMapping(value = "/secure/event-delete", method = RequestMethod.GET)
     public String eventdelete(@RequestParam int id, Model model){
         eventManager.delete(id);

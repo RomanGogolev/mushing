@@ -30,40 +30,78 @@
   </head>
 
   <body>
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand">MU</a>
+    <c:import url="head.jsp"/>
+    <div class="modal fade" id="createDog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Добавить собаку федерации</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/secure/dog-create">
+              <div class="form-group">
+                <label for="fullName" class="col-sm-2 control-label">Полное имя</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Полное имя" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="ownerName" class="col-sm-2 control-label">ФИО хозяина</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="ownerName" name="ownerName" placeholder="ФИО хозяина" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="homeName" class="col-sm-2 control-label">Домашняя кличка</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="homeName" name="homeName" placeholder="Домашняя кличка" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="markNumber" class="col-sm-2 control-label">Номер клейма</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="markNumber" name="markNumber" placeholder="Номер клейма" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="numberPedigree" class="col-sm-2 control-label">Номер родословной</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="numberPedigree" name="numberPedigree" placeholder="Номер родословной">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="numberChip" class="col-sm-2 control-label">Номер чипа</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="numberChip" name="numberChip" placeholder="Номер чипа" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="idfciGroup" class="col-sm-2 control-label">Группа FCI</label>
+                <div class="col-sm-10">
+                  <select class="input-medium search-query" name="idfciGroup" id="idfciGroup" required>
+                    <c:forEach items="${fcigroups}" var="fcigroup">
+                      <option value="${fcigroup.id}">${fcigroup.fci}</option>
+                    </c:forEach>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="dateBirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="dateBirth" name="dateBirth" placeholder="Дата рождения" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-success">Подтвердить</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="${contextPath}/secure">Члены Федерации</a></li>
-            <li class="active"><a href="${contextPath}/secure/dogs">Собаки Федерации</a></li>
-            <li><a href="${contextPath}/secure/events">Соревнования Федерации</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Настройки<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="${contextPath}/secure/fci">FCI группы</a></li>
-                <li><a href="${contextPath}/secure/classes">Классы соревнований</a></li>
-                <li><a href="${contextPath}/secure/breeds">Породы собак</a></li>
-                <li><a href="${contextPath}/secure/judges">Типы судьей</a></li>
-                <li><a href="${contextPath}/secure/ranks">Ранги</a></li>
-                <li><a href="${contextPath}/secure/federations">Федерации</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
       </div>
-    </nav>
-
+    </div>
     <div class="container">
       <form class="form-search" method="get" action="${contextPath}/secure/search">
         <input type="text" name="search" value="dog" hidden/>
@@ -100,7 +138,9 @@
           </div>
         </div>
       </div>
-      <a class="btn btn-success" href="${contextPath}/secure/dog-create">Добавить</a>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createDog">
+        Добавить
+      </button>
     </div>
 
 

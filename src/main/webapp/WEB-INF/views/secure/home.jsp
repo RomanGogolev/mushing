@@ -29,42 +29,84 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body>
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand">MU</a>
+    <c:import url="head.jsp"/>
+    <div class="modal fade" id="createMember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Добавить члена федерации</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" enctype="multipart/form-data" name="memberCreateForm" method="post" action="${contextPath}/secure/member-create">
+              <div class="form-group">
+                <label for="surname" class="col-sm-2 control-label">Фамилия</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="surname" name="surname" placeholder="Фамилия" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Имя</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Имя" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="fathername" class="col-sm-2 control-label">Отчество</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="fathername" name="fathername" placeholder="Отчество" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="city" class="col-sm-2 control-label">Город</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="city" name="city" placeholder="Отчество" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="phonenumber" class="col-sm-2 control-label">Телефон</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Телефон" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sex" class="col-sm-2 control-label">Пол</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="sex" id="sex" required>
+                    <option>Мужской</option>
+                    <option>Женский</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="datebirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="datebirth" name="datebirth" placeholder="Дата рождения" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="data" class="col-sm-2 control-label">Копия заявления</label>
+                <div class="col-sm-10">
+                  <input type="file" class="form-control" id="data" name="data" placeholder="Копия заявления" multiple="multiple" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-success">Подтвердить</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="${contextPath}/secure">Члены Федерации</a></li>
-            <li><a href="${contextPath}/secure/dogs">Собаки Федерации</a></li>
-            <li><a href="${contextPath}/secure/events">Соревнования Федерации</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Настройки<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="${contextPath}/secure/fci">FCI группы</a></li>
-                <li><a href="${contextPath}/secure/classes">Классы соревнований</a></li>
-                <li><a href="${contextPath}/secure/breeds">Породы собак</a></li>
-                <li><a href="${contextPath}/secure/judges">Типы судьей</a></li>
-                <li><a href="${contextPath}/secure/ranks">Ранги</a></li>
-                <li><a href="${contextPath}/secure/federations">Федерации</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
       </div>
-    </nav>
-
+    </div>
     <div class="container">
       <form class="form-search" method="get" action="${contextPath}/secure/search">
         <input type="text" name="search" value="user" hidden/>
@@ -77,7 +119,7 @@
           <h3 class="panel-title">Именинники</h3>
         </div>
         <div class="panel-body">
-          Сегодня день/месяц ${day}/${month}<BR>
+          Сегодня ${day}/${month}(день/месяц)<BR>
           В этом месяце дни рождения у:
           <div class=bs-example data-example-id=condensed-table>
                 <table class="table table-condensed">
@@ -132,7 +174,9 @@
           </div>
         </div>
       </div>
-      <a class="btn btn-success" href="${contextPath}/secure/member-create">Добавить</a>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createMember">
+        Добавить
+      </button>
     </div>
 
 

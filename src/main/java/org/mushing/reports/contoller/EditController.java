@@ -61,9 +61,6 @@ public class EditController {
     RankManager rankManager;
 
     @Autowired
-    ResultManager resultManager;
-
-    @Autowired
     FciGroupManager fciGroupManager;
 
     @RequestMapping(value = "/secure/dog-edit", method = RequestMethod.POST)
@@ -133,7 +130,6 @@ public class EditController {
         event.setSeason(eventEditForm.getSeason());
         event.setDatestart(eventEditForm.getDateStart());
         event.setHeaderevent(eventEditForm.getHeaderEvent());
-        event.setIdrank(eventEditForm.getIdRank());
         event.setOrganizers(eventEditForm.getOrganizers());
         event.setPlace(eventEditForm.getPlace());
         eventManager.edit(event);
@@ -183,8 +179,10 @@ public class EditController {
             BindingResult result,
             Model model){
         MemberEvent memberEvent = new MemberEvent();
+        memberEvent.setName(memberEventEditForm.getName());
+        memberEvent.setSurname(memberEventEditForm.getSurname());
+        memberEvent.setFathername(memberEventEditForm.getFathername());
         memberEvent.setId(memberEventEditForm.getId());
-        memberEvent.setFio(memberEventEditForm.getFio());
         memberEvent.setNumberphone(memberEventEditForm.getNumberphone());
         memberEvent.setIdclassrace(memberEventEditForm.getIdclassrace());
         memberEvent.setEmail(memberEventEditForm.getEmail());

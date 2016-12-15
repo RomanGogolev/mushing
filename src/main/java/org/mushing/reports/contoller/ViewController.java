@@ -58,9 +58,6 @@ public class ViewController {
     RankManager rankManager;
 
     @Autowired
-    ResultManager resultManager;
-
-    @Autowired
     TimeManager timeManager;
 
     @Autowired
@@ -77,6 +74,41 @@ public class ViewController {
     public String errorLogin(Model model) {
         model.addAttribute("error","Wrong login or password");
         return "index";
+    }
+
+    @RequestMapping(value = "/secure/classesinfo", method = RequestMethod.GET)
+    public String classesinfoview(Model model) {
+        return "secure/documents/classesinfo";
+    }
+
+    @RequestMapping(value = "/secure/reports", method = RequestMethod.GET)
+    public String reportsview(Model model) {
+        return "secure/documents/reports";
+    }
+
+    @RequestMapping(value = "/secure/rules", method = RequestMethod.GET)
+    public String rulesview(Model model) {
+        return "secure/documents/rules";
+    }
+
+    @RequestMapping(value = "/secure/statements", method = RequestMethod.GET)
+    public String statementsview(Model model) {
+        return "secure/documents/statements";
+    }
+
+    @RequestMapping(value = "/secure/blanks", method = RequestMethod.GET)
+    public String blanksview(Model model) {
+        return "secure/documents/blanks";
+    }
+
+    @RequestMapping(value = "/secure/anothermembers", method = RequestMethod.GET)
+    public String anothermembersview(Model model) {
+        return "secure/documents/blanks";
+    }
+
+    @RequestMapping(value = "/secure/anotherdogs", method = RequestMethod.GET)
+    public String anotherdogsview(Model model) {
+        return "secure/documents/blanks";
     }
 
     @RequestMapping(value = "/secure", method = RequestMethod.GET)
@@ -100,6 +132,8 @@ public class ViewController {
     @RequestMapping(value = "/secure/dogs", method = RequestMethod.GET)
     public String dogs(Model model){
         List<Dog> dogs = dogManager.getAll();
+        List<Fcigroup> fcigroups = fciGroupManager.getAll();
+        model.addAttribute("fcigroups",fcigroups);
         model.addAttribute("dogs",dogs);
         return "secure/dogs";
     }
@@ -114,7 +148,6 @@ public class ViewController {
     @RequestMapping(value = "/secure/event-view", method = RequestMethod.GET)
     public String eventview(@RequestParam int id, Model model){
         Event event = eventManager.get(id);
-        Rank rank = rankManager.get(event.getIdrank());
         List<Distance> distances = distanceManager.getByEventId(id);
         List<JudgeType> judgeTypes = judgeTypeManager.getAll();
         List<Judge> judges = judgeManager.getByEventId(id);
@@ -125,7 +158,6 @@ public class ViewController {
         model.addAttribute("judges",judges);
         model.addAttribute("judgeTypes",judgeTypes);
         model.addAttribute("event",event);
-        model.addAttribute("rank",rank);
         model.addAttribute("distances",distances);
         return "secure/preview/event";
     }
@@ -186,37 +218,6 @@ public class ViewController {
         List<Fcigroup> fcigroups = fciGroupManager.getAll();
         model.addAttribute("fcigroups",fcigroups);
         return "secure/settings/fcigroups";
-    }
-
-
-    @RequestMapping(value = "/secure/dog-create", method = RequestMethod.GET)
-    public String dogcreateview(Model model){
-        List<Fcigroup> fcigroups = fciGroupManager.getAll();
-        model.addAttribute("fcigroups",fcigroups);
-        return "secure/create/dog";
-    }
-
-    @RequestMapping(value = "/secure/member-create", method = RequestMethod.GET)
-    public String membercreateview(Model model){
-        return "secure/create/member";
-    }
-
-    @RequestMapping(value = "/secure/event-create", method = RequestMethod.GET)
-    public String eventcreateview(Model model){
-        List<Rank> ranks = rankManager.getAll();
-        model.addAttribute("ranks",ranks);
-        return "secure/create/event";
-    }
-
-    @RequestMapping(value = "/secure/dogevent-create", method = RequestMethod.GET)
-    public String dogeventcreateview(@RequestParam int idmember, Model model){
-        List<Breed> breeds = breedManager.getAll();
-        model.addAttribute("breeds",breeds);
-        List<Federation> federations = federationManager.getAll();
-        model.addAttribute("federations",federations);
-        MemberEvent memberEvent = memberEventManager.get(idmember);
-        model.addAttribute("memberevent",memberEvent);
-        return "secure/create/dogevent";
     }
 
     @RequestMapping(value = "/secure/memberevent-view", method = RequestMethod.GET)

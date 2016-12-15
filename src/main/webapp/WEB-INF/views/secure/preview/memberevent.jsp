@@ -31,39 +31,108 @@
 </head>
 
 <body>
-
-<!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">MU</a>
+<c:import url="../head.jsp"/>
+<div class="modal fade" id="createDogEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Добавить собаку</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/secure/dogevent-create">
+                    <input type="number" id="idevent" name="idevent" value="${memberevent.idevent}" hidden>
+                    <input type="number" id="idmember" name="idmember" value="${memberevent.id}" hidden>
+                    <div class="form-group">
+                        <label for="fioowner" class="col-sm-2 control-label">ФИО хозяина</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="${memberevent.surname} ${memberevent.name} ${memberevent.fathername}" class="form-control" id="fioowner" name="fioowner" placeholder="ФИО хозяина" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nameonpedigree" class="col-sm-2 control-label">Кличка собаки по родословной</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nameonpedigree" name="nameonpedigree" placeholder="Кличка собаки по родословной">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
+                        <div class="col-sm-10">
+                            <select class="input-medium search-query" name="sex" id="sex" required>
+                                <option>Кабель</option>
+                                <option>Сука</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="datebirth" name="datebirth" placeholder="Дата" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="idbreed" class="col-sm-2 control-label">Порода</label>
+                        <div class="col-sm-10">
+                            <select class="input-medium search-query" name="idbreed" id="idbreed">
+                                <c:forEach items="${breeds}" var="breed">
+                                    <option value="${breed.id}">${breed.breed}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="marknumber" class="col-sm-2 control-label">Номер клейма</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="marknumber" name="marknumber" placeholder="Номер клейма">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberchip" class="col-sm-2 control-label">Номер чипа</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="numberchip" name="numberchip" placeholder="Номер чипа">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
+                        <div class="col-sm-10">
+                            <select class="input-medium search-query" name="idfederation" id="idfederation">
+                                <c:forEach items="${federations}" var="federation">
+                                    <option value="${federation.id}">${federation.federation}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberpedigree" class="col-sm-2 control-label">Номер родослвной</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="numberpedigree" name="numberpedigree" placeholder="Номер родослвной">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberbookkv" class="col-sm-2 control-label">Номер квалификационной книжки</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="numberbookkv" name="numberbookkv" placeholder="Номер квалификационной книжки">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inqualification" class="col-sm-2 control-label">Собака участвует в квалификации</label>
+                        <div class="col-sm-10">
+                            <select class="input-medium search-query" name="inqualification" id="inqualification">
+                                <option value="false">Нет</option>
+                                <option value="true">Да</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Подтвердить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="${contextPath}/secure">Члены Федерации</a></li>
-                <li><a href="${contextPath}/secure/dogs">Собаки Федерации</a></li>
-                <li class="active"><a href="${contextPath}/secure/events">Соревнования Федерации</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Настройки<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="${contextPath}/secure/classes">Классы соревнований</a></li>
-                        <li><a href="${contextPath}/secure/breeds">Породы собак</a></li>
-                        <li><a href="${contextPath}/secure/judges">Типы судьей</a></li>
-                        <li><a href="${contextPath}/secure/ranks">Ранги</a></li>
-                        <li><a href="${contextPath}/secure/federations">Федерации</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!--/.nav-collapse -->
     </div>
-</nav>
-
+</div>
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -72,21 +141,21 @@
         <div class="panel-body">
             <div class="form-horizontal">
                 <div class="form-group">
-                    <label for="fio" class="col-sm-2 control-label">Фамилия Имя Отчество</label>
+                    <label for="surname" class="col-sm-2 control-label">Фамилия</label>
                     <div class="col-sm-10">
-                        <div name="fio" id="fio" class="form-control">${memberevent.fio}</div>
+                        <div class="form-control" id="surname">${memberevent.surname}</div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="city" class="col-sm-2 control-label">Город</label>
+                    <label for="name" class="col-sm-2 control-label">Имя</label>
                     <div class="col-sm-10">
-                        <div name="city" id="city" class="form-control">${memberevent.city}</div>
+                        <div class="form-control" id="name">${memberevent.name}</div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="club" class="col-sm-2 control-label">Клуб</label>
+                    <label for="fathername" class="col-sm-2 control-label">Отчество</label>
                     <div class="col-sm-10">
-                        <div name="club" id="club" class="form-control">${memberevent.club}</div>
+                        <div class="form-control" id="fathername">${memberevent.fathername}</div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -96,9 +165,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-sm-2 control-label">Email</label>
+                    <label for="city" class="col-sm-2 control-label">Город</label>
                     <div class="col-sm-10">
-                        <div name="email" id="email" class="form-control">${memberevent.email}</div>
+                        <div name="city" id="city" class="form-control">${memberevent.city}</div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -108,15 +177,27 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="descr" class="col-sm-2 control-label">Примечания</label>
+                    <label for="email" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-10">
-                        <div name="descr" id="descr" class="form-control">${memberevent.descr}</div>
+                        <div name="email" id="email" class="form-control">${memberevent.email}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="club" class="col-sm-2 control-label">Клуб</label>
+                    <div class="col-sm-10">
+                        <div name="club" id="club" class="form-control">${memberevent.club}</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
                     <div class="col-sm-10">
                         <div name="idclassrace" id="idclassrace" class="form-control">${clazz.classrace}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descr" class="col-sm-2 control-label">Примечания</label>
+                    <div class="col-sm-10">
+                        <div name="descr" id="descr" class="form-control">${memberevent.descr}</div>
                     </div>
                 </div>
                 <a href="${contextPath}/secure/event-view?id=${memberevent.idevent}" class="btn btn-success">Назад</a>
@@ -156,103 +237,10 @@
                     </c:forEach>
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createDogEvent">
+                    Добавить
+                </button>
             </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Собаки</h3>
-        </div>
-        <div class="panel-body">
-            <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/secure/dogevent-create">
-                <input type="number" id="idevent" name="idevent" value="${memberevent.idevent}" hidden>
-                <input type="number" id="idmember" name="idmember" value="${memberevent.id}" hidden>
-                <div class="form-group">
-                    <label for="fioowner" class="col-sm-2 control-label">ФИО хозяина</label>
-                    <div class="col-sm-10">
-                        <input type="text" value="${memberevent.fio}" class="form-control" id="fioowner" name="fioowner" placeholder="ФИО хозяина" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="nameonpedigree" class="col-sm-2 control-label">Кличка собаки по родословной</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nameonpedigree" name="nameonpedigree" placeholder="Кличка собаки по родословной">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
-                    <div class="col-sm-10">
-                        <select class="input-medium search-query" name="sex" id="sex" required>
-                            <option>Кабель</option>
-                            <option>Сука</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
-                    <div class="col-sm-10">
-                        <input type="date" class="form-control" id="datebirth" name="datebirth" placeholder="Дата" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="idbreed" class="col-sm-2 control-label">Порода</label>
-                    <div class="col-sm-10">
-                        <select class="input-medium search-query" name="idbreed" id="idbreed">
-                            <c:forEach items="${breeds}" var="breed">
-                                <option value="${breed.id}">${breed.breed}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="marknumber" class="col-sm-2 control-label">Номер клейма</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="marknumber" name="marknumber" placeholder="Номер клейма">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="numberchip" class="col-sm-2 control-label">Номер чипа</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="numberchip" name="numberchip" placeholder="Номер чипа">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
-                    <div class="col-sm-10">
-                        <select class="input-medium search-query" name="idfederation" id="idfederation">
-                            <c:forEach items="${federations}" var="federation">
-                                <option value="${federation.id}">${federation.federation}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="numberpedigree" class="col-sm-2 control-label">Номер родослвной</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="numberpedigree" name="numberpedigree" placeholder="Номер родослвной">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="numberbookkv" class="col-sm-2 control-label">Номер квалификационной книжки</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="numberbookkv" name="numberbookkv" placeholder="Номер квалификационной книжки">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inqualification" class="col-sm-2 control-label">Собака участвует в квалификации</label>
-                    <div class="col-sm-10">
-                        <select class="input-medium search-query" name="inqualification" id="inqualification">
-                            <option value="false">Нет</option>
-                            <option value="true">Да</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success">Подтвердить</button>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </div>
