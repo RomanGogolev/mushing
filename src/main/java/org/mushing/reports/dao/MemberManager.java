@@ -67,12 +67,34 @@ public class MemberManager {
         }
     }
 
-    public List<Member> getAll(){
+    public List<Member> getAllFromFeder(){
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Member");
+            Query query = session.createQuery("from Member where inFeder=TRUE");
+            List queryList = query.list();
+            beginTransaction.commit();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                System.out.println("list " + queryList);
+                return (List<Member>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<Member> getAllFromNotFeder(){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
+            Query query = session.createQuery("from Member where inFeder=FALSE");
             List queryList = query.list();
             beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
@@ -109,7 +131,7 @@ public class MemberManager {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query query = session.createQuery("from Member where MONTH(datebirth)=MONTH(CURRENT_DATE)");
+            Query query = session.createQuery("from Member where MONTH(datebirth)=MONTH(CURRENT_DATE) and inFeder=TRUE");
             List<Member> list = query.list();
             return list;
         } finally {
@@ -117,13 +139,37 @@ public class MemberManager {
         }
     }
 
-    public List<Member> search(String name){
+    public List<Member> searchFeder(String name){
         String search="%"+name+"%";
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Member where lower(CONCAT(surname || ' ' || name || ' ' || fathername)) like lower(:name) ");
+            Query query = session.createQuery("from Member where lower(CONCAT(surname || ' ' || name || ' ' || fathername)) like lower(:name) and inFeder=TRUE");
+            query.setParameter("name", search);
+            List queryList = query.list();
+            beginTransaction.commit();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                System.out.println("list " + queryList);
+                return (List<Member>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<Member> searchNotFeder(String name){
+        String search="%"+name+"%";
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
+            Query query = session.createQuery("from Member where lower(CONCAT(surname || ' ' || name || ' ' || fathername)) like lower(:name) and inFeder=FALSE");
             query.setParameter("name", search);
             List queryList = query.list();
             beginTransaction.commit();

@@ -76,6 +76,18 @@
                   <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
               </div>
+              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/anothermembers'}">
+                <div class="form-group">
+                  <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
+                  <div class="col-sm-10">
+                    <select class="input-medium search-query" name="idfederation" id="idfederation" required>
+                      <c:forEach items="${federations}" var="federation">
+                        <option value="${federation.id}">${federation.federation}</option>
+                      </c:forEach>
+                    </select>
+                  </div>
+                </div>
+              </c:if>
               <div class="form-group">
                 <label for="sex" class="col-sm-2 control-label">Пол</label>
                 <div class="col-sm-10">
@@ -91,12 +103,14 @@
                   <input type="date" class="form-control" id="datebirth" name="datebirth" placeholder="Дата рождения" required>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="data" class="col-sm-2 control-label">Копия заявления</label>
-                <div class="col-sm-10">
-                  <input type="file" class="form-control" id="data" name="data" placeholder="Копия заявления" multiple="multiple" required>
+              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure'}">
+                <div class="form-group">
+                  <label for="data" class="col-sm-2 control-label">Копия заявления</label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" id="data" name="data" placeholder="Копия заявления" multiple="multiple" required>
+                  </div>
                 </div>
-              </div>
+              </c:if>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" class="btn btn-success">Подтвердить</button>
@@ -108,39 +122,50 @@
       </div>
     </div>
     <div class="container">
-      <form class="form-search" method="get" action="${contextPath}/secure/search">
-        <input type="text" name="search" value="user" hidden/>
-        <input type="text" name="name" class="input-medium search-query">
-        <button type="submit" class="btn">Найти</button>
-      </form>
+      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure'}">
+        <form class="form-search" method="get" action="${contextPath}/secure/search">
+          <input type="text" name="search" value="user" hidden/>
+          <input type="text" name="name" class="input-medium search-query">
+          <button type="submit" class="btn">Найти</button>
+        </form>
+      </c:if>
+      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/anothermembers'}">
+        <form class="form-search" method="get" action="${contextPath}/secure/searchAnother">
+          <input type="text" name="search" value="user" hidden/>
+          <input type="text" name="name" class="input-medium search-query">
+          <button type="submit" class="btn">Найти</button>
+        </form>
+      </c:if>
       <BR>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Именинники</h3>
+      <c:if test="${not empty birthmembers}">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Именинники</h3>
+          </div>
+          <div class="panel-body">
+            Сегодня ${day}/${month}(день/месяц)<BR>
+            В этом месяце дни рождения у:
+            <div class=bs-example data-example-id=condensed-table>
+                  <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                      <th>ФИО</th>
+                      <th>День</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${birthmembers}" var="birthmember">
+                        <tr>
+                          <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.surname} ${birthmember.name} ${birthmember.fathername}</a></td>
+                          <td>${birthmember.datebirth.date}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                  </table>
+                </div>
+          </div>
         </div>
-        <div class="panel-body">
-          Сегодня ${day}/${month}(день/месяц)<BR>
-          В этом месяце дни рождения у:
-          <div class=bs-example data-example-id=condensed-table>
-                <table class="table table-condensed">
-                  <thead>
-                  <tr>
-                    <th>ФИО</th>
-                    <th>День</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <c:forEach items="${birthmembers}" var="birthmember">
-                      <tr>
-                        <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.surname} ${birthmember.name} ${birthmember.fathername}</a></td>
-                        <td>${birthmember.datebirth.date}</td>
-                      </tr>
-                  </c:forEach>
-                  </tbody>
-                </table>
-              </div>
-        </div>
-      </div>
+      </c:if>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Список</h3>

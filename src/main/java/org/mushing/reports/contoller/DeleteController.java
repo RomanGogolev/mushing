@@ -90,7 +90,7 @@ public class DeleteController {
     public String dogeventdelete(@RequestParam int id,@RequestParam int idmember, Model model){
         DogEvent dogEvent = dogEventManager.get(id);
         dogEventManager.delete(id);
-        return "redirect:/secure/memberevent-view?id="+dogEvent.getIdmember()+"&idevent="+dogEvent.getIdevent();
+        return "redirect:/secure/memberevent-view?id="+dogEvent.getEvent().getId()+"&idevent="+dogEvent.getEvent().getId();
     }
 
 }

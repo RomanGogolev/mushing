@@ -79,13 +79,9 @@
                     <label for="idfciGroup" class="col-sm-2 control-label">Группа FCI</label>
                     <div class="col-sm-10">
                         <select class="input-medium search-query" name="idfciGroup" id="idfciGroup" required>
+                            <option value="${dog.fcigroup.id}">${dog.fcigroup.fci}</option>
                             <c:forEach items="${fcigroups}" var="fcigroup">
-                                <c:if test="${fcigroup.id == dog.idfcigroup}">
-                                    <option value="${fcigroup.id}">${fcigroup.fci}</option>
-                                </c:if>
-                            </c:forEach>
-                            <c:forEach items="${fcigroups}" var="fcigroup">
-                                <c:if test="${fcigroup.id != dog.idfcigroup}">
+                                <c:if test="${fcigroup.id != dog.fcigroup.id}">
                                     <option value="${fcigroup.id}">${fcigroup.fci}</option>
                                 </c:if>
                             </c:forEach>

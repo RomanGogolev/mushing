@@ -58,6 +58,18 @@
                   <input type="text" class="form-control" id="homeName" name="homeName" placeholder="Домашняя кличка" required>
                 </div>
               </div>
+              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/anotherdogs'}">
+                <div class="form-group">
+                  <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
+                  <div class="col-sm-10">
+                    <select class="input-medium search-query" name="idfederation" id="idfederation" required>
+                      <c:forEach items="${federations}" var="federation">
+                        <option value="${federation.id}">${federation.federation}</option>
+                      </c:forEach>
+                    </select>
+                  </div>
+                </div>
+              </c:if>
               <div class="form-group">
                 <label for="markNumber" class="col-sm-2 control-label">Номер клейма</label>
                 <div class="col-sm-10">
@@ -103,11 +115,20 @@
       </div>
     </div>
     <div class="container">
-      <form class="form-search" method="get" action="${contextPath}/secure/search">
-        <input type="text" name="search" value="dog" hidden/>
-        <input type="text" name="name" class="input-medium search-query">
-        <button type="submit" class="btn">Найти</button>
-      </form>
+      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/dogs'}">
+        <form class="form-search" method="get" action="${contextPath}/secure/search">
+          <input type="text" name="search" value="dog" hidden/>
+          <input type="text" name="name" class="input-medium search-query">
+          <button type="submit" class="btn">Найти</button>
+        </form>
+      </c:if>
+      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/anotherdogs'}">
+        <form class="form-search" method="get" action="${contextPath}/secure/searchAnother">
+          <input type="text" name="search" value="dog" hidden/>
+          <input type="text" name="name" class="input-medium search-query">
+          <button type="submit" class="btn">Найти</button>
+        </form>
+      </c:if>
       <BR>
       <div class="panel panel-default">
         <div class="panel-heading">

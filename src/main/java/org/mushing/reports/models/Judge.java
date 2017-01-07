@@ -14,14 +14,16 @@ public class Judge {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "idevent")
-    private int idevent;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idevent")
+    private Event event;
 
     @Column(name = "judgefrom")
     private String judgefrom;
 
-    @Column(name = "typeid")
-    private int typeid;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "typeid")
+    private JudgeType type;
 
     @Column(name = "fio")
     private String fio;
@@ -34,12 +36,12 @@ public class Judge {
         this.id = id;
     }
 
-    public int getIdevent() {
-        return idevent;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setIdevent(int idevent) {
-        this.idevent = idevent;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     public String getJudgefrom() {
@@ -50,12 +52,12 @@ public class Judge {
         this.judgefrom = judgefrom;
     }
 
-    public int getTypeid() {
-        return typeid;
+    public JudgeType getType() {
+        return type;
     }
 
-    public void setTypeid(int typeid) {
-        this.typeid = typeid;
+    public void setType(JudgeType type) {
+        this.type = type;
     }
 
     public String getFio() {

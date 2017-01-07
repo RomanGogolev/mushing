@@ -38,7 +38,7 @@
         </div>
         <div class="panel-body">
             <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/secure/memberevent-edit">
-                <input type="number" id="idevent" name="idevent" value="${memberevent.idevent}" hidden>
+                <input type="number" id="idevent" name="idevent" value="${memberevent.event.id}" hidden>
                 <input type="number" id="id" name="id" value="${memberevent.id}" hidden>
                 <div class="form-group">
                     <label for="surname" class="col-sm-2 control-label">Фамилия</label>
@@ -98,13 +98,9 @@
                     <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="idclassrace" id="idclassrace">
+                            <option value="${memberevent.clazz.id}">${memberevent.clazz.classrace}</option>
                             <c:forEach items="${classes}" var="clazz">
-                                <c:if test="${clazz.id == memberevent.idclassrace}">
-                                    <option value="${clazz.id}">${clazz.classrace}</option>
-                                </c:if>
-                            </c:forEach>
-                            <c:forEach items="${classes}" var="clazz">
-                                <c:if test="${clazz.id != memberevent.idclassrace}">
+                                <c:if test="${clazz.id != memberevent.clazz.id}">
                                     <c:if test="${clazz.season eq event.season}">
                                         <option value="${clazz.id}">${clazz.classrace}</option>
                                     </c:if>
@@ -115,7 +111,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn">Сохранить</button>
-                    <a href="${contextPath}/secure/event-view?id=${memberevent.idevent}" class="btn bg-info">Назад</a>
+                    <a href="${contextPath}/secure/event-view?id=${memberevent.event.id}" class="btn bg-info">Назад</a>
                 </div>
             </form>
         </div>
@@ -126,7 +122,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../../resources/js/jquery.min.js"></script>
 <script src="../../../resources/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../../resources/js/ie10-viewport-bug-workaround.js"></script>

@@ -66,11 +66,7 @@
                     <label for="idbreed" class="col-sm-2 control-label">Порода</label>
                     <div class="col-sm-10">
                         <div class="form-control" id="idbreed" name="idbreed">
-                            <c:forEach items="${breeds}" var="breed">
-                                <c:if test="${breed.id == dogevent.idbreed}">
-                                    ${breed.breed}
-                                </c:if>
-                            </c:forEach>
+                            ${dogevent.breed.breed}
                         </div>
                     </div>
                 </div>
@@ -90,11 +86,7 @@
                     <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
                     <div class="col-sm-10">
                         <div class="form-control" id="idfederation" name="idfederation">
-                            <c:forEach items="${federations}" var="federation">
-                                <c:if test="${federation.id == dogevent.idfederation}">
-                                    ${federation.federation}
-                                </c:if>
-                            </c:forEach>
+                            ${dogevent.federation.federation}
                         </div>
                     </div>
                 </div>
@@ -125,7 +117,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <a href="${contextPath}/secure/memberevent-view?id=${dogevent.idmember}&idevent=${dogevent.idevent}" class="btn btn-success">Назад</a>
+                        <a href="${contextPath}/secure/memberevent-view?id=${dogevent.member.id}&idevent=${dogevent.event.id}" class="btn btn-success">Назад</a>
                     </div>
                 </div>
             </form>

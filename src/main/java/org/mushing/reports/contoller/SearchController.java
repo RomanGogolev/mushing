@@ -35,10 +35,26 @@ public class SearchController {
     public String search(Model model, @RequestParam String search, @RequestParam String name){
         model.addAttribute("search",search);
         if(search.equals("user")){
-            List<Member> members = memberManager.search(name);
+            List<Member> members = memberManager.searchFeder(name);
             model.addAttribute("members",members);
         }else if(search.equals("dog")){
-            List<Dog> dogs = dogManager.search(name);
+            List<Dog> dogs = dogManager.searchInFeder(name);
+            model.addAttribute("dogs",dogs);
+        }else if(search.equals("event")){
+            List<Event> events = eventManager.search(name);
+            model.addAttribute("events",events);
+        }
+        return "secure/search";
+    }
+
+    @RequestMapping(value = "/secure/searchAnother", method = RequestMethod.GET)
+    public String searchAnother(Model model, @RequestParam String search, @RequestParam String name){
+        model.addAttribute("search",search);
+        if(search.equals("user")){
+            List<Member> members = memberManager.searchNotFeder(name);
+            model.addAttribute("members",members);
+        }else if(search.equals("dog")){
+            List<Dog> dogs = dogManager.searchNotInFeder(name);
             model.addAttribute("dogs",dogs);
         }else if(search.equals("event")){
             List<Event> events = eventManager.search(name);

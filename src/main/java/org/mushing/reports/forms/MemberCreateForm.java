@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class MemberCreateForm implements CredentialsContainer {
 
+    protected Integer idfederation;
+
     protected String email;
 
     protected String surname;
@@ -30,6 +32,14 @@ public class MemberCreateForm implements CredentialsContainer {
     protected MultipartFile data;
 
     private String city;
+
+    public Integer getIdfederation() {
+        return this.idfederation;
+    }
+
+    public void setIdfederation(Integer idfederation) {
+        this.idfederation = idfederation;
+    }
 
     public String getCity() {
         return this.city;

@@ -15,8 +15,9 @@ public class MemberEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "idevent")
-    private int idevent;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idevent")
+    private Event event;
 
     @Column(name = "surname")
     private String surname;
@@ -45,8 +46,9 @@ public class MemberEvent {
     @Column(name = "descr")
     private String descr;
 
-    @Column(name = "idclassrace")
-    private int idclassrace;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idclassrace")
+    private Class clazz;
 
     @Column(name = "starttime")
     private Time starttime;
@@ -111,12 +113,20 @@ public class MemberEvent {
         this.id = id;
     }
 
-    public int getIdevent() {
-        return idevent;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setIdevent(int idevent) {
-        this.idevent = idevent;
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public Class getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Class clazz) {
+        this.clazz = clazz;
     }
 
     public String getSurname() {
@@ -191,11 +201,4 @@ public class MemberEvent {
         this.descr = descr;
     }
 
-    public int getIdclassrace() {
-        return idclassrace;
-    }
-
-    public void setIdclassrace(int idclassrace) {
-        this.idclassrace = idclassrace;
-    }
 }

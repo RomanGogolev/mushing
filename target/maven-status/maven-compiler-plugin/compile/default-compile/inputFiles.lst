@@ -6,6 +6,7 @@
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/FederationManager.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Dog.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Rank.java
+/home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/contoller/AjaxController.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/RankManager.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Fcigroup.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/FciGroupManager.java

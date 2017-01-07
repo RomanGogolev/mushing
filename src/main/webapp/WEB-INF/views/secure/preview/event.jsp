@@ -63,12 +63,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="idRank" class="col-sm-2 control-label">Ранг</label>
-                    <div class="col-sm-10">
-                        <div class="form-control" id="idRank">${rank.rank}</div>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="dateStart" class="col-sm-2 control-label">Дата (год/месяц/день)</label>
                     <div class="col-sm-10">
                         <div class="form-control" id="dateStart">${event.datestart}</div>
@@ -79,6 +73,74 @@
                         <a href="${contextPath}/secure/events" class="btn bg-info">Назад</a>
                         <a href="${contextPath}/secure/time?idevent=${event.id}" class="btn bg-info">Добавить время ко всем участникам</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addMemberEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Добавить участника</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/secure/memberevent-create">
+                        <input type="number" id="idevent" name="idevent" value="${event.id}" hidden>
+                        <div class="form-group">
+                            <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="datebirth" class="form-control" id="datebirth"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="col-sm-2 control-label">Город</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="city" id="city" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="numberphone" class="col-sm-2 control-label">Телефон</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="numberphone" id="numberphone" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="email" id="email" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="club" class="col-sm-2 control-label">Клуб</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="club" id="club" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="idclassrace" id="idclassrace">
+                                    <c:forEach items="${classes}" var="clazz">
+                                        <c:if test="${clazz.season eq event.season}">
+                                            <option value="${clazz.id}">${clazz.classrace}</option>
+                                        </c:if>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="descr" class="col-sm-2 control-label">Примечания</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="descr" id="descr" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn">Создать</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -194,11 +256,7 @@
                             <td>${memberEvent.name}</td>
                             <td>${memberEvent.fathername}</td>
                             <td>${memberEvent.city}</td>
-                            <c:forEach items="${classes}" var="clazz">
-                                <c:if test="${clazz.id == memberEvent.idclassrace}">
-                                    <td>${clazz.classrace}</td>
-                                </c:if>
-                            </c:forEach>
+                            <td>${memberEvent.clazz.classrace}</td>
                             <td>${memberEvent.datebirth}</td>
                             <td><a class="btn-success" href="${contextPath}/secure/memberevent-view?id=${memberEvent.id}&idevent=${event.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/memberevent-edit?id=${memberEvent.id}&idevent=${event.id}">Редактировать</a><a class="btn-danger" href="${contextPath}/secure/memberevent-delete?id=${memberEvent.id}&idevent=${event.id}">Удалить</a></td>
                         </tr>
@@ -206,7 +264,10 @@
                     </tbody>
                 </table>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createMemberEvent">
-                    Добавить участника
+                    Cоздать участника
+                </button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMemberEvent">
+                    Добавить участника из ИБ
                 </button>
             </div>
         </div>
@@ -274,11 +335,7 @@
                         <tr>
                             <td>${judge.fio}</td>
                             <td>${judge.judgefrom}</td>
-                            <c:forEach items="${judgeTypes}" var="judgeType">
-                                <c:if test="${judgeType.id == judge.typeid}">
-                                    <td>${judgeType.type}</td>
-                                </c:if>
-                            </c:forEach>
+                            <td>${judge.type.type}</td>
                             <td><a class="btn-danger" href="${contextPath}/secure/judge-delete?id=${judge.id}&idevent=${event.id}">Удалить</a></td>
                         </tr>
                     </c:forEach>

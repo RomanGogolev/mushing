@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by roman on 23.11.16.
@@ -61,6 +63,9 @@ public class EditController {
     RankManager rankManager;
 
     @Autowired
+    HttpServletRequest request;
+
+    @Autowired
     FciGroupManager fciGroupManager;
 
     @RequestMapping(value = "/secure/dog-edit", method = RequestMethod.POST)
@@ -72,7 +77,7 @@ public class EditController {
         Dog dog = new Dog();
         dog.setId(dogEditForm.getId());
         dog.setDatebirth(dogEditForm.getDateBirth());
-        dog.setIdfcigroup(dogEditForm.getIdfciGroup());
+        dog.setFcigroup(fciGroupManager.get(dogEditForm.getIdfciGroup()));
         dog.setFullname(dogEditForm.getFullName());
         dog.setHomename(dogEditForm.getHomeName());
         dog.setMarknumber(dogEditForm.getMarkNumber());
@@ -102,19 +107,25 @@ public class EditController {
         member.setDateenter(memberEditForm.getDateenter());
         member.setCity(memberEditForm.getCity());
         MultipartFile data = memberEditForm.getData();
+        Set<String> realPathtoUpload =  request.getServletContext().getResourcePaths("/");
+        System.out.println(realPathtoUpload.toString());
         String [] format = data.getOriginalFilename().split("\\.");
-        File file = new File("images/"+memberEditForm.getEmail()+"."+format[format.length-1]);
-        if(file.exists()){
-            file.delete();
-        }
-        file.mkdirs();
         try {
-            file.createNewFile();
-            data.transferTo(file);
+            if(!data.isEmpty()) {
+                String realPathtoUploads =  request.getServletContext().getRealPath("copyes");
+                if(! new File(realPathtoUploads).exists())
+                {
+                    new File(realPathtoUploads).mkdir();
+                }
+                String filePath = realPathtoUploads + memberEditForm.getEmail() + "." + format[format.length - 1];
+                System.out.println(filePath);
+                File dest = new File(filePath);
+                data.transferTo(dest);
+                member.setImg(dest.getAbsolutePath());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        member.setImg(file.getAbsolutePath());
         memberManager.edit(member);
         return "redirect:/secure";
     }
@@ -165,7 +176,7 @@ public class EditController {
     public String membereventeditview(@RequestParam int id, Model model){
         MemberEvent memberEvent = memberEventManager.get(id);
         List<Class> classes = classManager.getAll();
-        Event event = eventManager.get(memberEvent.getIdevent());
+        Event event = eventManager.get(memberEvent.getEvent().getId());
         model.addAttribute("memberevent",memberEvent);
         model.addAttribute("classes",classes);
         model.addAttribute("event",event);
@@ -184,15 +195,15 @@ public class EditController {
         memberEvent.setFathername(memberEventEditForm.getFathername());
         memberEvent.setId(memberEventEditForm.getId());
         memberEvent.setNumberphone(memberEventEditForm.getNumberphone());
-        memberEvent.setIdclassrace(memberEventEditForm.getIdclassrace());
+        memberEvent.setClazz(classManager.get(memberEventEditForm.getIdclassrace()));
         memberEvent.setEmail(memberEventEditForm.getEmail());
         memberEvent.setCity(memberEventEditForm.getCity());
         memberEvent.setClub(memberEventEditForm.getClub());
         memberEvent.setDatebirth(memberEventEditForm.getDatebirth());
         memberEvent.setDescr(memberEventEditForm.getDescr());
-        memberEvent.setIdevent(memberEventEditForm.getIdevent());
+        memberEvent.setEvent(eventManager.get(memberEventEditForm.getIdevent()));
         memberEventManager.edit(memberEvent);
-        return "redirect:/secure/event-view?id="+memberEvent.getIdevent();
+        return "redirect:/secure/event-view?id="+memberEvent.getEvent().getId();
     }
 
     @RequestMapping(value = "/secure/dogevent-edit", method = RequestMethod.POST)
@@ -203,10 +214,10 @@ public class EditController {
             Model model){
         DogEvent dogEvent = new DogEvent();
         dogEvent.setId(dogEventEditForm.getId());
-        dogEvent.setIdevent(dogEventEditForm.getIdevent());
-        dogEvent.setIdbreed(dogEventEditForm.getIdbreed());
-        dogEvent.setIdfederation(dogEventEditForm.getIdfederation());
-        dogEvent.setIdmember(dogEventEditForm.getIdmember());
+        dogEvent.setEvent(eventManager.get(dogEventEditForm.getIdevent()));
+        dogEvent.setBreed(breedManager.get(dogEventEditForm.getIdbreed()));
+        dogEvent.setFederation(federationManager.get(dogEventEditForm.getIdfederation()));
+        dogEvent.setMember(memberManager.get(dogEventEditForm.getIdmember()));
         dogEvent.setDateBirth(dogEventEditForm.getDatebirth());
         dogEvent.setFioowner(dogEventEditForm.getFioowner());
         dogEvent.setInqualification(dogEventEditForm.isInqualification());
@@ -217,7 +228,7 @@ public class EditController {
         dogEvent.setNumberpedigree(dogEventEditForm.getNumberpedigree());
         dogEvent.setSex(dogEventEditForm.getSex());
         dogEventManager.edit(dogEvent);
-        return "redirect:/secure/memberevent-view?&id="+dogEvent.getIdmember()+"&idevent="+dogEvent.getIdevent();
+        return "redirect:/secure/memberevent-view?&id="+dogEvent.getMember().getId()+"&idevent="+dogEvent.getEvent().getId();
     }
 
     @RequestMapping(value = "/secure/dogevent-edit", method = RequestMethod.GET)

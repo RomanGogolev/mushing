@@ -39,8 +39,8 @@
         <div class="panel-body">
             <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/secure/dogevent-edit">
                 <input type="number" id="id" name="id" value="${dogevent.id}" hidden>
-                <input type="number" id="idevent" name="idevent" value="${dogevent.idevent}" hidden>
-                <input type="number" id="idmember" name="idmember" value="${dogevent.idmember}" hidden>
+                <input type="number" id="idevent" name="idevent" value="${dogevent.event.id}" hidden>
+                <input type="number" id="idmember" name="idmember" value="${dogevent.member.id}" hidden>
                 <div class="form-group">
                     <label for="fioowner" class="col-sm-2 control-label">ФИО хозяина</label>
                     <div class="col-sm-10">
@@ -82,13 +82,9 @@
                     <label for="idbreed" class="col-sm-2 control-label">Порода</label>
                     <div class="col-sm-10">
                         <select class="input-medium search-query" name="idbreed" id="idbreed">
+                            <option value="${dogevent.breed.id}">${dogevent.breed.breed}</option>
                             <c:forEach items="${breeds}" var="breed">
-                                <c:if test="${breed.id == dogevent.idbreed}">
-                                    <option value="${breed.id}">${breed.breed}</option>
-                                </c:if>
-                            </c:forEach>
-                            <c:forEach items="${breeds}" var="breed">
-                                <c:if test="${breed.id != dogevent.idbreed}">
+                                <c:if test="${breed.id != dogevent.breed.id}">
                                     <option value="${breed.id}">${breed.breed}</option>
                                 </c:if>
                             </c:forEach>
@@ -111,13 +107,9 @@
                     <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
                     <div class="col-sm-10">
                         <select class="input-medium search-query" name="idfederation" id="idfederation">
+                            <option value="${dogevent.federation.id}">${dogevent.federation.federation}</option>
                             <c:forEach items="${federations}" var="federation">
-                                <c:if test="${federation.id == dogevent.idfederation}">
-                                    <option value="${federation.id}">${federation.federation}</option>
-                                </c:if>
-                            </c:forEach>
-                            <c:forEach items="${federations}" var="federation">
-                                <c:if test="${federation.id != dogevent.idfederation}">
+                                <c:if test="${federation.id != dogevent.federation.id}">
                                     <option value="${clazz.id}">${clazz.classrace}</option>
                                 </c:if>
                             </c:forEach>
@@ -158,7 +150,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-success">Подтвердить</button>
-                        <a href="${contextPath}/secure/memberevent-view?id=${dogevent.idmember}&idevent=${dogevent.idevent}" class="btn bg-info">Назад</a>
+                        <a href="${contextPath}/secure/memberevent-view?id=${dogevent.member.id}&idevent=${dogevent.event.id}" class="btn bg-info">Назад</a>
                     </div>
                 </div>
             </form>

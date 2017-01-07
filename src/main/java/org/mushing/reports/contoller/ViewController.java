@@ -103,12 +103,25 @@ public class ViewController {
 
     @RequestMapping(value = "/secure/anothermembers", method = RequestMethod.GET)
     public String anothermembersview(Model model) {
-        return "secure/documents/blanks";
+        List<Federation> federations = federationManager.getAll();
+        List<Member> members = memberManager.getAllFromNotFeder();
+        Date date = new Date(new java.util.Date().getTime());
+        model.addAttribute("federations",federations);
+        model.addAttribute("day", date.getDate());
+        model.addAttribute("month",date.getMonth()+1);
+        model.addAttribute("members",members);
+        return "secure/home";
     }
 
     @RequestMapping(value = "/secure/anotherdogs", method = RequestMethod.GET)
     public String anotherdogsview(Model model) {
-        return "secure/documents/blanks";
+        List<Dog> dogs = dogManager.getAllFromNotFeder();
+        List<Fcigroup> fcigroups = fciGroupManager.getAll();
+        List<Federation> federations = federationManager.getAll();
+        model.addAttribute("federations",federations);
+        model.addAttribute("fcigroups",fcigroups);
+        model.addAttribute("dogs",dogs);
+        return "secure/dogs";
     }
 
     @RequestMapping(value = "/secure", method = RequestMethod.GET)
@@ -120,7 +133,7 @@ public class ViewController {
                 return t1.getDatebirth().getDate() > t2.getDatebirth().getDate() ? 1 : (t1.getDatebirth().getDate() < t2.getDatebirth().getDate() ) ? -1 : 0;
             }
         });
-        List<Member> members = memberManager.getAll();
+        List<Member> members = memberManager.getAllFromFeder();
         Date date = new Date(new java.util.Date().getTime());
         model.addAttribute("day", date.getDate());
         model.addAttribute("month",date.getMonth()+1);
@@ -131,7 +144,7 @@ public class ViewController {
 
     @RequestMapping(value = "/secure/dogs", method = RequestMethod.GET)
     public String dogs(Model model){
-        List<Dog> dogs = dogManager.getAll();
+        List<Dog> dogs = dogManager.getAllFromFeder();
         List<Fcigroup> fcigroups = fciGroupManager.getAll();
         model.addAttribute("fcigroups",fcigroups);
         model.addAttribute("dogs",dogs);
@@ -223,7 +236,6 @@ public class ViewController {
     @RequestMapping(value = "/secure/memberevent-view", method = RequestMethod.GET)
     public String membereventview(@RequestParam int id, @RequestParam int idevent,Model model){
         MemberEvent memberEvent = memberEventManager.get(id);
-        Class clazz = classManager.get(memberEvent.getIdclassrace());
         List<DogEvent> dogEvents = dogEventManager.getByIdMember(id);
         List<Breed> breeds = breedManager.getAll();
         List<Federation> federations = federationManager.getAll();
@@ -231,7 +243,6 @@ public class ViewController {
         model.addAttribute("dogevents",dogEvents);
         model.addAttribute("breeds",breeds);
         model.addAttribute("memberevent",memberEvent);
-        model.addAttribute("clazz", clazz);
         return "secure/preview/memberevent";
     }
 

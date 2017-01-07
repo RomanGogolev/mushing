@@ -21,6 +21,7 @@ org/mushing/reports/contoller/DeleteController.class
 org/mushing/reports/services/CharsetFilter.class
 org/mushing/reports/models/Member.class
 org/mushing/reports/models/DogEvent.class
+org/mushing/reports/contoller/AjaxController.class
 org/mushing/reports/forms/MemberCreateForm.class
 org/mushing/reports/contoller/CreateController.class
 org/mushing/reports/dao/CustomUserDetails.class

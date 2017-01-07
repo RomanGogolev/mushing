@@ -14,14 +14,17 @@ public class DogEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "idmember")
-    private int idmember;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idmember")
+    private Member member;
 
-    @Column(name = "idevent")
-    private int idevent;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idevent")
+    private Event event;
 
-    @Column(name = "idbreed")
-    private int idbreed;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idbreed")
+    private Breed breed;
 
     @Column(name = "nameonpedigree")
     private String nameonpedigree;
@@ -38,8 +41,9 @@ public class DogEvent {
     @Column(name = "numberchip")
     private String numberchip;
 
-    @Column(name = "idfederation")
-    private int idfederation;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idfederation")
+    private Federation federation;
 
     @Column(name = "numberpedigree")
     private String numberpedigree;
@@ -59,30 +63,6 @@ public class DogEvent {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdmember() {
-        return idmember;
-    }
-
-    public void setIdmember(int idmember) {
-        this.idmember = idmember;
-    }
-
-    public int getIdevent() {
-        return idevent;
-    }
-
-    public void setIdevent(int idevent) {
-        this.idevent = idevent;
-    }
-
-    public int getIdbreed() {
-        return idbreed;
-    }
-
-    public void setIdbreed(int idbreed) {
-        this.idbreed = idbreed;
     }
 
     public String getNameonpedigree() {
@@ -125,14 +105,6 @@ public class DogEvent {
         this.numberchip = numberchip;
     }
 
-    public int getIdfederation() {
-        return idfederation;
-    }
-
-    public void setIdfederation(int idfederation) {
-        this.idfederation = idfederation;
-    }
-
     public String getNumberpedigree() {
         return numberpedigree;
     }
@@ -163,5 +135,41 @@ public class DogEvent {
 
     public void setInqualification(boolean inqualification) {
         this.inqualification = inqualification;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public Breed getBreed() {
+        return breed;
+    }
+
+    public void setBreed(Breed breed) {
+        this.breed = breed;
+    }
+
+    public void setDatebirth(Date datebirth) {
+        this.datebirth = datebirth;
+    }
+
+    public Federation getFederation() {
+        return federation;
+    }
+
+    public void setFederation(Federation federation) {
+        this.federation = federation;
     }
 }

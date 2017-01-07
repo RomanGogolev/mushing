@@ -44,6 +44,29 @@ public class Member {
     @Column(name = "city")
     private String city;
 
+    @Column(name = "inFeder")
+    private boolean inFeder;
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "federation")
+    private Federation federation;
+
+    public Federation getFederation() {
+        return federation;
+    }
+
+    public void setFederation(Federation federation) {
+        this.federation = federation;
+    }
+
+    public boolean isInFeder() {
+        return inFeder;
+    }
+
+    public void setInFeder(boolean inFeder) {
+        this.inFeder = inFeder;
+    }
+
     public String getCity() {
         return city;
     }

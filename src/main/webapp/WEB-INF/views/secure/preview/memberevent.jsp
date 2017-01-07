@@ -41,7 +41,7 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/secure/dogevent-create">
-                    <input type="number" id="idevent" name="idevent" value="${memberevent.idevent}" hidden>
+                    <input type="number" id="idevent" name="idevent" value="${memberevent.event.id}" hidden>
                     <input type="number" id="idmember" name="idmember" value="${memberevent.id}" hidden>
                     <div class="form-group">
                         <label for="fioowner" class="col-sm-2 control-label">ФИО хозяина</label>
@@ -191,7 +191,7 @@
                 <div class="form-group">
                     <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
                     <div class="col-sm-10">
-                        <div name="idclassrace" id="idclassrace" class="form-control">${clazz.classrace}</div>
+                        <div name="idclassrace" id="idclassrace" class="form-control">${memberevent.clazz.classrace}</div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -200,7 +200,7 @@
                         <div name="descr" id="descr" class="form-control">${memberevent.descr}</div>
                     </div>
                 </div>
-                <a href="${contextPath}/secure/event-view?id=${memberevent.idevent}" class="btn btn-success">Назад</a>
+                <a href="${contextPath}/secure/event-view?id=${memberevent.event.id}" class="btn btn-success">Назад</a>
             </div>
         </div>
     </div>
@@ -225,14 +225,10 @@
                     <c:forEach items="${dogevents}" var="dogevent">
                         <tr>
                             <td>${dogevent.nameonpedigree}</td>
-                            <c:forEach items="${breeds}" var="breed">
-                                <c:if test="${breed.id == dogevent.idbreed}">
-                                    <td>${breed.breed}</td>
-                                </c:if>
-                            </c:forEach>
+                            <td>${dogevent.breed.breed}</td>
                             <td>${dogevent.sex}</td>
                             <td>${dogevent.datebirth}</td>
-                            <td><a class="btn-success" href="${contextPath}/secure/dogevent-view?id=${dogevent.id}&idmember=${dogevent.idmember}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/dogevent-edit?id=${dogevent.id}">Редактировать</a><a class="btn-danger" href="${contextPath}/secure/dogevent-delete?id=${dogevent.id}&idmember=${dogevent.idmember}">Удалить</a></td>
+                            <td><a class="btn-success" href="${contextPath}/secure/dogevent-view?id=${dogevent.id}&idmember=${dogevent.member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/dogevent-edit?id=${dogevent.id}">Редактировать</a><a class="btn-danger" href="${contextPath}/secure/dogevent-delete?id=${dogevent.id}&idmember=${dogevent.member.id}">Удалить</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

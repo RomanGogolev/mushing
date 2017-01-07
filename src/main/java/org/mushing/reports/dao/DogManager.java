@@ -67,12 +67,34 @@ public class DogManager {
         }
     }
 
-    public List<Dog> getAll(){
+    public List<Dog> getAllFromFeder(){
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Dog");
+            Query query = session.createQuery("from Dog where inFeder=TRUE");
+            List queryList = query.list();
+            beginTransaction.commit();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                System.out.println("list " + queryList);
+                return (List<Dog>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<Dog> getAllFromNotFeder(){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
+            Query query = session.createQuery("from Dog where inFeder=FALSE");
             List queryList = query.list();
             beginTransaction.commit();
             if (queryList != null && queryList.isEmpty()) {
@@ -104,13 +126,37 @@ public class DogManager {
         }
     }
 
-    public List<Dog> search(String name){
+    public List<Dog> searchInFeder(String name){
         String search="%"+name+"%";
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Dog where lower(fullname) like lower(:name) or lower(homename) like lower('%:name%') ");
+            Query query = session.createQuery("from Dog where lower(fullname) like lower(:name) or lower(homename) like lower('%:name%') and inFeder=TRUE");
+            query.setParameter("name", search);
+            List queryList = query.list();
+            beginTransaction.commit();
+            if (queryList != null && queryList.isEmpty()) {
+                return null;
+            } else {
+                System.out.println("list " + queryList);
+                return (List<Dog>) queryList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<Dog> searchNotInFeder(String name){
+        String search="%"+name+"%";
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
+            Query query = session.createQuery("from Dog where lower(fullname) like lower(:name) or lower(homename) like lower('%:name%') and inFeder=FALSE");
             query.setParameter("name", search);
             List queryList = query.list();
             beginTransaction.commit();

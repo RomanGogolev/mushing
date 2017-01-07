@@ -28,8 +28,9 @@ public class Distance {
     @Column(name = "countround")
     private String countround;
 
-    @Column(name = "idevent")
-    private int idevent;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idevent")
+    private Event event;
 
     @Column(name = "weather")
     private String weather;
@@ -91,12 +92,12 @@ public class Distance {
         this.countround = countround;
     }
 
-    public int getIdevent() {
-        return idevent;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setIdevent(int idevent) {
-        this.idevent = idevent;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     public String getWeather() {

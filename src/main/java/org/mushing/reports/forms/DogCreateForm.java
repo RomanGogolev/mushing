@@ -9,6 +9,8 @@ import java.sql.Date;
  */
 public class DogCreateForm implements CredentialsContainer {
 
+    protected Integer idfederation;
+
     protected Date dateBirth;
 
     protected int idfciGroup;
@@ -24,6 +26,14 @@ public class DogCreateForm implements CredentialsContainer {
     protected String ownerName;
 
     protected String homeName;
+
+    public Integer getIdfederation() {
+        return this.idfederation;
+    }
+
+    public void setIdfederation(Integer idfederation) {
+        this.idfederation = idfederation;
+    }
 
     public String getHomeName() {
         return this.homeName;

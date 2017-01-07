@@ -32,11 +32,35 @@ public class Dog {
     @Column(name = "numberchip")
     private String numberchip;
 
-    @Column(name = "idfcigroup")
-    private int idfcigroup;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idfcigroup")
+    private Fcigroup fcigroup;
 
     @Column(name = "homename")
     private String homename;
+
+    @Column(name = "inFeder")
+    private boolean inFeder;
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "federation")
+    private Federation federation;
+
+    public Federation getFederation() {
+        return federation;
+    }
+
+    public void setFederation(Federation federation) {
+        this.federation = federation;
+    }
+
+    public boolean isInFeder() {
+        return inFeder;
+    }
+
+    public void setInFeder(boolean inFeder) {
+        this.inFeder = inFeder;
+    }
 
     public String getHomename() {
         return homename;
@@ -102,11 +126,11 @@ public class Dog {
         this.numberchip = numberchip;
     }
 
-    public int getIdfcigroup() {
-        return idfcigroup;
+    public Fcigroup getFcigroup() {
+        return fcigroup;
     }
 
-    public void setIdfcigroup(int idfcigroup) {
-        this.idfcigroup = idfcigroup;
+    public void setFcigroup(Fcigroup fcigroup) {
+        this.fcigroup = fcigroup;
     }
 }
