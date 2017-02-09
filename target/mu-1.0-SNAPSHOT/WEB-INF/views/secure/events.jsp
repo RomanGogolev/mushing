@@ -11,22 +11,6 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Информационная База</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../../resources/css/navbar-fixed-top.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../../resources/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../../resources/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -39,7 +23,7 @@
             <h4 class="modal-title" id="myModalLabel">Добавить мероприятие</h4>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" name="eventCreateForm" method="post" action="${contextPath}/secure/event-create">
+            <form class="form-horizontal" name="eventCreateForm" method="post" action="${contextPath}/event-create">
               <div class="form-group">
                 <label for="headerEvent" class="col-sm-2 control-label">Название мероприятия</label>
                 <div class="col-sm-10">
@@ -84,7 +68,7 @@
       </div>
     </div>
     <div class="container">
-      <form class="form-search" method="get" action="${contextPath}/secure/search">
+      <form class="form-search" method="get" action="${contextPath}/search">
         <input type="text" name="search" value="event" hidden/>
         <input type="text" name="name" class="input-medium search-query">
         <button type="submit" class="btn">Найти</button>
@@ -111,7 +95,7 @@
                   <td>${event.id}</td>
                   <td>${event.headerevent}</td>
                   <td>${event.season}</td>
-                  <td><a class="btn-success" href="${contextPath}/secure/event-view?id=${event.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/event-edit?id=${event.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/event-delete?id=${event.id}">Удалить</a></td>
+                  <td><a class="btn-success" href="${contextPath}/event-view?id=${event.id}">Просмотр</a><a class="btn-default" href="${contextPath}/event-edit?id=${event.id}">Изменить</a><a class="btn-danger" href="${contextPath}/event-delete?id=${event.id}">Удалить</a></td>
                 </tr>
               </c:forEach>
               </tbody>
@@ -123,14 +107,5 @@
         </div>
       </div>
     </div>
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../../resources/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../../resources/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

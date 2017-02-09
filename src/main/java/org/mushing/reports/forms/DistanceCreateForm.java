@@ -1,11 +1,11 @@
 package org.mushing.reports.forms;
 
-import org.springframework.security.core.CredentialsContainer;
+
 
 /**
  * Created by roman on 22.11.16.
  */
-public class DistanceCreateForm implements CredentialsContainer {
+public class DistanceCreateForm  {
 
     protected String countRound;
 
@@ -107,7 +107,6 @@ public class DistanceCreateForm implements CredentialsContainer {
         this.weather = weather;
     }
 
-    @Override
     public void eraseCredentials() {
         this.weather=null;
         this.countRound=null;

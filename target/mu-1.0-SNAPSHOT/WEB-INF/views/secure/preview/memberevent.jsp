@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,22 +11,6 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Информационная База</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../../../resources/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../../../resources/css/navbar-fixed-top.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../../../resources/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../../../resources/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -40,7 +23,7 @@
                 <h4 class="modal-title" id="myModalLabel">Добавить собаку</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/secure/dogevent-create">
+                <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/dogevent-create">
                     <input type="number" id="idevent" name="idevent" value="${memberevent.event.id}" hidden>
                     <input type="number" id="idmember" name="idmember" value="${memberevent.id}" hidden>
                     <div class="form-group">
@@ -200,7 +183,7 @@
                         <div name="descr" id="descr" class="form-control">${memberevent.descr}</div>
                     </div>
                 </div>
-                <a href="${contextPath}/secure/event-view?id=${memberevent.event.id}" class="btn btn-success">Назад</a>
+                <a href="${contextPath}/event-view?id=${memberevent.event.id}" class="btn btn-success">Назад</a>
             </div>
         </div>
     </div>
@@ -228,7 +211,7 @@
                             <td>${dogevent.breed.breed}</td>
                             <td>${dogevent.sex}</td>
                             <td>${dogevent.datebirth}</td>
-                            <td><a class="btn-success" href="${contextPath}/secure/dogevent-view?id=${dogevent.id}&idmember=${dogevent.member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/dogevent-edit?id=${dogevent.id}">Редактировать</a><a class="btn-danger" href="${contextPath}/secure/dogevent-delete?id=${dogevent.id}&idmember=${dogevent.member.id}">Удалить</a></td>
+                            <td><a class="btn-success" href="${contextPath}/dogevent-view?id=${dogevent.id}&idmember=${dogevent.member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/dogevent-edit?id=${dogevent.id}">Редактировать</a><a class="btn-danger" href="${contextPath}/dogevent-delete?id=${dogevent.id}&idmember=${dogevent.member.id}">Удалить</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -240,14 +223,5 @@
         </div>
     </div>
 </div>
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="../../../../resources/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../../../resources/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

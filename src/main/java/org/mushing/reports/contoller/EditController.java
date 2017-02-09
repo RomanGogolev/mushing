@@ -68,7 +68,7 @@ public class EditController {
     @Autowired
     FciGroupManager fciGroupManager;
 
-    @RequestMapping(value = "/secure/dog-edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/dog-edit", method = RequestMethod.POST)
     public String dogedit(
             RedirectAttributes redirectAttributes,
             DogEditForm dogEditForm,
@@ -85,10 +85,10 @@ public class EditController {
         dog.setNumberpedigree(dogEditForm.getNumberPedigree());
         dog.setOwnername(dogEditForm.getOwnerName());
         dogManager.edit(dog);
-        return "redirect:/secure/dogs";
+        return "redirect:/dogs";
     }
 
-    @RequestMapping(value = "/secure/member-edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/member-edit", method = RequestMethod.POST)
     public String memberedit(
             RedirectAttributes redirectAttributes,
             MemberEditForm memberEditForm,
@@ -127,10 +127,10 @@ public class EditController {
             e.printStackTrace();
         }
         memberManager.edit(member);
-        return "redirect:/secure";
+        return "redirect:";
     }
 
-    @RequestMapping(value = "/secure/event-edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/event-edit", method = RequestMethod.POST)
     public String eventedit(
             RedirectAttributes redirectAttributes,
             EventEditForm eventEditForm,
@@ -144,10 +144,10 @@ public class EditController {
         event.setOrganizers(eventEditForm.getOrganizers());
         event.setPlace(eventEditForm.getPlace());
         eventManager.edit(event);
-        return "redirect:/secure/events";
+        return "redirect:/events";
     }
 
-    @RequestMapping(value = "/secure/event-edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/event-edit", method = RequestMethod.GET)
     public String eventeditview(@RequestParam int id, Model model){
         Event event = eventManager.get(id);
         List<Rank> ranks = rankManager.getAll();
@@ -156,7 +156,7 @@ public class EditController {
         return "secure/edit/event";
     }
 
-    @RequestMapping(value = "/secure/dog-edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/dog-edit", method = RequestMethod.GET)
     public String dogeditview(@RequestParam int id, Model model){
         Dog dog = dogManager.get(id);
         List<Fcigroup> fcigroups = fciGroupManager.getAll();
@@ -165,14 +165,14 @@ public class EditController {
         return "secure/edit/dog";
     }
 
-    @RequestMapping(value = "/secure/member-edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/member-edit", method = RequestMethod.GET)
     public String membereditview(@RequestParam int id, Model model){
         Member member = memberManager.get(id);
         model.addAttribute("member",member);
         return "secure/edit/member";
     }
 
-    @RequestMapping(value = "/secure/memberevent-edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/memberevent-edit", method = RequestMethod.GET)
     public String membereventeditview(@RequestParam int id, Model model){
         MemberEvent memberEvent = memberEventManager.get(id);
         List<Class> classes = classManager.getAll();
@@ -183,7 +183,7 @@ public class EditController {
         return "secure/edit/memberevent";
     }
 
-    @RequestMapping(value = "/secure/memberevent-edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/memberevent-edit", method = RequestMethod.POST)
     public String membereventedit(
             RedirectAttributes redirectAttributes,
             MemberEventEditForm memberEventEditForm,
@@ -203,10 +203,10 @@ public class EditController {
         memberEvent.setDescr(memberEventEditForm.getDescr());
         memberEvent.setEvent(eventManager.get(memberEventEditForm.getIdevent()));
         memberEventManager.edit(memberEvent);
-        return "redirect:/secure/event-view?id="+memberEvent.getEvent().getId();
+        return "redirect:/event-view?id="+memberEvent.getEvent().getId();
     }
 
-    @RequestMapping(value = "/secure/dogevent-edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/dogevent-edit", method = RequestMethod.POST)
     public String dogeventedit(
             RedirectAttributes redirectAttributes,
             DogEventEditForm dogEventEditForm,
@@ -228,10 +228,10 @@ public class EditController {
         dogEvent.setNumberpedigree(dogEventEditForm.getNumberpedigree());
         dogEvent.setSex(dogEventEditForm.getSex());
         dogEventManager.edit(dogEvent);
-        return "redirect:/secure/memberevent-view?&id="+dogEvent.getMember().getId()+"&idevent="+dogEvent.getEvent().getId();
+        return "redirect:/memberevent-view?&id="+dogEvent.getMember().getId()+"&idevent="+dogEvent.getEvent().getId();
     }
 
-    @RequestMapping(value = "/secure/dogevent-edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/dogevent-edit", method = RequestMethod.GET)
     public String dogeventeditview(@RequestParam int id, Model model){
         DogEvent dogEvent = dogEventManager.get(id);
         model.addAttribute("dogevent",dogEvent);

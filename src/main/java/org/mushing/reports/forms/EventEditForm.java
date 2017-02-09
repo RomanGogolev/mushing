@@ -1,13 +1,13 @@
 package org.mushing.reports.forms;
 
-import org.springframework.security.core.CredentialsContainer;
+
 
 import java.sql.Date;
 
 /**
  * Created by roman on 21.11.16.
  */
-public class EventEditForm implements CredentialsContainer {
+public class EventEditForm  {
 
     protected int id;
 
@@ -79,7 +79,6 @@ public class EventEditForm implements CredentialsContainer {
         this.season = season;
     }
 
-    @Override
     public void eraseCredentials() {
         this.dateStart=null;
         this.headerEvent=null;

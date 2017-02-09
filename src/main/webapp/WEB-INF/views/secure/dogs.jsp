@@ -11,22 +11,6 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Информационная База</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../../resources/css/navbar-fixed-top.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../../resources/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../../resources/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -39,7 +23,7 @@
             <h4 class="modal-title" id="myModalLabel">Добавить собаку федерации</h4>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/secure/dog-create">
+            <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/dog-create">
               <div class="form-group">
                 <label for="fullName" class="col-sm-2 control-label">Полное имя</label>
                 <div class="col-sm-10">
@@ -58,7 +42,7 @@
                   <input type="text" class="form-control" id="homeName" name="homeName" placeholder="Домашняя кличка" required>
                 </div>
               </div>
-              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/anotherdogs'}">
+              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/anotherdogs'}">
                 <div class="form-group">
                   <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
                   <div class="col-sm-10">
@@ -115,15 +99,15 @@
       </div>
     </div>
     <div class="container">
-      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/dogs'}">
-        <form class="form-search" method="get" action="${contextPath}/secure/search">
+      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/dogs'}">
+        <form class="form-search" method="get" action="${contextPath}/search">
           <input type="text" name="search" value="dog" hidden/>
           <input type="text" name="name" class="input-medium search-query">
           <button type="submit" class="btn">Найти</button>
         </form>
       </c:if>
-      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/anotherdogs'}">
-        <form class="form-search" method="get" action="${contextPath}/secure/searchAnother">
+      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/anotherdogs'}">
+        <form class="form-search" method="get" action="${contextPath}/searchAnother">
           <input type="text" name="search" value="dog" hidden/>
           <input type="text" name="name" class="input-medium search-query">
           <button type="submit" class="btn">Найти</button>
@@ -151,7 +135,7 @@
                   <td>${dog.id}</td>
                   <td>${dog.fullname}</td>
                   <td>${dog.ownername}</td>
-                  <td><a class="btn-success" href="${contextPath}/secure/dog-view?id=${dog.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/dog-edit?id=${dog.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/dog-delete?id=${dog.id}">Удалить</a></td>
+                  <td><a class="btn-success" href="${contextPath}/dog-view?id=${dog.id}">Просмотр</a><a class="btn-default" href="${contextPath}/dog-edit?id=${dog.id}">Изменить</a><a class="btn-danger" href="${contextPath}/dog-delete?id=${dog.id}">Удалить</a></td>
                 </tr>
               </c:forEach>
               </tbody>
@@ -163,14 +147,5 @@
         Добавить
       </button>
     </div>
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../../resources/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../../resources/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

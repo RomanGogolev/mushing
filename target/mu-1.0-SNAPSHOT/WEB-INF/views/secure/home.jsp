@@ -12,22 +12,6 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Информационная База</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../../resources/css/navbar-fixed-top.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../../resources/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../../resources/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
     <c:import url="head.jsp"/>
@@ -39,7 +23,7 @@
             <h4 class="modal-title" id="myModalLabel">Добавить члена федерации</h4>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" enctype="multipart/form-data" name="memberCreateForm" method="post" action="${contextPath}/secure/member-create">
+            <form class="form-horizontal" enctype="multipart/form-data" name="memberCreateForm" method="post" action="${contextPath}/member-create">
               <div class="form-group">
                 <label for="surname" class="col-sm-2 control-label">Фамилия</label>
                 <div class="col-sm-10">
@@ -76,7 +60,7 @@
                   <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
               </div>
-              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/anothermembers'}">
+              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/anothermembers'}">
                 <div class="form-group">
                   <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
                   <div class="col-sm-10">
@@ -103,7 +87,7 @@
                   <input type="date" class="form-control" id="datebirth" name="datebirth" placeholder="Дата рождения" required>
                 </div>
               </div>
-              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure'}">
+              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq ''}">
                 <div class="form-group">
                   <label for="data" class="col-sm-2 control-label">Копия заявления</label>
                   <div class="col-sm-10">
@@ -122,15 +106,15 @@
       </div>
     </div>
     <div class="container">
-      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure'}">
-        <form class="form-search" method="get" action="${contextPath}/secure/search">
+      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq ''}">
+        <form class="form-search" method="get" action="${contextPath}/search">
           <input type="text" name="search" value="user" hidden/>
           <input type="text" name="name" class="input-medium search-query">
           <button type="submit" class="btn">Найти</button>
         </form>
       </c:if>
-      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/secure/anothermembers'}">
-        <form class="form-search" method="get" action="${contextPath}/secure/searchAnother">
+      <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/anothermembers'}">
+        <form class="form-search" method="get" action="${contextPath}/searchAnother">
           <input type="text" name="search" value="user" hidden/>
           <input type="text" name="name" class="input-medium search-query">
           <button type="submit" class="btn">Найти</button>
@@ -156,7 +140,7 @@
                     <tbody>
                     <c:forEach items="${birthmembers}" var="birthmember">
                         <tr>
-                          <td><a href="${contextPath}/secure/member-view?id=${birthmember.id}">${birthmember.surname} ${birthmember.name} ${birthmember.fathername}</a></td>
+                          <td><a href="${contextPath}/member-view?id=${birthmember.id}">${birthmember.surname} ${birthmember.name} ${birthmember.fathername}</a></td>
                           <td>${birthmember.datebirth.date}</td>
                         </tr>
                     </c:forEach>
@@ -191,7 +175,7 @@
                   <td>${member.name}</td>
                   <td>${member.fathername}</td>
                   <td>${member.email}</td>
-                  <td><a class="btn-success" href="${contextPath}/secure/member-view?id=${member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/member-edit?id=${member.id}">Изменить</a><a class="btn-danger" href="${contextPath}/secure/member-delete?id=${member.id}">Удалить</a></td>
+                  <td><a class="btn-success" href="${contextPath}/member-view?id=${member.id}">Просмотр</a><a class="btn-default" href="${contextPath}/member-edit?id=${member.id}">Изменить</a><a class="btn-danger" href="${contextPath}/member-delete?id=${member.id}">Удалить</a></td>
                 </tr>
               </c:forEach>
               </tbody>
@@ -203,14 +187,5 @@
         Добавить
       </button>
     </div>
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../../resources/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../../resources/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

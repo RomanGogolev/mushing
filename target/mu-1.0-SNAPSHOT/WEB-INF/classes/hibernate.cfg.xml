@@ -6,18 +6,18 @@
 
     <session-factory>
         <!-- Connection settings -->
-        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://ec2-23-21-96-70.compute-1.amazonaws.com:5432/de27481noej1qo</property>
-        <property name="hibernate.connection.username">tnsgudvodulims</property>
-        <property name="hibernate.connection.password">he2PSZ1OFg-xsBrMdSDGL3DjFi</property>
-        <!-- SQL dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-
-        <!--<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>-->
-        <!--<property name="hibernate.connection.username">postgres</property>-->
-        <!--<property name="hibernate.connection.password">12345</property>-->
+        <!--<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>-->
+        <!--<property name="hibernate.connection.url">jdbc:postgresql://ec2-23-21-96-70.compute-1.amazonaws.com:5432/de27481noej1qo</property>-->
+        <!--<property name="hibernate.connection.username">tnsgudvodulims</property>-->
+        <!--<property name="hibernate.connection.password">he2PSZ1OFg-xsBrMdSDGL3DjFi</property>-->
         <!--&lt;!&ndash; SQL dialect &ndash;&gt;-->
         <!--<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>-->
+
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">12345</property>
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
         <!-- Print executed SQL to stdout -->
         <property name="show_sql">true</property>
@@ -26,10 +26,9 @@
 
         <!-- Drop and re-create all database on startup -->
 
-        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
         <!-- Подключение объектов сущностей -->
         <mapping class="org.mushing.reports.models.Fcigroup"/>
-        <mapping class="org.mushing.reports.models.User"/>
         <mapping class="org.mushing.reports.models.Breed"/>
         <mapping class="org.mushing.reports.models.Class"/>
         <mapping class="org.mushing.reports.models.Distance"/>

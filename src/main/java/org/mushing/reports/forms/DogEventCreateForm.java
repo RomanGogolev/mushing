@@ -1,13 +1,13 @@
 package org.mushing.reports.forms;
 
-import org.springframework.security.core.CredentialsContainer;
+
 
 import java.sql.Date;
 
 /**
  * Created by roman on 07.12.16.
  */
-public class DogEventCreateForm implements CredentialsContainer {
+public class DogEventCreateForm  {
 
     protected Date datebirth;
 
@@ -139,7 +139,6 @@ public class DogEventCreateForm implements CredentialsContainer {
         this.sex = sex;
     }
 
-    @Override
     public void eraseCredentials() {
         this.datebirth=null;
         this.fioowner=null;

@@ -50,47 +50,47 @@ public class DeleteController {
     @Autowired
     RankManager rankManager;
 
-    @RequestMapping(value = "/secure/event-delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/event-delete", method = RequestMethod.GET)
     public String eventdelete(@RequestParam int id, Model model){
         eventManager.delete(id);
-        return "redirect:/secure/events";
+        return "redirect:/events";
     }
 
-    @RequestMapping(value = "/secure/dog-delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/dog-delete", method = RequestMethod.GET)
     public String dogdelete(@RequestParam int id, Model model){
         dogManager.delete(id);
-        return "redirect:/secure/dogs";
+        return "redirect:/dogs";
     }
 
-    @RequestMapping(value = "/secure/member-delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/member-delete", method = RequestMethod.GET)
     public String memberdelete(@RequestParam int id, Model model){
         memberManager.delete(id);
-        return "redirect:/secure";
+        return "redirect:";
     }
 
-    @RequestMapping(value = "/secure/distance-delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/distance-delete", method = RequestMethod.GET)
     public String distancedelete(@RequestParam int id,@RequestParam int idevent, Model model){
         distanceManager.delete(id);
-        return "redirect:/secure/event-view?id="+idevent;
+        return "redirect:/event-view?id="+idevent;
     }
 
-    @RequestMapping(value = "/secure/judge-delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/judge-delete", method = RequestMethod.GET)
     public String judgeedelete(@RequestParam int id,@RequestParam int idevent, Model model){
         judgeManager.delete(id);
-        return "redirect:/secure/event-view?id="+idevent;
+        return "redirect:/event-view?id="+idevent;
     }
 
-    @RequestMapping(value = "/secure/memberevent-delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/memberevent-delete", method = RequestMethod.GET)
     public String membereventdelete(@RequestParam int id,@RequestParam int idevent, Model model){
         memberEventManager.delete(id);
-        return "redirect:/secure/event-view?id="+idevent;
+        return "redirect:/event-view?id="+idevent;
     }
 
-    @RequestMapping(value = "/secure/dogevent-delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/dogevent-delete", method = RequestMethod.GET)
     public String dogeventdelete(@RequestParam int id,@RequestParam int idmember, Model model){
         DogEvent dogEvent = dogEventManager.get(id);
         dogEventManager.delete(id);
-        return "redirect:/secure/memberevent-view?id="+dogEvent.getEvent().getId()+"&idevent="+dogEvent.getEvent().getId();
+        return "redirect:/memberevent-view?id="+dogEvent.getEvent().getId()+"&idevent="+dogEvent.getEvent().getId();
     }
 
 }

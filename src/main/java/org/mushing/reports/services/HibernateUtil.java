@@ -9,10 +9,6 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 public class HibernateUtil {
     private static final SessionFactory sessionFactory
             = configureSessionFactory();
@@ -25,6 +21,11 @@ public class HibernateUtil {
      */
     private static SessionFactory configureSessionFactory()
             throws HibernateException {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         Configuration configuration = new Configuration().configure();
         serviceRegistry = new ServiceRegistryBuilder().applySettings(
                 configuration.getProperties()).buildServiceRegistry();

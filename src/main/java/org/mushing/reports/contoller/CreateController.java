@@ -25,6 +25,9 @@ import java.util.List;
  */
 @Controller
 public class CreateController {
+
+    private String UPLOAD_DIRECTORY="/home/roman/Документы/uploaded/";
+
     @Autowired
     BreedManager breedManager;
 
@@ -67,16 +70,16 @@ public class CreateController {
     @Autowired
     FciGroupManager fciGroupManager;
 
-    @RequestMapping(value = "/secure/fci-create", method = RequestMethod.GET)
+    @RequestMapping(value = "/fci-create", method = RequestMethod.GET)
     public String fcicreate(Model model, @RequestParam String fci){
         Fcigroup fcigroup = new Fcigroup();
         fcigroup.setFci(fci);
         fciGroupManager.create(fcigroup);
-        return "redirect:/secure/fci";
+        return "redirect:/fci";
     }
 
 
-    @RequestMapping(value = "/secure/class-create", method = RequestMethod.GET)
+    @RequestMapping(value = "/class-create", method = RequestMethod.GET)
     public String classcreate(Model model, @RequestParam String classrace, @RequestParam String season,
                               @RequestParam String rkfname, @RequestParam String fesname){
         Class c = new Class();
@@ -85,42 +88,42 @@ public class CreateController {
         c.setRkfname(rkfname);
         c.setSeason(season);
         classManager.create(c);
-        return "redirect:/secure/classes";
+        return "redirect:/classes";
     }
 
-    @RequestMapping(value = "/secure/breed-create", method = RequestMethod.GET)
+    @RequestMapping(value = "/breed-create", method = RequestMethod.GET)
     public String breedcreate(Model model, @RequestParam String breed){
         Breed b = new Breed();
         b.setBreed(breed);
         breedManager.create(b);
-        return "redirect:/secure/breeds";
+        return "redirect:/breeds";
     }
 
-    @RequestMapping(value = "/secure/federation-create", method = RequestMethod.GET)
+    @RequestMapping(value = "/federation-create", method = RequestMethod.GET)
     public String federationcreate(Model model, @RequestParam String federation){
         Federation f = new Federation();
         f.setFederation(federation);
         federationManager.create(f);
-        return "redirect:/secure/federations";
+        return "redirect:/federations";
     }
 
-    @RequestMapping(value = "/secure/judge-create", method = RequestMethod.GET)
+    @RequestMapping(value = "/judge-create", method = RequestMethod.GET)
     public String judgecreate(Model model, @RequestParam String type){
         JudgeType judgeType = new JudgeType();
         judgeType.setType(type);
         judgeTypeManager.create(judgeType);
-        return "redirect:/secure/judges";
+        return "redirect:/judges";
     }
 
-    @RequestMapping(value = "/secure/rank-create", method = RequestMethod.GET)
+    @RequestMapping(value = "/rank-create", method = RequestMethod.GET)
     public String rankcreate(Model model, @RequestParam String rank){
         Rank r = new Rank();
         r.setRank(rank);
         rankManager.create(r);
-        return "redirect:/secure/ranks";
+        return "redirect:/ranks";
     }
 
-    @RequestMapping(value = "/secure/distance-create", method = RequestMethod.POST)
+    @RequestMapping(value = "/distance-create", method = RequestMethod.POST)
     public String distancecreate(
             RedirectAttributes redirectAttributes,
             DistanceCreateForm distanceCreateForm,
@@ -138,10 +141,10 @@ public class CreateController {
         distance.setView(distanceCreateForm.getView());
         distance.setWeather(distanceCreateForm.getWeather());
         distanceManager.create(distance);
-        return "redirect:/secure/event-view?id="+distance.getEvent().getId();
+        return "redirect:/event-view?id="+distance.getEvent().getId();
     }
 
-    @RequestMapping(value = "/secure/judge-create", method = RequestMethod.POST)
+    @RequestMapping(value = "/judge-create", method = RequestMethod.POST)
     public String judgecreate(
             RedirectAttributes redirectAttributes,
             JudgeCreateForm judgeCreateForm,
@@ -153,10 +156,10 @@ public class CreateController {
         judge.setJudgefrom(judgeCreateForm.getJudgeFrom());
         judge.setType(judgeTypeManager.get(judgeCreateForm.getTypeId()));
         judgeManager.create(judge);
-        return "redirect:/secure/event-view?id="+judge.getEvent().getId();
+        return "redirect:/event-view?id="+judge.getEvent().getId();
     }
 
-    @RequestMapping(value = "/secure/dog-create", method = RequestMethod.POST)
+    @RequestMapping(value = "/dog-create", method = RequestMethod.POST)
     public String dogcreate(
             RedirectAttributes redirectAttributes,
             DogCreateForm dogCreateForm,
@@ -178,13 +181,13 @@ public class CreateController {
             dog.setInFeder(true);
         }
         dogManager.create(dog);
-        return "redirect:/secure/dogs";
+        return "redirect:/dogs";
     }
 
     @Autowired
     HttpServletRequest request;
 
-    @RequestMapping(value = "/secure/member-create", method = RequestMethod.POST)
+    @RequestMapping(value = "/member-create", method = RequestMethod.POST)
     public String membercreate(
             RedirectAttributes redirectAttributes,
             MemberCreateForm memberCreateForm,
@@ -208,13 +211,11 @@ public class CreateController {
             String [] format = data.getOriginalFilename().split("\\.");
             try {
                 if(!data.isEmpty()) {
-                    String uploadsDir = "copyes";
-                    String realPathtoUploads =  request.getServletContext().getRealPath(uploadsDir);
-                    if(! new File(realPathtoUploads).exists())
+                    if(! new File(UPLOAD_DIRECTORY).exists())
                     {
-                        new File(realPathtoUploads).mkdir();
+                        new File(UPLOAD_DIRECTORY).mkdir();
                     }
-                    String filePath = realPathtoUploads + memberCreateForm.getEmail() + "." + format[format.length - 1];
+                    String filePath = UPLOAD_DIRECTORY + memberCreateForm.getEmail() + "." + format[format.length - 1];
                     File dest = new File(filePath);
                     data.transferTo(dest);
                     member.setImg(dest.getAbsolutePath());
@@ -225,10 +226,10 @@ public class CreateController {
             member.setInFeder(true);
         }
         memberManager.create(member);
-        return "redirect:/secure";
+        return "redirect:";
     }
 
-    @RequestMapping(value = "/secure/event-create", method = RequestMethod.POST)
+    @RequestMapping(value = "/event-create", method = RequestMethod.POST)
     public String eventcreate(
             RedirectAttributes redirectAttributes,
             EventCreateForm eventCreateForm,
@@ -241,10 +242,10 @@ public class CreateController {
         event.setOrganizers(eventCreateForm.getOrganizers());
         event.setPlace(eventCreateForm.getPlace());
         eventManager.create(event);
-        return "redirect:/secure/events";
+        return "redirect:/events";
     }
 
-    @RequestMapping(value = "/secure/memberevent-create", method = RequestMethod.POST)
+    @RequestMapping(value = "/memberevent-create", method = RequestMethod.POST)
     public String membereventcreate(
             RedirectAttributes redirectAttributes,
             MemberEventCreateForm memberEventCreateForm,
@@ -263,10 +264,10 @@ public class CreateController {
         memberEvent.setClazz(classManager.get(memberEventCreateForm.getIdclassrace()));
         memberEvent.setNumberphone(memberEventCreateForm.getNumberphone());
         memberEventManager.create(memberEvent);
-        return "redirect:/secure/event-view?id="+memberEvent.getEvent().getId();
+        return "redirect:/event-view?id="+memberEvent.getEvent().getId();
     }
 
-    @RequestMapping(value = "/secure/dogevent-create", method = RequestMethod.POST)
+    @RequestMapping(value = "/dogevent-create", method = RequestMethod.POST)
     public String dogeventcreate(
             RedirectAttributes redirectAttributes,
             DogEventCreateForm dogEventCreateForm,
@@ -287,7 +288,7 @@ public class CreateController {
         dogEvent.setNumberpedigree(dogEventCreateForm.getNumberpedigree());
         dogEvent.setSex(dogEventCreateForm.getSex());
         dogEventManager.create(dogEvent);
-        return "redirect:/secure/memberevent-view?id="+dogEvent.getMember().getId()+"&idevent="+dogEvent.getEvent().getId();
+        return "redirect:/memberevent-view?id="+dogEvent.getMember().getId()+"&idevent="+dogEvent.getEvent().getId();
     }
 
 }

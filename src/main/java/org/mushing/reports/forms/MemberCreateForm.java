@@ -1,7 +1,7 @@
 package org.mushing.reports.forms;
 
 import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
-import org.springframework.security.core.CredentialsContainer;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by roman on 21.11.16.
  */
-public class MemberCreateForm implements CredentialsContainer {
+public class MemberCreateForm  {
 
     protected Integer idfederation;
 
@@ -113,7 +113,6 @@ public class MemberCreateForm implements CredentialsContainer {
         this.datebirth = datebirth;
     }
 
-    @Override
     public void eraseCredentials() {
         this.datebirth=null;
         this.email=null;

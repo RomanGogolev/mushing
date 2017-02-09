@@ -4,7 +4,7 @@ CREATE TABLE public.users
   email VARCHAR(64) NOT NULL,
   pass VARCHAR(256) NOT NULL,
   roles VARCHAR(32) DEFAULT 'ROLE_USER',
-  fio VARCHAR(64) NOT NULL,
+  fio VARCHARv64) NOT NULL,
   username VARCHAR(32) NOT NULL
 );
 

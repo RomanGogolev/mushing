@@ -31,7 +31,7 @@ public class SearchController {
     @Autowired
     MemberManager memberManager;
 
-    @RequestMapping(value = "/secure/search", method = RequestMethod.GET)
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(Model model, @RequestParam String search, @RequestParam String name){
         model.addAttribute("search",search);
         if(search.equals("user")){
@@ -47,7 +47,7 @@ public class SearchController {
         return "secure/search";
     }
 
-    @RequestMapping(value = "/secure/searchAnother", method = RequestMethod.GET)
+    @RequestMapping(value = "/searchAnother", method = RequestMethod.GET)
     public String searchAnother(Model model, @RequestParam String search, @RequestParam String name){
         model.addAttribute("search",search);
         if(search.equals("user")){

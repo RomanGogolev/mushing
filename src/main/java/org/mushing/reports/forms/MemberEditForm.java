@@ -1,6 +1,6 @@
 package org.mushing.reports.forms;
 
-import org.springframework.security.core.CredentialsContainer;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Date;
@@ -8,7 +8,7 @@ import java.sql.Date;
 /**
  * Created by roman on 21.11.16.
  */
-public class MemberEditForm implements CredentialsContainer {
+public class MemberEditForm  {
 
     protected int id;
 
@@ -120,7 +120,6 @@ public class MemberEditForm implements CredentialsContainer {
         this.datebirth = datebirth;
     }
 
-    @Override
     public void eraseCredentials() {
         this.datebirth=null;
         this.email=null;

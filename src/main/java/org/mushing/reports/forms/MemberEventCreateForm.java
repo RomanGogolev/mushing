@@ -1,13 +1,13 @@
 package org.mushing.reports.forms;
 
-import org.springframework.security.core.CredentialsContainer;
+
 
 import java.sql.Date;
 
 /**
  * Created by roman on 27.11.16.
  */
-public class MemberEventCreateForm implements CredentialsContainer {
+public class MemberEventCreateForm  {
 
     protected String city;
 
@@ -119,7 +119,6 @@ public class MemberEventCreateForm implements CredentialsContainer {
         this.idevent = idevent;
     }
 
-    @Override
     public void eraseCredentials() {
         this.city=null;
         this.club=null;

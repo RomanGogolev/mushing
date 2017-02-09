@@ -12,21 +12,6 @@
 
     <title>Информационная База</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../../resources/css/navbar-fixed-top.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../../resources/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../../resources/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -70,8 +55,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <a href="${contextPath}/secure/events" class="btn bg-info">Назад</a>
-                        <a href="${contextPath}/secure/time?idevent=${event.id}" class="btn bg-info">Добавить время ко всем участникам</a>
+                        <a href="${contextPath}/events" class="btn bg-info">Назад</a>
+                        <a href="${contextPath}/time?idevent=${event.id}" class="btn bg-info">Добавить время ко всем участникам</a>
                     </div>
                 </div>
             </div>
@@ -85,7 +70,7 @@
                     <h4 class="modal-title" id="myModalLabel">Добавить участника</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/secure/memberevent-create">
+                    <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/memberevent-create">
                         <input type="number" id="idevent" name="idevent" value="${event.id}" hidden>
                         <div class="form-group">
                             <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
@@ -153,7 +138,7 @@
                     <h4 class="modal-title" id="myModalLabel">Добавить участника</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/secure/memberevent-create">
+                    <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/memberevent-create">
                         <input type="number" id="idevent" name="idevent" value="${event.id}" hidden>
                         <div class="form-group">
                             <label for="surname" class="col-sm-2 control-label">Фамилия</label>
@@ -258,7 +243,7 @@
                             <td>${memberEvent.city}</td>
                             <td>${memberEvent.clazz.classrace}</td>
                             <td>${memberEvent.datebirth}</td>
-                            <td><a class="btn-success" href="${contextPath}/secure/memberevent-view?id=${memberEvent.id}&idevent=${event.id}">Просмотр</a><a class="btn-default" href="${contextPath}/secure/memberevent-edit?id=${memberEvent.id}&idevent=${event.id}">Редактировать</a><a class="btn-danger" href="${contextPath}/secure/memberevent-delete?id=${memberEvent.id}&idevent=${event.id}">Удалить</a></td>
+                            <td><a class="btn-success" href="${contextPath}/memberevent-view?id=${memberEvent.id}&idevent=${event.id}">Просмотр</a><a class="btn-default" href="${contextPath}/memberevent-edit?id=${memberEvent.id}&idevent=${event.id}">Редактировать</a><a class="btn-danger" href="${contextPath}/memberevent-delete?id=${memberEvent.id}&idevent=${event.id}">Удалить</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -281,7 +266,7 @@
                     <h4 class="modal-title" id="myModalLabel">Добавить судью</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" id="judgeCreateForm" action="${contextPath}/secure/judge-create">
+                    <form class="form-horizontal" method="post" id="judgeCreateForm" action="${contextPath}/judge-create">
                         <input type="number" id="idEvent" name="idEvent" value="${event.id}" hidden>
                         <div class="form-group">
                             <label for="fio" class="col-sm-2 control-label">Фамилия Имя Отчество</label>
@@ -336,7 +321,7 @@
                             <td>${judge.fio}</td>
                             <td>${judge.judgefrom}</td>
                             <td>${judge.type.type}</td>
-                            <td><a class="btn-danger" href="${contextPath}/secure/judge-delete?id=${judge.id}&idevent=${event.id}">Удалить</a></td>
+                            <td><a class="btn-danger" href="${contextPath}/judge-delete?id=${judge.id}&idevent=${event.id}">Удалить</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -355,7 +340,7 @@
                     <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" id="distanceCreateForm" action="${contextPath}/secure/distance-create">
+                    <form class="form-horizontal" method="post" id="distanceCreateForm" action="${contextPath}/distance-create">
                         <input type="number" id="idEvent" name="idEvent" value="${event.id}" hidden>
                         <div class="form-group">
                             <label for="stadion" class="col-sm-2 control-label">Стадион</label>
@@ -454,7 +439,7 @@
                             <td>${distance.tsnow}</td>
                             <td>${distance.view}</td>
                             <td>${distance.weather}</td>
-                            <td><a class="btn-danger" href="${contextPath}/secure/distance-delete?id=${distance.id}&idevent=${event.id}">Удалить</a></td>
+                            <td><a class="btn-danger" href="${contextPath}/distance-delete?id=${distance.id}&idevent=${event.id}">Удалить</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -465,17 +450,27 @@
                     </button>
                 </c:if>
             </div>
+            <button id="mybutton" onclick="getListMembers();" type="button" class="btn btn-success"/>
+                Добавить дистанцию
+            </button>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function getListMembers () {
+        $.ajax({
+            url: '/ajax/members',
+            contentType: "application/json;charset:UTF-8",
+            dataType:"json" ,
+            success: function(){
 
-
+            }
+        });
+    }
+</script>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="../../../resources/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../../resources/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
 </html>

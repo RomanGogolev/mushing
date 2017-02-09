@@ -1,11 +1,11 @@
 package org.mushing.reports.forms;
 
-import org.springframework.security.core.CredentialsContainer;
+
 
 /**
  * Created by roman on 23.11.16.
  */
-public class JudgeCreateForm implements CredentialsContainer {
+public class JudgeCreateForm  {
 
     protected String fio;
 
@@ -47,7 +47,6 @@ public class JudgeCreateForm implements CredentialsContainer {
         this.typeId = typeId;
     }
 
-    @Override
     public void eraseCredentials() {
         this.fio=null;
         this.judgeFrom=null;
