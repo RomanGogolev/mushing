@@ -33,7 +33,7 @@ import java.nio.file.Paths;
 @Controller
 public class ImageController {
 
-    private String UPLOAD_DIRECTORY="/home/roman/Документы/uploaded/";
+    private String UPLOAD_DIRECTORY="/tmp";
 
     @Autowired
     MemberManager memberManager;

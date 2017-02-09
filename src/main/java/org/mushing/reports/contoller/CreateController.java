@@ -26,7 +26,7 @@ import java.util.List;
 @Controller
 public class CreateController {
 
-    private String UPLOAD_DIRECTORY="/home/roman/Документы/uploaded/";
+    private String UPLOAD_DIRECTORY="/tmp";
 
     @Autowired
     BreedManager breedManager;

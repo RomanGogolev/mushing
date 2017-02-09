@@ -17,13 +17,13 @@ import java.io.IOException;
 @Controller
 public class UploadController {
 
-    private String UPLOAD_DIRECTORY_RULES="/home/roman/Документы/documents/rules/";
+    private String UPLOAD_DIRECTORY_RULES="/tmp";
 
-    private String UPLOAD_DIRECTORY_BLANKS="/home/roman/Документы/documents/blanks/";
+    private String UPLOAD_DIRECTORY_BLANKS="/tmp";
 
-    private String UPLOAD_DIRECTORY_STATEMENTS="/home/roman/Документы/documents/statements/";
+    private String UPLOAD_DIRECTORY_STATEMENTS="/tmp";
 
-    private String UPLOAD_DIRECTORY_REPORTS="/home/roman/Документы/documents/reports/";
+    private String UPLOAD_DIRECTORY_REPORTS="/tmp";
 
     @RequestMapping(value = "/rules/upload", method = RequestMethod.POST)
     public String uploadRules(UploadForm uploadForm, Model model){
