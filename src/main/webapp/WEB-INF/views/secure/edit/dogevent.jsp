@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
                     <div class="col-sm-10">
-                        <select class="input-medium search-query" name="sex" id="sex" required>
+                        <select class="selectpicker" name="sex" id="sex" required>
                             <c:if test="${dogevent.sex eq 'Сука'}">
                                 <option>Сука</option>
                             </c:if>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <label for="datebirth" class="col-sm-2 control-label">Дата </label>
                     <div class="col-sm-10">
                         <input type="date" value="${dogevent.datebirth}" class="form-control" id="datebirth" name="datebirth" placeholder="Дата" required>
                     </div>
@@ -65,7 +65,7 @@
                 <div class="form-group">
                     <label for="idbreed" class="col-sm-2 control-label">Порода</label>
                     <div class="col-sm-10">
-                        <select class="input-medium search-query" name="idbreed" id="idbreed">
+                        <select class="selectpicker" name="idbreed" id="idbreed">
                             <option value="${dogevent.breed.id}">${dogevent.breed.breed}</option>
                             <c:forEach items="${breeds}" var="breed">
                                 <c:if test="${breed.id != dogevent.breed.id}">
@@ -90,7 +90,7 @@
                 <div class="form-group">
                     <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
                     <div class="col-sm-10">
-                        <select class="input-medium search-query" name="idfederation" id="idfederation">
+                        <select class="selectpicker" name="idfederation" id="idfederation">
                             <option value="${dogevent.federation.id}">${dogevent.federation.federation}</option>
                             <c:forEach items="${federations}" var="federation">
                                 <c:if test="${federation.id != dogevent.federation.id}">
@@ -115,7 +115,7 @@
                 <div class="form-group">
                     <label for="inqualification" class="col-sm-2 control-label">Собака участвует в квалификации</label>
                     <div class="col-sm-10">
-                        <select class="input-medium search-query" name="inqualification" id="inqualification">
+                        <select class="selectpicker" name="inqualification" id="inqualification">
                             <c:if test="${dogevent.inqualification == true}">
                                 <option value="true">Да</option>
                             </c:if>

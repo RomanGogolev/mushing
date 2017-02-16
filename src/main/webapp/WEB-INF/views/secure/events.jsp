@@ -45,14 +45,14 @@
               <div class="form-group">
                 <label for="season" class="col-sm-2 control-label">Сезон</label>
                 <div class="col-sm-10">
-                  <select class="input-medium search-query" name="season" id="season">
+                  <select class="selectpicker" name="season" id="season">
                     <option>Зима</option>
                     <option>Лето</option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
-                <label for="dateStart" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                <label for="dateStart" class="col-sm-2 control-label">Дата </label>
                 <div class="col-sm-10">
                   <input type="date" class="form-control" id="dateStart" name="dateStart" placeholder="Дата" required>
                 </div>

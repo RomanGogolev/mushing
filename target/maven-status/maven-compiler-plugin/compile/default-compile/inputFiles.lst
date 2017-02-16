@@ -29,6 +29,7 @@
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Distance.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/services/CharsetFilter.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/EventManager.java
+/home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/AjaxModel.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/JudgeType.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/models/Event.java
 /home/roman/IdeaProjects/mushing/src/main/java/org/mushing/reports/dao/ClassManager.java

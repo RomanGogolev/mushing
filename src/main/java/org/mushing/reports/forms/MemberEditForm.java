@@ -12,6 +12,8 @@ public class MemberEditForm  {
 
     protected int id;
 
+    protected boolean infeder;
+
     protected String email;
 
     protected String surname;
@@ -31,6 +33,14 @@ public class MemberEditForm  {
     protected Date dateenter;
 
     private String city;
+
+    public boolean isInfeder() {
+        return infeder;
+    }
+
+    public void setInfeder(boolean infeder) {
+        this.infeder = infeder;
+    }
 
     public String getCity() {
         return this.city;

@@ -69,11 +69,7 @@ public class EditController {
     FciGroupManager fciGroupManager;
 
     @RequestMapping(value = "/dog-edit", method = RequestMethod.POST)
-    public String dogedit(
-            RedirectAttributes redirectAttributes,
-            DogEditForm dogEditForm,
-            BindingResult result,
-            Model model){
+    public String dogedit(DogEditForm dogEditForm){
         Dog dog = new Dog();
         dog.setId(dogEditForm.getId());
         dog.setDatebirth(dogEditForm.getDateBirth());
@@ -84,16 +80,15 @@ public class EditController {
         dog.setNumberchip(dogEditForm.getNumberChip());
         dog.setNumberpedigree(dogEditForm.getNumberPedigree());
         dog.setOwnername(dogEditForm.getOwnerName());
+        dog.setSex(dogEditForm.getSex());
+        dog.setBreed(breedManager.get(dogEditForm.getIdbreed()));
+        dog.setInFeder(dogEditForm.isInfeder());
         dogManager.edit(dog);
         return "redirect:/dogs";
     }
 
     @RequestMapping(value = "/member-edit", method = RequestMethod.POST)
-    public String memberedit(
-            RedirectAttributes redirectAttributes,
-            MemberEditForm memberEditForm,
-            BindingResult result,
-            Model model){
+    public String memberedit(MemberEditForm memberEditForm){
         Member member = new Member();
         member.setId(memberEditForm.getId());
         member.setName(memberEditForm.getName());
@@ -106,6 +101,7 @@ public class EditController {
         member.setSex(memberEditForm.getSex());
         member.setDateenter(memberEditForm.getDateenter());
         member.setCity(memberEditForm.getCity());
+        member.setInFeder(memberEditForm.isInfeder());
         MultipartFile data = memberEditForm.getData();
         Set<String> realPathtoUpload =  request.getServletContext().getResourcePaths("/");
         System.out.println(realPathtoUpload.toString());
@@ -127,15 +123,11 @@ public class EditController {
             e.printStackTrace();
         }
         memberManager.edit(member);
-        return "redirect:";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/event-edit", method = RequestMethod.POST)
-    public String eventedit(
-            RedirectAttributes redirectAttributes,
-            EventEditForm eventEditForm,
-            BindingResult result,
-            Model model){
+    public String eventedit(EventEditForm eventEditForm){
         Event event = new Event();
         event.setId(eventEditForm.getId());
         event.setSeason(eventEditForm.getSeason());
@@ -160,6 +152,8 @@ public class EditController {
     public String dogeditview(@RequestParam int id, Model model){
         Dog dog = dogManager.get(id);
         List<Fcigroup> fcigroups = fciGroupManager.getAll();
+        List<Breed> breeds = breedManager.getAll();
+        model.addAttribute("breeds",breeds);
         model.addAttribute("fcigroups",fcigroups);
         model.addAttribute("dog",dog);
         return "secure/edit/dog";
@@ -184,11 +178,7 @@ public class EditController {
     }
 
     @RequestMapping(value = "/memberevent-edit", method = RequestMethod.POST)
-    public String membereventedit(
-            RedirectAttributes redirectAttributes,
-            MemberEventEditForm memberEventEditForm,
-            BindingResult result,
-            Model model){
+    public String membereventedit(MemberEventEditForm memberEventEditForm){
         MemberEvent memberEvent = new MemberEvent();
         memberEvent.setName(memberEventEditForm.getName());
         memberEvent.setSurname(memberEventEditForm.getSurname());
@@ -207,11 +197,7 @@ public class EditController {
     }
 
     @RequestMapping(value = "/dogevent-edit", method = RequestMethod.POST)
-    public String dogeventedit(
-            RedirectAttributes redirectAttributes,
-            DogEventEditForm dogEventEditForm,
-            BindingResult result,
-            Model model){
+    public String dogeventedit(DogEventEditForm dogEventEditForm){
         DogEvent dogEvent = new DogEvent();
         dogEvent.setId(dogEventEditForm.getId());
         dogEvent.setEvent(eventManager.get(dogEventEditForm.getIdevent()));

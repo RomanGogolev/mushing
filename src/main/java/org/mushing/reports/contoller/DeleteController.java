@@ -51,43 +51,43 @@ public class DeleteController {
     RankManager rankManager;
 
     @RequestMapping(value = "/event-delete", method = RequestMethod.GET)
-    public String eventdelete(@RequestParam int id, Model model){
+    public String eventdelete(@RequestParam int id){
         eventManager.delete(id);
         return "redirect:/events";
     }
 
     @RequestMapping(value = "/dog-delete", method = RequestMethod.GET)
-    public String dogdelete(@RequestParam int id, Model model){
+    public String dogdelete(@RequestParam int id){
         dogManager.delete(id);
         return "redirect:/dogs";
     }
 
     @RequestMapping(value = "/member-delete", method = RequestMethod.GET)
-    public String memberdelete(@RequestParam int id, Model model){
+    public String memberdelete(@RequestParam int id){
         memberManager.delete(id);
         return "redirect:";
     }
 
     @RequestMapping(value = "/distance-delete", method = RequestMethod.GET)
-    public String distancedelete(@RequestParam int id,@RequestParam int idevent, Model model){
+    public String distancedelete(@RequestParam int id,@RequestParam int idevent){
         distanceManager.delete(id);
         return "redirect:/event-view?id="+idevent;
     }
 
     @RequestMapping(value = "/judge-delete", method = RequestMethod.GET)
-    public String judgeedelete(@RequestParam int id,@RequestParam int idevent, Model model){
+    public String judgeedelete(@RequestParam int id,@RequestParam int idevent){
         judgeManager.delete(id);
         return "redirect:/event-view?id="+idevent;
     }
 
     @RequestMapping(value = "/memberevent-delete", method = RequestMethod.GET)
-    public String membereventdelete(@RequestParam int id,@RequestParam int idevent, Model model){
+    public String membereventdelete(@RequestParam int id,@RequestParam int idevent){
         memberEventManager.delete(id);
         return "redirect:/event-view?id="+idevent;
     }
 
     @RequestMapping(value = "/dogevent-delete", method = RequestMethod.GET)
-    public String dogeventdelete(@RequestParam int id,@RequestParam int idmember, Model model){
+    public String dogeventdelete(@RequestParam int id,@RequestParam int idmember){
         DogEvent dogEvent = dogEventManager.get(id);
         dogEventManager.delete(id);
         return "redirect:/memberevent-view?id="+dogEvent.getEvent().getId()+"&idevent="+dogEvent.getEvent().getId();

@@ -17,16 +17,16 @@ import java.io.IOException;
 @Controller
 public class UploadController {
 
-    private String UPLOAD_DIRECTORY_RULES="/tmp";
+    private String UPLOAD_DIRECTORY_RULES="/home/roman/Документы/documents/rules/";
 
-    private String UPLOAD_DIRECTORY_BLANKS="/tmp";
+    private String UPLOAD_DIRECTORY_BLANKS="/home/roman/Документы/documents/blanks/";
 
-    private String UPLOAD_DIRECTORY_STATEMENTS="/tmp";
+    private String UPLOAD_DIRECTORY_STATEMENTS="/home/roman/Документы/documents/statements/";
 
-    private String UPLOAD_DIRECTORY_REPORTS="/tmp";
+    private String UPLOAD_DIRECTORY_REPORTS="/home/roman/Документы/documents/reports/";
 
     @RequestMapping(value = "/rules/upload", method = RequestMethod.POST)
-    public String uploadRules(UploadForm uploadForm, Model model){
+    public String uploadRules(UploadForm uploadForm){
         MultipartFile data = uploadForm.getData();
         try {
             if(!data.isEmpty()) {
@@ -54,7 +54,7 @@ public class UploadController {
         return "redirect:/rules";
     }
     @RequestMapping(value = "/blanks/upload", method = RequestMethod.POST)
-    public String uploadBlanks(UploadForm uploadForm, Model model){
+    public String uploadBlanks(UploadForm uploadForm){
         MultipartFile data = uploadForm.getData();
         try {
             if(!data.isEmpty()) {
@@ -82,7 +82,7 @@ public class UploadController {
         return "redirect:/blanks";
     }
     @RequestMapping(value = "/statements/upload", method = RequestMethod.POST)
-    public String uploadStatements(UploadForm uploadForm, Model model){
+    public String uploadStatements(UploadForm uploadForm){
         MultipartFile data = uploadForm.getData();
         try {
             if(!data.isEmpty()) {
@@ -111,7 +111,7 @@ public class UploadController {
     }
 
     @RequestMapping(value = "/reports/upload", method = RequestMethod.POST)
-    public String uploadReports(UploadForm uploadForm, Model model){
+    public String uploadReports(UploadForm uploadForm){
         MultipartFile data = uploadForm.getData();
         try {
             if(!data.isEmpty()) {

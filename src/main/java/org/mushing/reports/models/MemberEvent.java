@@ -65,6 +65,24 @@ public class MemberEvent {
     @Column(name = "raznost")
     private Time raznost;
 
+    public MemberEvent(){}
+
+    public MemberEvent(Member member, Event event, Class clazz, String descr){
+        this.event=event;
+        this.surname=member.getSurname();
+        this.name=member.getName();
+        this.fathername=member.getFathername();
+        this.city=member.getCity();
+        if(!member.isInFeder()) {
+            this.club = member.getFederation().getFederation();
+        }
+        this.datebirth=member.getDatebirth();
+        this.numberphone=member.getPhonenumber();
+        this.email=member.getEmail();
+        this.descr=descr;
+        this.clazz=clazz;
+    }
+
     public Time getStarttime() {
         return starttime;
     }

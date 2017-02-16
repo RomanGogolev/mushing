@@ -23,75 +23,79 @@
                 <h4 class="modal-title" id="myModalLabel">Добавить собаку</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" name="dogCreateForm" method="post" action="${contextPath}/dogevent-create">
+                <div class="radio">
+                    <button style="display: none" id="buttonCreate" class="btn btn-default" onclick="hideChoose()">Создать</button>
+                    <button id="buttonChoose" class="btn btn-default" onclick="hideCreate()">Выбрать</button>
+                </div>
+                <form class="form-horizontal" id="dogCreateForm" method="post" action="${contextPath}/dogevent-create">
                     <input type="number" id="idevent" name="idevent" value="${memberevent.event.id}" hidden>
                     <input type="number" id="idmember" name="idmember" value="${memberevent.id}" hidden>
-                    <div class="form-group">
+                    <div class="form-group" id="fioownerForm-group">
                         <label for="fioowner" class="col-sm-2 control-label">ФИО хозяина</label>
                         <div class="col-sm-10">
                             <input type="text" value="${memberevent.surname} ${memberevent.name} ${memberevent.fathername}" class="form-control" id="fioowner" name="fioowner" placeholder="ФИО хозяина" required>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="nameonpedigreeForm-group">
                         <label for="nameonpedigree" class="col-sm-2 control-label">Кличка собаки по родословной</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="nameonpedigree" name="nameonpedigree" placeholder="Кличка собаки по родословной">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="sexForm-group">
                         <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
                         <div class="col-sm-10">
-                            <select class="input-medium search-query" name="sex" id="sex" required>
+                            <select class="selectpicker" name="sex" id="sex" required>
                                 <option>Кабель</option>
                                 <option>Сука</option>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <div class="form-group" id="datebirthForm-group">
+                        <label for="datebirth" class="col-sm-2 control-label">Дата </label>
                         <div class="col-sm-10">
                             <input type="date" class="form-control" id="datebirth" name="datebirth" placeholder="Дата" required>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="idbreedForm-group">
                         <label for="idbreed" class="col-sm-2 control-label">Порода</label>
                         <div class="col-sm-10">
-                            <select class="input-medium search-query" name="idbreed" id="idbreed">
+                            <select class="selectpicker" name="idbreed" id="idbreed">
                                 <c:forEach items="${breeds}" var="breed">
                                     <option value="${breed.id}">${breed.breed}</option>
                                 </c:forEach>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="marknumberForm-group">
                         <label for="marknumber" class="col-sm-2 control-label">Номер клейма</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="marknumber" name="marknumber" placeholder="Номер клейма">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="numberchipForm-group">
                         <label for="numberchip" class="col-sm-2 control-label">Номер чипа</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="numberchip" name="numberchip" placeholder="Номер чипа">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="idfederationForm-group">
                         <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
                         <div class="col-sm-10">
-                            <select class="input-medium search-query" name="idfederation" id="idfederation">
+                            <select class="selectpicker" name="idfederation" id="idfederation">
                                 <c:forEach items="${federations}" var="federation">
                                     <option value="${federation.id}">${federation.federation}</option>
                                 </c:forEach>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="numberpedigreeForm-group">
                         <label for="numberpedigree" class="col-sm-2 control-label">Номер родослвной</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="numberpedigree" name="numberpedigree" placeholder="Номер родослвной">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="numberbookkvForm-group">
                         <label for="numberbookkv" class="col-sm-2 control-label">Номер квалификационной книжки</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="numberbookkv" name="numberbookkv" placeholder="Номер квалификационной книжки">
@@ -100,7 +104,7 @@
                     <div class="form-group">
                         <label for="inqualification" class="col-sm-2 control-label">Собака участвует в квалификации</label>
                         <div class="col-sm-10">
-                            <select class="input-medium search-query" name="inqualification" id="inqualification">
+                            <select class="selectpicker" name="inqualification" id="inqualification">
                                 <option value="false">Нет</option>
                                 <option value="true">Да</option>
                             </select>
@@ -109,6 +113,37 @@
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-success">Подтвердить</button>
+                        </div>
+                    </div>
+                </form>
+                <form class="form-horizontal" style="display: none;" id="dogChooseForm" method="get" action="${contextPath}/dogevent-choose">
+                    <input type="number" id="idevent" name="idevent" value="${memberevent.event.id}" hidden>
+                    <input type="number" id="idmember" name="idmember" value="${memberevent.id}" hidden>
+                    <div class="form-group" id="idDogForm-group">
+                        <label for="idDogForm" class="col-sm-2 control-label">Собака</label>
+                        <div class="col-sm-10">
+                        <select oninput="getListDogs()" id="idDogForm" name="iddog" class="selectpicker" data-live-search="true" data-live-search-placeholder data-liveSearchNormalize="true" required>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="numberbookkvForm-group">
+                        <label for="numberbookkv" class="col-sm-2 control-label">Номер квалификационной книжки</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="numberbookkv" name="numberbookkv" placeholder="Номер квалификационной книжки">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inqualification" class="col-sm-2 control-label">Собака участвует в квалификации</label>
+                        <div class="col-sm-10">
+                            <select class="selectpicker" name="inqualification" id="inqualification">
+                                <option value="false">Нет</option>
+                                <option value="true">Да</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Добавить</button>
                         </div>
                     </div>
                 </form>
@@ -142,7 +177,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <label for="datebirth" class="col-sm-2 control-label">Дата </label>
                     <div class="col-sm-10">
                         <div name="datebirth" class="form-control" id="datebirth">${memberevent.datebirth}</div>
                     </div>
@@ -223,5 +258,79 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function hideChoose() {
+//        document.getElementById("idDogForm").disabled=true;
+        $('#buttonCreate').hide();
+        $('#buttonChoose').show();
+        $('#dogCreateForm').show();
+        $('#dogChooseForm').hide();
+//        $('#idDogForm-group').hide();
+//        $('#fioownerForm-group').show();
+//        $('#nameonpedigreeForm-group').show();
+//        $('#sexForm-group').show();
+//        $('#datebirthForm-group').show();
+//        $('#idbreedForm-group').show();
+//        $('#marknumberForm-group').show();
+//        $('#numberchipForm-group').show();
+//        $('#idfederationForm-group').show();
+//        $('#numberpedigreeForm-group').show();
+//        document.getElementById("fioowner").disabled=false;
+//        document.getElementById("nameonpedigree").disabled=false;
+//        document.getElementById("sex").disabled=false;
+//        document.getElementById("datebirth").disabled=false;
+//        document.getElementById("idbreed").disabled=false;
+//        document.getElementById("marknumber").disabled=false;
+//        document.getElementById("numberchip").disabled=false;
+//        document.getElementById("idfederation").disabled=false;
+//        document.getElementById("numberpedigree").disabled=false;
+    }
+
+    function hideCreate() {
+//        document.getElementById("idDogForm").disabled=false;
+        $('#buttonCreate').show();
+        $('#buttonChoose').hide();
+        $('#dogChooseForm').show();
+        $('#dogCreateForm').hide();
+//        $('#idDogForm-group').show();
+//        $('#fioownerForm-group').hide();
+//        $('#nameonpedigreeForm-group').hide();
+//        $('#sexForm-group').hide();
+//        $('#datebirthForm-group').hide();
+//        $('#idbreedForm-group').hide();
+//        $('#marknumberForm-group').hide();
+//        $('#numberchipForm-group').hide();
+//        $('#idfederationForm-group').hide();
+//        $('#numberpedigreeForm-group').hide();
+//        document.getElementById("fioowner").disabled=true;
+//        document.getElementById("nameonpedigree").disabled=true;
+//        document.getElementById("sex").disabled=true;
+//        document.getElementById("datebirth").disabled=true;
+//        document.getElementById("idbreed").disabled=true;
+//        document.getElementById("marknumber").disabled=true;
+//        document.getElementById("numberchip").disabled=true;
+//        document.getElementById("idfederation").disabled=true;
+//        document.getElementById("numberpedigree").disabled=true;
+    }
+
+    function getList() {
+        name = $('#searchInput').val();
+        $.ajax({
+            url: '/ajax/dogs',
+            data: { name: name} ,
+            contentType: "application/json;charset:UTF-8",
+            dataType:"json" ,
+            success: function(data){
+                $("#idDogForm").empty();
+                dogString = '';
+                $.each(data, function(index) {
+                    dogString += "<option value='" + data[index].id + "'>" + data[index].name + "</option>";
+                });
+                $('#idDogForm').append(dogString);
+                $('#idDogForm').selectpicker('refresh');
+            }
+        });
+    }
+</script>
 </body>
 </html>

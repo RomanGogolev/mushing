@@ -64,7 +64,7 @@
                 <div class="form-group">
                   <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
                   <div class="col-sm-10">
-                    <select class="input-medium search-query" name="idfederation" id="idfederation" required>
+                    <select class="selectpicker" name="idfederation" id="idfederation" required>
                       <c:forEach items="${federations}" var="federation">
                         <option value="${federation.id}">${federation.federation}</option>
                       </c:forEach>
@@ -75,20 +75,20 @@
               <div class="form-group">
                 <label for="sex" class="col-sm-2 control-label">Пол</label>
                 <div class="col-sm-10">
-                  <select class="form-control" name="sex" id="sex" required>
+                  <select class="selectpicker" name="sex" id="sex" required>
                     <option>Мужской</option>
                     <option>Женский</option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
-                <label for="datebirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+                <label for="datebirth" class="col-sm-2 control-label">Дата рождения</label>
                 <div class="col-sm-10">
                   <input type="date" class="form-control" id="datebirth" name="datebirth" placeholder="Дата рождения" required>
                 </div>
               </div>
-              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq ''}">
-                <div class="form-group">
+              <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/'}">
+                 <div class="form-group">
                   <label for="data" class="col-sm-2 control-label">Копия заявления</label>
                   <div class="col-sm-10">
                     <input type="file" class="form-control" id="data" name="data" placeholder="Копия заявления" multiple="multiple" required>

@@ -23,6 +23,7 @@
         <div class="panel-body">
             <form class="form-horizontal" name="dogEditForm" method="post" action="${contextPath}/dog-edit">
                 <input type="number" id="id" name="id" value="${dog.id}" hidden>
+                <input type="text" id="infeder" name="infeder" value="${dog.inFeder}" hidden>
                 <div class="form-group">
                     <label for="fullName" class="col-sm-2 control-label">Полное имя</label>
                     <div class="col-sm-10">
@@ -39,6 +40,38 @@
                     <label for="homeName" class="col-sm-2 control-label">Домашняя кличка</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="homeName" value="${dog.homename}" name="homeName" placeholder="Домашняя кличка" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idbreed" class="col-sm-2 control-label">Порода</label>
+                    <div class="col-sm-10">
+                        <select class="selectpicker" name="idbreed" id="idbreed">
+                            <option value="${dog.breed.id}">${dog.breed.breed}</option>
+                            <c:forEach items="${breeds}" var="breed">
+                                <c:if test="${breed.id != dogevent.breed.id}">
+                                    <option value="${breed.id}">${breed.breed}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
+                    <div class="col-sm-10">
+                        <select class="selectpicker" name="sex" id="sex" required>
+                            <c:if test="${dogevent.sex eq 'Сука'}">
+                                <option>Сука</option>
+                            </c:if>
+                            <c:if test="${dogevent.sex eq 'Кобель'}">
+                                <option>Кобель</option>
+                            </c:if>
+                            <c:if test="${dogevent.sex ne 'Сука'}">
+                                <option>Сука</option>
+                            </c:if>
+                            <c:if test="${dogevent.sex ne 'Кобель'}">
+                                <option>Кобель</option>
+                            </c:if>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -62,7 +95,7 @@
                 <div class="form-group">
                     <label for="idfciGroup" class="col-sm-2 control-label">Группа FCI</label>
                     <div class="col-sm-10">
-                        <select class="input-medium search-query" name="idfciGroup" id="idfciGroup" required>
+                        <select class="selectpicker" name="idfciGroup" id="idfciGroup" required>
                             <option value="${dog.fcigroup.id}">${dog.fcigroup.fci}</option>
                             <c:forEach items="${fcigroups}" var="fcigroup">
                                 <c:if test="${fcigroup.id != dog.fcigroup.id}">
@@ -73,7 +106,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="dateBirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+                    <label for="dateBirth" class="col-sm-2 control-label">Дата рождения</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control" id="dateBirth" value="${dog.datebirth}" name="dateBirth" placeholder="Дата рождения" required>
                     </div>

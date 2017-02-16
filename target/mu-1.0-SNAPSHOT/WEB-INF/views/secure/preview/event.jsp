@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="addMemberEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="createMemberEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -70,42 +70,64 @@
                     <h4 class="modal-title" id="myModalLabel">Добавить участника</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="radio">
+                        <button style="display: none" id="buttonCreate" class="btn btn-default" onclick="hideChoose()">Создать</button>
+                        <button id="buttonChoose" class="btn btn-default" onclick="hideCreate()">Выбрать</button>
+                    </div>
                     <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/memberevent-create">
                         <input type="number" id="idevent" name="idevent" value="${event.id}" hidden>
-                        <div class="form-group">
-                            <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                        <div class="form-group" id="surnameForm-group">
+                            <label for="surnameForm" class="col-sm-2 control-label">Фамилия</label>
                             <div class="col-sm-10">
-                                <input type="date" name="datebirth" class="form-control" id="datebirth"/>
+                                <input type="text" class="form-control" id="surnameForm" name="surname" placeholder="Фамилия" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="city" class="col-sm-2 control-label">Город</label>
+                        <div class="form-group" id="nameForm-group">
+                            <label for="nameForm" class="col-sm-2 control-label">Имя</label>
                             <div class="col-sm-10">
-                                <input type="text" name="city" id="city" class="form-control"/>
+                                <input type="text" class="form-control" id="nameForm" name="name" placeholder="Имя" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="numberphone" class="col-sm-2 control-label">Телефон</label>
+                        <div class="form-group" id="fathernameForm-group">
+                            <label for="fathernameForm" class="col-sm-2 control-label">Отчество</label>
                             <div class="col-sm-10">
-                                <input type="text" name="numberphone" id="numberphone" class="form-control"/>
+                                <input type="text" class="form-control" id="fathernameForm" name="fathername" placeholder="Отчество" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="form-group" id="datebirthForm-group">
+                            <label for="datebirthForm" class="col-sm-2 control-label">Дата </label>
                             <div class="col-sm-10">
-                                <input type="text" name="email" id="email" class="form-control"/>
+                                <input type="date" name="datebirth" class="form-control" id="datebirthForm"/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="club" class="col-sm-2 control-label">Клуб</label>
+                        <div class="form-group" id="cityForm-group">
+                            <label for="cityForm" class="col-sm-2 control-label">Город</label>
                             <div class="col-sm-10">
-                                <input type="text" name="club" id="club" class="form-control"/>
+                                <input type="text" name="city" id="cityForm" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group" id="numberphoneForm-group">
+                            <label for="numberphoneForm" class="col-sm-2 control-label">Телефон</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="numberphone" id="numberphoneForm" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group" id="emailForm-group">
+                            <label for="emailForm" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="email" id="emailForm" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group" id="clubForm-group">
+                            <label for="clubForm" class="col-sm-2 control-label">Клуб</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="club" id="clubForm" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="idclassrace" id="idclassrace">
+                                <select class="selectpicker" name="idclassrace" id="idclassrace" required>
                                     <c:forEach items="${classes}" var="clazz">
                                         <c:if test="${clazz.season eq event.season}">
                                             <option value="${clazz.id}">${clazz.classrace}</option>
@@ -126,72 +148,19 @@
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="createMemberEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Добавить участника</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" method="post" id="memberEventCreateForm" action="${contextPath}/memberevent-create">
+                    <form class="form-horizontal" method="get" style="display: none;" id="memberEventChooseForm" action="${contextPath}/memberevent-choose">
                         <input type="number" id="idevent" name="idevent" value="${event.id}" hidden>
-                        <div class="form-group">
-                            <label for="surname" class="col-sm-2 control-label">Фамилия</label>
+                        <div class="form-group" id="idMemberForm-group">
+                            <label for="idMemberForm" class="col-sm-2 control-label">Спортсмен</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="surname" name="surname" placeholder="Фамилия" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Имя</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Имя" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="fathername" class="col-sm-2 control-label">Отчество</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="fathername" name="fathername" placeholder="Отчество" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
-                            <div class="col-sm-10">
-                                <input type="date" name="datebirth" class="form-control" id="datebirth"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="city" class="col-sm-2 control-label">Город</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="city" id="city" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="numberphone" class="col-sm-2 control-label">Телефон</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="numberphone" id="numberphone" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="club" class="col-sm-2 control-label">Клуб</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="club" id="club" class="form-control"/>
+                                <select id="idMemberForm" name="idmember" class="selectpicker" data-live-search="true" data-live-search-placeholder data-liveSearchNormalize="true" required>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="idclassrace" id="idclassrace">
+                                <select class="selectpicker" name="idclassrace" id="idclassrace" required>
                                     <c:forEach items="${classes}" var="clazz">
                                         <c:if test="${clazz.season eq event.season}">
                                             <option value="${clazz.id}">${clazz.classrace}</option>
@@ -208,7 +177,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn">Создать</button>
+                                <button type="submit" class="btn">Добавить</button>
                             </div>
                         </div>
                     </form>
@@ -251,9 +220,6 @@
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createMemberEvent">
                     Cоздать участника
                 </button>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMemberEvent">
-                    Добавить участника из ИБ
-                </button>
             </div>
         </div>
     </div>
@@ -283,7 +249,7 @@
                         <div class="form-group">
                             <label for="typeId" class="col-sm-2 control-label">Тип</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="typeId" id="typeId">
+                                <select class="selectpicker" name="typeId" id="typeId">
                                     <c:forEach items="${judgeTypes}" var="judgeType">
                                         <option value="${judgeType.id}">${judgeType.type}</option>
                                     </c:forEach>
@@ -450,20 +416,76 @@
                     </button>
                 </c:if>
             </div>
-            <button id="mybutton" onclick="getListMembers();" type="button" class="btn btn-success"/>
-                Добавить дистанцию
-            </button>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    function getListMembers () {
+
+    function hideChoose() {
+        $('#buttonCreate').hide();
+        $('#buttonChoose').show();
+        $('#memberEventCreateForm').show();
+        $('#memberEventChooseForm').hide();
+//        document.getElementById("idMemberForm").disabled=true;
+//        $('#idMemberForm-group').hide();
+//        $('#surnameForm-group').show();
+//        $('#nameForm-group').show();
+//        $('#fathernameForm-group').show();
+//        $('#datebirthForm-group').show();
+//        $('#cityForm-group').show();
+//        $('#numberphoneForm-group').show();
+//        $('#emailForm-group').show();
+//        $('#clubForm-group').show();
+//        document.getElementById("surnameForm").disabled=false;
+//        document.getElementById("nameForm").disabled=false;
+//        document.getElementById("fathernameForm").disabled=false;
+//        document.getElementById("datebirthForm").disabled=false;
+//        document.getElementById("cityForm").disabled=false;
+//        document.getElementById("numberphoneForm").disabled=false;
+//        document.getElementById("emailForm").disabled=false;
+//        document.getElementById("clubForm").disabled=false;
+    }
+
+    function hideCreate() {
+//        document.getElementById("idMemberForm").disabled=false;
+        $('#buttonCreate').show();
+        $('#buttonChoose').hide();
+        $('#memberEventCreateForm').hide();
+        $('#memberEventChooseForm').show();
+//        $('#idMemberForm-group').show();
+//        $('#surnameForm-group').hide();
+//        $('#nameForm-group').hide();
+//        $('#fathernameForm-group').hide();
+//        $('#datebirthForm-group').hide();
+//        $('#cityForm-group').hide();
+//        $('#numberphoneForm-group').hide();
+//        $('#emailForm-group').hide();
+//        $('#clubForm-group').hide();
+//        document.getElementById("surnameForm").disabled=true;
+//        document.getElementById("nameForm").disabled=true;
+//        document.getElementById("fathernameForm").disabled=true;
+//        document.getElementById("datebirthForm").disabled=true;
+//        document.getElementById("cityForm").disabled=true;
+//        document.getElementById("numberphoneForm").disabled=true;
+//        document.getElementById("emailForm").disabled=true;
+//        document.getElementById("clubForm").disabled=true;
+    }
+
+    function getList() {
+        name = $('#searchInput').val();
         $.ajax({
             url: '/ajax/members',
+            data: { name: name} ,
             contentType: "application/json;charset:UTF-8",
             dataType:"json" ,
-            success: function(){
-
+            success: function(data){
+                memberString = '';
+                $("#idMemberForm").empty();
+                $.each(data, function(index) {
+                    memberString += "<option value='" + data[index].id + "'>" + data[index].name + "</option>";
+                });
+                $('#idMemberForm').append(memberString);
+                $('#idMemberForm').selectpicker('refresh');
             }
         });
     }

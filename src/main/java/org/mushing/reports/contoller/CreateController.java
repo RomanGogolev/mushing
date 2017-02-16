@@ -26,7 +26,7 @@ import java.util.List;
 @Controller
 public class CreateController {
 
-    private String UPLOAD_DIRECTORY="/tmp";
+    private String UPLOAD_DIRECTORY="/home/roman/Документы/uploaded/";
 
     @Autowired
     BreedManager breedManager;
@@ -71,7 +71,7 @@ public class CreateController {
     FciGroupManager fciGroupManager;
 
     @RequestMapping(value = "/fci-create", method = RequestMethod.GET)
-    public String fcicreate(Model model, @RequestParam String fci){
+    public String fcicreate(@RequestParam String fci){
         Fcigroup fcigroup = new Fcigroup();
         fcigroup.setFci(fci);
         fciGroupManager.create(fcigroup);
@@ -80,7 +80,7 @@ public class CreateController {
 
 
     @RequestMapping(value = "/class-create", method = RequestMethod.GET)
-    public String classcreate(Model model, @RequestParam String classrace, @RequestParam String season,
+    public String classcreate(@RequestParam String classrace, @RequestParam String season,
                               @RequestParam String rkfname, @RequestParam String fesname){
         Class c = new Class();
         c.setClassrace(classrace);
@@ -92,7 +92,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/breed-create", method = RequestMethod.GET)
-    public String breedcreate(Model model, @RequestParam String breed){
+    public String breedcreate(@RequestParam String breed){
         Breed b = new Breed();
         b.setBreed(breed);
         breedManager.create(b);
@@ -100,7 +100,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/federation-create", method = RequestMethod.GET)
-    public String federationcreate(Model model, @RequestParam String federation){
+    public String federationcreate(@RequestParam String federation){
         Federation f = new Federation();
         f.setFederation(federation);
         federationManager.create(f);
@@ -108,7 +108,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/judge-create", method = RequestMethod.GET)
-    public String judgecreate(Model model, @RequestParam String type){
+    public String judgecreate(@RequestParam String type){
         JudgeType judgeType = new JudgeType();
         judgeType.setType(type);
         judgeTypeManager.create(judgeType);
@@ -116,7 +116,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/rank-create", method = RequestMethod.GET)
-    public String rankcreate(Model model, @RequestParam String rank){
+    public String rankcreate(@RequestParam String rank){
         Rank r = new Rank();
         r.setRank(rank);
         rankManager.create(r);
@@ -124,11 +124,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/distance-create", method = RequestMethod.POST)
-    public String distancecreate(
-            RedirectAttributes redirectAttributes,
-            DistanceCreateForm distanceCreateForm,
-            BindingResult result,
-            Model model){
+    public String distancecreate(DistanceCreateForm distanceCreateForm){
         Distance distance = new Distance();
         distance.setCountround(distanceCreateForm.getCountRound());
         distance.setEvent(eventManager.get(distanceCreateForm.getIdEvent()));
@@ -145,11 +141,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/judge-create", method = RequestMethod.POST)
-    public String judgecreate(
-            RedirectAttributes redirectAttributes,
-            JudgeCreateForm judgeCreateForm,
-            BindingResult result,
-            Model model){
+    public String judgecreate(JudgeCreateForm judgeCreateForm){
         Judge judge = new Judge();
         judge.setFio(judgeCreateForm.getFio());
         judge.setEvent(eventManager.get(judgeCreateForm.getIdEvent()));
@@ -160,11 +152,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/dog-create", method = RequestMethod.POST)
-    public String dogcreate(
-            RedirectAttributes redirectAttributes,
-            DogCreateForm dogCreateForm,
-            BindingResult result,
-            Model model){
+    public String dogcreate(DogCreateForm dogCreateForm){
         Dog dog = new Dog();
         dog.setDatebirth(dogCreateForm.getDateBirth());
         dog.setFcigroup(fciGroupManager.get(dogCreateForm.getIdfciGroup()));
@@ -174,6 +162,8 @@ public class CreateController {
         dog.setNumberchip(dogCreateForm.getNumberChip());
         dog.setNumberpedigree(dogCreateForm.getNumberPedigree());
         dog.setOwnername(dogCreateForm.getOwnerName());
+        dog.setBreed(breedManager.get(dogCreateForm.getIdbreed()));
+        dog.setSex(dogCreateForm.getSex());
         if(dogCreateForm.getIdfederation()!=null){
             dog.setInFeder(false);
             dog.setFederation(federationManager.get(dogCreateForm.getIdfederation()));
@@ -181,18 +171,18 @@ public class CreateController {
             dog.setInFeder(true);
         }
         dogManager.create(dog);
-        return "redirect:/dogs";
+        if(dog.isInFeder()) {
+            return "redirect:/dogs";
+        }else {
+            return "redirect:/anotherdogs";
+        }
     }
 
     @Autowired
     HttpServletRequest request;
 
     @RequestMapping(value = "/member-create", method = RequestMethod.POST)
-    public String membercreate(
-            RedirectAttributes redirectAttributes,
-            MemberCreateForm memberCreateForm,
-            BindingResult result,
-            Model model){
+    public String membercreate(MemberCreateForm memberCreateForm){
         Member member = new Member();
         member.setName(memberCreateForm.getName());
         member.setSurname(memberCreateForm.getSurname());
@@ -226,15 +216,15 @@ public class CreateController {
             member.setInFeder(true);
         }
         memberManager.create(member);
-        return "redirect:";
+        if(member.isInFeder()) {
+            return "redirect:/";
+        } else {
+            return "redirect:/anothermembers";
+        }
     }
 
     @RequestMapping(value = "/event-create", method = RequestMethod.POST)
-    public String eventcreate(
-            RedirectAttributes redirectAttributes,
-            EventCreateForm eventCreateForm,
-            BindingResult result,
-            Model model){
+    public String eventcreate(EventCreateForm eventCreateForm){
         Event event = new Event();
         event.setSeason(eventCreateForm.getSeason());
         event.setDatestart(eventCreateForm.getDateStart());
@@ -246,11 +236,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/memberevent-create", method = RequestMethod.POST)
-    public String membereventcreate(
-            RedirectAttributes redirectAttributes,
-            MemberEventCreateForm memberEventCreateForm,
-            BindingResult result,
-            Model model){
+    public String membereventcreate(MemberEventCreateForm memberEventCreateForm){
         MemberEvent memberEvent = new MemberEvent();
         memberEvent.setName(memberEventCreateForm.getName());
         memberEvent.setSurname(memberEventCreateForm.getSurname());
@@ -268,11 +254,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/dogevent-create", method = RequestMethod.POST)
-    public String dogeventcreate(
-            RedirectAttributes redirectAttributes,
-            DogEventCreateForm dogEventCreateForm,
-            BindingResult result,
-            Model model){
+    public String dogeventcreate(DogEventCreateForm dogEventCreateForm){
         DogEvent dogEvent = new DogEvent();
         dogEvent.setEvent(eventManager.get(dogEventCreateForm.getIdevent()));
         dogEvent.setBreed(breedManager.get(dogEventCreateForm.getIdbreed()));
@@ -289,6 +271,26 @@ public class CreateController {
         dogEvent.setSex(dogEventCreateForm.getSex());
         dogEventManager.create(dogEvent);
         return "redirect:/memberevent-view?id="+dogEvent.getMember().getId()+"&idevent="+dogEvent.getEvent().getId();
+    }
+
+    @RequestMapping(value = "/dogevent-choose", method = RequestMethod.GET)
+    public String dogeventchoose(@RequestParam int idevent, @RequestParam int idmember,
+                                 @RequestParam int iddog, @RequestParam boolean inqualification,
+                                 @RequestParam(required = false) String numberbookkv) {
+        DogEvent dogEvent = new DogEvent(eventManager.get(idevent),memberManager.get(idmember),
+                dogManager.get(iddog),inqualification,numberbookkv);
+        dogEventManager.create(dogEvent);
+        return "redirect:/memberevent-view?id="+idmember+"&idevent="+idevent;
+    }
+
+    @RequestMapping(value = "/memberevent-choose", method = RequestMethod.GET)
+    public String membereventchoose(@RequestParam int idevent, @RequestParam int idmember,
+                                 @RequestParam int idclassrace,
+                                 @RequestParam String descr) {
+        MemberEvent memberEvent = new MemberEvent(memberManager.get(idmember),
+                eventManager.get(idevent),classManager.get(idclassrace),descr);
+        memberEventManager.create(memberEvent);
+        return "redirect:/event-view?id="+idevent;
     }
 
 }

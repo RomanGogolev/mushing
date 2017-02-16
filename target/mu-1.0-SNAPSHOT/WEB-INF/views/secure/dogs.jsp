@@ -42,11 +42,43 @@
                   <input type="text" class="form-control" id="homeName" name="homeName" placeholder="Домашняя кличка" required>
                 </div>
               </div>
+              <div class="form-group">
+                <label for="idbreed" class="col-sm-2 control-label">Порода</label>
+                <div class="col-sm-10">
+                  <select class="selectpicker" name="idbreed" id="idbreed">
+                    <option value="${dogevent.breed.id}">${dogevent.breed.breed}</option>
+                    <c:forEach items="${breeds}" var="breed">
+                      <c:if test="${breed.id != dogevent.breed.id}">
+                        <option value="${breed.id}">${breed.breed}</option>
+                      </c:if>
+                    </c:forEach>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
+                <div class="col-sm-10">
+                  <select class="selectpicker" name="sex" id="sex" required>
+                    <c:if test="${dogevent.sex eq 'Сука'}">
+                      <option>Сука</option>
+                    </c:if>
+                    <c:if test="${dogevent.sex eq 'Кобель'}">
+                      <option>Кобель</option>
+                    </c:if>
+                    <c:if test="${dogevent.sex ne 'Сука'}">
+                      <option>Сука</option>
+                    </c:if>
+                    <c:if test="${dogevent.sex ne 'Кобель'}">
+                      <option>Кобель</option>
+                    </c:if>
+                  </select>
+                </div>
+              </div>
               <c:if test="${requestScope['javax.servlet.forward.request_uri'] eq '/anotherdogs'}">
                 <div class="form-group">
                   <label for="idfederation" class="col-sm-2 control-label">Федерация</label>
                   <div class="col-sm-10">
-                    <select class="input-medium search-query" name="idfederation" id="idfederation" required>
+                    <select class="selectpicker" name="idfederation" id="idfederation" required>
                       <c:forEach items="${federations}" var="federation">
                         <option value="${federation.id}">${federation.federation}</option>
                       </c:forEach>
@@ -75,7 +107,7 @@
               <div class="form-group">
                 <label for="idfciGroup" class="col-sm-2 control-label">Группа FCI</label>
                 <div class="col-sm-10">
-                  <select class="input-medium search-query" name="idfciGroup" id="idfciGroup" required>
+                  <select class="selectpicker" name="idfciGroup" id="idfciGroup" required>
                     <c:forEach items="${fcigroups}" var="fcigroup">
                       <option value="${fcigroup.id}">${fcigroup.fci}</option>
                     </c:forEach>
@@ -83,7 +115,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="dateBirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+                <label for="dateBirth" class="col-sm-2 control-label">Дата рождения</label>
                 <div class="col-sm-10">
                   <input type="date" class="form-control" id="dateBirth" name="dateBirth" placeholder="Дата рождения" required>
                 </div>

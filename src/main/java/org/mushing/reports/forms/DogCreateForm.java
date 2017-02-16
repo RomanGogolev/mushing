@@ -15,6 +15,10 @@ public class DogCreateForm  {
 
     protected int idfciGroup;
 
+    protected int idbreed;
+
+    protected String sex;
+
     protected String fullName;
 
     protected String markNumber;
@@ -26,6 +30,22 @@ public class DogCreateForm  {
     protected String ownerName;
 
     protected String homeName;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getIdbreed() {
+        return idbreed;
+    }
+
+    public void setIdbreed(int idbreed) {
+        this.idbreed = idbreed;
+    }
 
     public Integer getIdfederation() {
         return this.idfederation;

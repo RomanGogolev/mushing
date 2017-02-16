@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <label for="datebirth" class="col-sm-2 control-label">Дата </label>
                     <div class="col-sm-10">
                         <input type="date" value="${memberevent.datebirth}" name="datebirth" class="form-control" id="datebirth"/>
                     </div>
@@ -81,7 +81,7 @@
                 <div class="form-group">
                     <label for="idclassrace" class="col-sm-2 control-label">Класс</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="idclassrace" id="idclassrace">
+                        <select class="selectpicker" name="idclassrace" id="idclassrace">
                             <option value="${memberevent.clazz.id}">${memberevent.clazz.classrace}</option>
                             <c:forEach items="${classes}" var="clazz">
                                 <c:if test="${clazz.id != memberevent.clazz.id}">

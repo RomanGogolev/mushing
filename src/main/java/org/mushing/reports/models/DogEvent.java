@@ -14,6 +14,8 @@ public class DogEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
+
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "idmember")
     private Member member;
@@ -56,6 +58,28 @@ public class DogEvent {
 
     @Column(name = "inqualification")
     private boolean inqualification;
+
+    public DogEvent(){}
+
+    public DogEvent(Event event, Member member, Dog dog, boolean inqualification, String numberbookkv){
+        this.member=member;
+        this.event=event;
+        this.breed=dog.getBreed();
+        this.datebirth=dog.getDatebirth();
+        if(!dog.isInFeder()){
+            this.federation=dog.getFederation();
+        }
+        this.fioowner=dog.getOwnername();
+        this.inqualification=inqualification;
+        this.marknumber=dog.getMarknumber();
+        this.nameonpedigree=dog.getNumberpedigree();
+        if(inqualification){
+            this.numberbookkv=numberbookkv;
+        }
+        this.numberchip=dog.getNumberchip();
+        this.sex=dog.getSex();
+        this.numberpedigree=dog.getNumberpedigree();
+    }
 
     public int getId() {
         return id;

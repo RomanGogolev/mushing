@@ -25,6 +25,7 @@
           <form class="form-horizontal" enctype="multipart/form-data" name="memberEditForm" method="post" action="${contextPath}/member-edit">
             <input type="number" id="id" name="id" value="${member.id}" hidden>
             <input type="date" id="dateenter" name="dateenter" value="${member.dateenter}" hidden>
+            <input type="text" id="infeder" name="infeder" value="${member.inFeder}" hidden>
             <div class="form-group">
               <label for="surname" class="col-sm-2 control-label">Фамилия</label>
               <div class="col-sm-10">
@@ -64,14 +65,14 @@
             <div class="form-group">
               <label for="sex" class="col-sm-2 control-label">Пол</label>
               <div class="col-sm-10">
-                  <select class="form-control" name="sex" id="sex" required>
+                  <select class="selectpicker" name="sex" id="sex" required>
                     <option>Мужской</option>
                     <option>Женский</option>
                   </select>
               </div>
             </div>
             <div class="form-group">
-              <label for="datebirth" class="col-sm-2 control-label">Дата рождения(месяц/день/год)</label>
+              <label for="datebirth" class="col-sm-2 control-label">Дата рождения</label>
               <div class="col-sm-10">
                 <input type="date" class="form-control" id="datebirth" value="${member.datebirth}" name="datebirth" placeholder="Дата рождения" required>
               </div>

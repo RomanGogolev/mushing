@@ -75,7 +75,7 @@ public class ViewController {
 
 
     @RequestMapping(value = "/classesinfo", method = RequestMethod.GET)
-    public String classesinfoview(Model model) {
+    public String classesinfoview() {
         return "secure/documents/classesinfo";
     }
 
@@ -144,6 +144,8 @@ public class ViewController {
         List<Dog> dogs = dogManager.getAllFromNotFeder();
         List<Fcigroup> fcigroups = fciGroupManager.getAll();
         List<Federation> federations = federationManager.getAll();
+        List<Breed> breeds = breedManager.getAll();
+        model.addAttribute("breeds",breeds);
         model.addAttribute("federations",federations);
         model.addAttribute("fcigroups",fcigroups);
         model.addAttribute("dogs",dogs);
@@ -172,6 +174,8 @@ public class ViewController {
     public String dogs(Model model){
         List<Dog> dogs = dogManager.getAllFromFeder();
         List<Fcigroup> fcigroups = fciGroupManager.getAll();
+        List<Breed> breeds = breedManager.getAll();
+        model.addAttribute("breeds",breeds);
         model.addAttribute("fcigroups",fcigroups);
         model.addAttribute("dogs",dogs);
         return "secure/dogs";

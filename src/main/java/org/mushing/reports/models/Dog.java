@@ -39,12 +39,35 @@ public class Dog {
     @Column(name = "homename")
     private String homename;
 
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "idbreed")
+    private Breed breed;
+
     @Column(name = "inFeder")
     private boolean inFeder;
 
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "federation")
     private Federation federation;
+
+    @Column(name = "sex")
+    private String sex;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Breed getBreed() {
+        return breed;
+    }
+
+    public void setBreed(Breed breed) {
+        this.breed = breed;
+    }
 
     public Federation getFederation() {
         return federation;

@@ -15,6 +15,10 @@ public class DogEditForm  {
 
     protected int idfciGroup;
 
+    protected int idbreed;
+
+    protected String sex;
+
     protected String fullName;
 
     protected String markNumber;
@@ -26,6 +30,32 @@ public class DogEditForm  {
     protected String ownerName;
 
     protected String homeName;
+
+    protected boolean infeder;
+
+    public boolean isInfeder() {
+        return infeder;
+    }
+
+    public void setInfeder(boolean infeder) {
+        this.infeder = infeder;
+    }
+
+    public int getIdbreed() {
+        return idbreed;
+    }
+
+    public void setIdbreed(int idbreed) {
+        this.idbreed = idbreed;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
     public int getId() {
         return id;

@@ -132,7 +132,7 @@ public class DogManager {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Dog where lower(fullname) like lower(:name) or lower(homename) like lower('%:name%') and inFeder=TRUE");
+            Query query = session.createQuery("from Dog where (lower(fullname) like lower(:name) or lower(homename) like lower(:name)) and inFeder=TRUE");
             query.setParameter("name", search);
             List queryList = query.list();
             beginTransaction.commit();
@@ -156,7 +156,7 @@ public class DogManager {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query query = session.createQuery("from Dog where lower(fullname) like lower(:name) or lower(homename) like lower('%:name%') and inFeder=FALSE");
+            Query query = session.createQuery("from Dog where (lower(fullname) like lower(:name) or lower(homename) like lower(:name)) and inFeder=FALSE");
             query.setParameter("name", search);
             List queryList = query.list();
             beginTransaction.commit();

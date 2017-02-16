@@ -20,7 +20,7 @@
         <input type="text" name="classrace" class="input-medium search-query" placeholder="Название класса"/>
         <input type="text" name="rkfname" class="input-medium search-query" placeholder="Название класса РКФ"/>
         <input type="text" name="fesname" class="input-medium search-query" placeholder="Название класса ФЕС"/>
-        <select class="input-medium search-query" name="season">
+        <select class="selectpicker" name="season">
           <option>Зима</option>
           <option>Лето</option>
         </select>

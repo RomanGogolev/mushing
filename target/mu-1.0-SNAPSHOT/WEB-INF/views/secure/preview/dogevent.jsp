@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="datebirth" class="col-sm-2 control-label">Дата (месяц/день/год)</label>
+                    <label for="datebirth" class="col-sm-2 control-label">Дата </label>
                     <div class="col-sm-10">
                         <div class="form-control" id="datebirth" name="datebirth">${dogevent.datebirth}</div>
                     </div>

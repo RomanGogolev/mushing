@@ -41,6 +41,20 @@
           </div>
         </div>
         <div class="form-group">
+          <label for="idbreed" class="col-sm-2 control-label">Порода</label>
+          <div class="col-sm-10">
+            <div class="form-control" id="idbreed" name="idbreed">
+              ${dog.breed.breed}
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sex" class="col-sm-2 control-label">Пол собаки</label>
+          <div class="col-sm-10">
+            <div class="form-control" id="sex" name="sex">${dog.sex}</div>
+          </div>
+        </div>
+        <div class="form-group">
           <label for="marknumber" class="col-sm-2 control-label">Номер клейма</label>
           <div class="col-sm-10">
             <div class="form-control" id="marknumber">${dog.marknumber}</div>
